@@ -1,0 +1,58 @@
+name: Maven Sonar Analysis
+on:
+  push:
+    branches:
+      - main # the name of your main branch
+  pull_request:
+    types: [opened, synchronize, reopened]
+jobs:
+  build:
+    name: Sonar analysis
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+      - name: Set up JDK 17
+        uses: actions/setup-java@v1
+        with:
+          java-version: 17
+      - name: Cache SonarQube packages
+        uses: actions/cache@v1
+        with:
+          path: ~/.sonar/cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
+      ## run sonar analysis
+      - name: Build and analyze
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        run: >
+          cd ./backend/homework/8 && mvn install sonar:sonar 
+          -Dsonar.verbose=true 
+          -Dsonar.projectKey=${{ secrets.KDUER_NAME }}-BE-Homework-8
+          -Dsonar.projectName=${{ secrets.KDUER_NAME }}-BE-Homework-8
+      ## below steps are for posting comment on Github PR
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          cache: npm
+          cache-dependency-path: .github/actions-scripts/package-lock.json
+
+      - name: Install dependencies
+        run: npm install
+        working-directory: .github/actions-scripts/
+
+      - name: Run script
+        run: |
+          node .github/actions-scripts/post-comment.js
+        env:
+          PERSONAL_ACCESS_TOKEN_GITHUB: ${{ secrets.PERSONAL_ACCESS_TOKEN_GITHUB }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          SONAR_PROJECT_KEY: ${{ secrets.KDUER_NAME }}-BE-Homework-8
+          USERNAME_GITHUB: ${{ secrets.USERNAME_GITHUB }}
+          REPO_NAME_GITHUB: ${{ secrets.REPO_NAME_GITHUB }}
+          PULL_REQUEST_NUMBER: ${{ github.event.pull_request.number }}
