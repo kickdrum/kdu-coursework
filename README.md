@@ -10,11 +10,11 @@ A repo having skeleton of all KDU assignments, homework and assessment submissio
 
  | Name | Secret Value |
  | ------- | ----------- |
- | KDUER_NAME | <your name> |
+ | KDUER_NAME | (your name) |
  | PERSONAL_ACCESS_TOKEN_GITHUB | <Follow steps in https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token to create a fine grained Github access token. Make sure you give the token `Read and Write` access to Issues and Pull requests.> |
- | REPO_NAME_GITHUB | <Name of the repo, in this case - kdu-coursework> |
- | SONAR_HOST_URL | <Sonar host URL provided on Slack> |
- | SONAR_TOKEN | <Sonar token provided on Slack> |
- | USERNAME_GITHUB | <your Github username> |
+ | REPO_NAME_GITHUB | (Name of the repo, in this case - kdu-coursework) |
+ | SONAR_HOST_URL | (Sonar host URL provided on Slack) |
+ | SONAR_TOKEN | (Sonar token provided on Slack) |
+ | USERNAME_GITHUB | (your Github username) |
 
 
