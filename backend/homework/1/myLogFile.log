@@ -1,0 +1,13 @@
+2024-01-08 18:08:25,093 [main] TRACE  org.example.LogbackHello - Hello World!
+2024-01-08 18:08:25,096 [main] DEBUG  org.example.LogbackHello - Hi, Abhijit
+2024-01-08 18:08:25,096 [main] INFO   org.example.LogbackHello - Welcome to the HelloWorld example of Logback.
+2024-01-08 18:08:25,096 [main] WARN   org.example.LogbackHello - Dummy warning message.
+2024-01-08 18:08:25,096 [main] ERROR  org.example.LogbackHello - Dummy error message.
+2024-01-08 18:19:59,166 [main] INFO   org.example.LogbackHello - Hello world
+2024-01-08 18:20:20,953 [main] INFO   org.example.LogbackHello - Hello world
+2024-01-08 21:09:21,199 [main] INFO   org.example.LogbackHello - Student added - ID: 1, Name: Arun, Age: 21, Grade: A
+2024-01-08 21:09:30,871 [main] INFO   org.example.LogbackHello - Student retrieved - ID: 1
+2024-01-08 21:21:06,663 [main] INFO   org.example.LogbackHello - Student added - ID: 1, Name: Arun, Age: 21, Grade: A
+2024-01-08 21:21:17,718 [main] INFO   org.example.LogbackHello - Student retrieved - ID: 1
+2024-01-08 21:24:06,219 [main] INFO   org.example.LogbackHello - Student added - ID: 1, Name: Arun, Age: 21, Grade: A
+2024-01-08 21:24:13,675 [main] INFO   org.example.LogbackHello - Student retrieved - ID: 1
