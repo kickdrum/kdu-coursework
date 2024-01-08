@@ -1,0 +1,13 @@
+<configuration>
+    <appender name="fileAppender" class="ch.qos.logback.core.FileAppender">
+        <file>c:/myLogFile.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%d [%thread] %-5level  %logger{35} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="TRACE">
+        <appender-ref ref="fileAppender" />
+    </root>
+</configuration>
