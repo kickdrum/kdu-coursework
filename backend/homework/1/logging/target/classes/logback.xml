@@ -1,0 +1,17 @@
+<configuration>
+
+    <!-- Define the appenders -->
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>/Users/tanyaagarwal/IdeaProjects/JavaFundamentals-1/logFile</file> <!-- Set the desired path for the log file -->
+        <append>true</append>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{35} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Define the root logger -->
+    <root level="DEBUG"> <!-- Set the desired logging level -->
+        <appender-ref ref="FILE"/> <!-- Reference the FILE appender defined above -->
+    </root>
+
+</configuration>
