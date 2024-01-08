@@ -2,9 +2,11 @@ package org.rahul;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-class Helper{
+
+class Helper {
     private final static Scanner scanner = new Scanner(System.in);
-    public static void printMenu(){
+
+    public static void printMenu() {
         System.out.println("\n1. Add student " +
                 "\n2. Remove student" +
                 "\n3. Print all students" +
@@ -15,10 +17,11 @@ class Helper{
                 "\n8. Update Student Grade" +
                 "\n9. Update Student Age" +
                 "\n10. Update complete details of Student" +
-                "\n11. Exit !"+
+                "\n11. Exit !" +
                 "\n----------------------------------");
     }
-    public static Student enterDetails(){
+
+    public static Student enterDetails() {
         System.out.print("Enter student ID: ");
         int id = scanner.nextInt();
 
@@ -35,30 +38,36 @@ class Helper{
 
         return new Student(id, name, age, grade);
     }
-    public static int enterID(){
+
+    public static int enterID() {
         System.out.print("Enter student ID: ");
         return scanner.nextInt();
     }
-    public static String enterName(){
+
+    public static String enterName() {
         scanner.nextLine();
         System.out.print("Enter student name: ");
         return scanner.nextLine();
     }
-    public static char enterGrade(){
+
+    public static char enterGrade() {
         System.out.print("Enter student grade: ");
         return scanner.next().charAt(0);
     }
-    public static int enterAge(){
+
+    public static int enterAge() {
         System.out.print("Enter student age: ");
         return scanner.nextInt();
     }
-    public static void printRetrievedStudents(ArrayList<Student> students){
+
+    public static void printRetrievedStudents(ArrayList<Student> students) {
         for (Student student : students) {
             student.printStudent();
         }
     }
 
 }
+
 public class Main {
     public static void main(String[] args) {
         StudentRepository repository = new StudentRepository();
@@ -74,68 +83,95 @@ public class Main {
                 case 1: {
                     Student student = Helper.enterDetails();
                     repository.addStudent(student);
+                    Logg.logger.info("Student added successfully");
                     break;
                 }
                 case 2: {
                     int id = Helper.enterID();
                     repository.removeStudent(id);
+                    Logg.logger.info("Student removed successfully");
                     break;
                 }
                 case 3: {
                     repository.getAllStudents();
+                    Logg.logger.info("All students printed successfully");
                     break;
                 }
                 case 4: {
                     int id = Helper.enterID();
                     ArrayList<Student> students = repository.getStudent(id);
-                    Helper.printRetrievedStudents(students);
+                    if (students.isEmpty()) {
+                        System.out.println("No student found with ID: " + id);
+                        Logg.logger.info("No student found with ID: " + id);
+                    } else {
+                        Helper.printRetrievedStudents(students);
+                        Logg.logger.info("Student printed successfully");
+                    }
                     break;
                 }
-                case 5:{
+                case 5: {
                     scanner.nextLine();
                     String name = Helper.enterName();
                     ArrayList<Student> students = repository.getStudent(name);
-                    Helper.printRetrievedStudents(students);
+                    if (students.isEmpty()) {
+                        System.out.println("No student found with name: " + name);
+                        Logg.logger.info("No student found with name: " + name);
+                    } else {
+                        Helper.printRetrievedStudents(students);
+                        Logg.logger.info("Student(s) printed successfully");
+                    }
                     break;
                 }
                 case 6: {
                     char grade = Helper.enterGrade();
                     ArrayList<Student> students = repository.getStudent(grade);
-                    Helper.printRetrievedStudents(students);
+                    if (students.isEmpty()) {
+                        System.out.println("No student found with grade: " + grade);
+                        Logg.logger.info("No student found with grade: " + grade);
+                    } else {
+                        Helper.printRetrievedStudents(students);
+                        Logg.logger.info("Student(s) printed successfully");
+                    }
                     break;
                 }
-                case 7:{
+                case 7: {
                     int id = Helper.enterID();
                     scanner.nextLine();
                     String name = Helper.enterName();
                     repository.updateStudentName(id, name);
+                    Logg.logger.info("Student name updated successfully");
                     break;
                 }
-                case 8:{
+                case 8: {
                     int id = Helper.enterID();
                     scanner.nextLine();
                     char grade = Helper.enterGrade();
                     repository.updateStudentGrade(id, grade);
+                    Logg.logger.info("Student grade updated successfully");
                     break;
                 }
-                case 9:{
+                case 9: {
                     int id = Helper.enterID();
 //                    scanner.nextLine();
                     int age = Helper.enterAge();
                     repository.updateStudentAge(id, age);
+                    Logg.logger.info("Student age updated successfully");
                     break;
                 }
-                case 10:{
+                case 10: {
                     Student student = Helper.enterDetails();
                     repository.updateStudent(student);
+                    Logg.logger.info("Student updated successfully");
                     break;
                 }
                 case 11: {
                     exit = true;
+                    Logg.logger.info("Exiting...");
                     break;
                 }
                 default: {
                     System.out.println("Invalid choice!");
+                    Logg.logger.info("Invalid choice!");
                 }
             }
         }
