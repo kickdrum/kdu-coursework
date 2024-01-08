@@ -93,7 +93,7 @@ async function fetchMetricsData() {
       ...axiosConfig,
     });
 
-    console.log("RES", response);
+    console.log("RES", await response.getJSON());
     const metrics = response.data.measures.map((metric) => ({
       key: metric.metric,
       value: metric.value,
