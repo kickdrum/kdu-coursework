@@ -92,6 +92,8 @@ async function fetchMetricsData() {
       params,
       ...axiosConfig,
     });
+
+    console.log("RES", response);
     const metrics = response.data.measures.map((metric) => ({
       key: metric.metric,
       value: metric.value,
