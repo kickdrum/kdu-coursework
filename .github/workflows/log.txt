@@ -1,0 +1,8 @@
+Jan 08, 2024 11:34:23 PM org.example.Main initializeLogger
+INFO: Logger initialized successfully.
+Jan 08, 2024 11:34:26 PM org.example.Main addStudentFromUserInput
+INFO: Enter student details:
+Jan 08, 2024 11:34:26 PM org.example.Main addStudentFromUserInput
+INFO: ID: 
+Jan 08, 2024 11:34:31 PM org.example.Main addStudentFromUserInput
+INFO: Name: 
