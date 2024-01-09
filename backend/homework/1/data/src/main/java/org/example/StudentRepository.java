@@ -1,11 +1,11 @@
 package org.example;
 
 import java.util.ArrayList;
-import java.util.*;
+
 
 public class StudentRepository {
-    final  static String STUDENT_WITH_ID_MESSAGE = "Student with id: ";
-    final static String NOT_FOUND_MESSAGE = " NOT FOUND.";
+    static final  String STUDENTWITHIDMESSAGE = "Student with id: ";
+    static final  String NOTFOUNDMESSAGE = " NOT FOUND.";
     private  ArrayList<Student> students = new ArrayList<>();
 
 
@@ -25,7 +25,7 @@ public class StudentRepository {
                 return student;
             }
         }
-        LogBack.filelogger().debug("Student with name: {} {}",name,NOT_FOUND_MESSAGE);
+        LogBack.filelogger().debug("Student with name: {} {}",name, NOTFOUNDMESSAGE);
         return null;
     }
 
@@ -36,7 +36,7 @@ public class StudentRepository {
                 return student;
             }
         }
-        LogBack.filelogger().debug(STUDENT_WITH_ID_MESSAGE+id+NOT_FOUND_MESSAGE);
+        LogBack.filelogger().debug(STUDENTWITHIDMESSAGE +id+ NOTFOUNDMESSAGE);
         return null;
     }
 
@@ -44,31 +44,31 @@ public class StudentRepository {
         for( Student s: students){
             if(s.getId() == student.getId()){
                 student.setName(updatedName);
-                LogBack.filelogger().debug(STUDENT_WITH_ID_MESSAGE+student.getId()+" Name Updated successfully.");
+                LogBack.filelogger().debug(STUDENTWITHIDMESSAGE +student.getId()+" Name Updated successfully.");
                 return;
             }
         }
-        LogBack.filelogger().debug(STUDENT_WITH_ID_MESSAGE+student.getId()+NOT_FOUND_MESSAGE);
+        LogBack.filelogger().debug(STUDENTWITHIDMESSAGE +student.getId()+ NOTFOUNDMESSAGE);
     }
     public void updateStudent(Student student, int updatedAge) {
         for( Student s: students){
             if(s.getId() == student.getId()){
                 student.setAge(updatedAge);
-                LogBack.filelogger().debug(STUDENT_WITH_ID_MESSAGE+student.getId()+" Age Updated successfully.");
+                LogBack.filelogger().debug(STUDENTWITHIDMESSAGE +student.getId()+" Age Updated successfully.");
                 return;
             }
         }
-        LogBack.filelogger().debug("{} {} {}" ,STUDENT_WITH_ID_MESSAGE,student.getId(),NOT_FOUND_MESSAGE);
+        LogBack.filelogger().debug("{} {} {}" , STUDENTWITHIDMESSAGE,student.getId(), NOTFOUNDMESSAGE);
     }
     public void updateStudent(Student student, char updatedGrade) {
         for( Student s: students){
             if(s.getId() == student.getId()){
                 student.setAge(updatedGrade);
-                LogBack.filelogger().debug(STUDENT_WITH_ID_MESSAGE+student.getId()+" Grade Updated successfully.");
+                LogBack.filelogger().debug(STUDENTWITHIDMESSAGE +student.getId()+" Grade Updated successfully.");
                 return;
             }
         }
-        LogBack.filelogger().debug("{} {} {}" ,STUDENT_WITH_ID_MESSAGE,student.getId(),NOT_FOUND_MESSAGE);
+        LogBack.filelogger().debug("{} {} {}" , STUDENTWITHIDMESSAGE,student.getId(), NOTFOUNDMESSAGE);
     }
 
 

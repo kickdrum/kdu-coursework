@@ -3,13 +3,14 @@ package org.example;
 import java.util.*;
 
 public class Main {
-    final String ENTER_STUDENT_ID_MESSAGE = "Enter Student Id: ";
-    final   String STUDENT_WITH_ID_MESSAGE = "Student with id: ";
-    final String NOT_FOUND_MESSAGE = " NOT FOUND.";
+    static final String ENTERSTUDENTIDMESSAGE = "Enter Student Id: ";
+    static final String STUDENTWITHIDMESSAGE = "Student with id: ";
+    static final String NOTFOUNDMESSAGE = " NOT FOUND.";
+
 
     public void addStudent(StudentRepository studentRepositoryObject){
         Scanner scanner = new Scanner(System.in);
-        System.out.println(ENTER_STUDENT_ID_MESSAGE);
+        System.out.println(ENTERSTUDENTIDMESSAGE);
         int id = scanner.nextInt();
         scanner.nextLine();
         System.out.println("Enter Student Name:");
@@ -25,18 +26,18 @@ public class Main {
 
     public void searchStudentByID(StudentRepository studentRepositoryObject){
         Scanner scanner = new Scanner(System.in);
-        System.out.println(ENTER_STUDENT_ID_MESSAGE);
+        System.out.println(ENTERSTUDENTIDMESSAGE);
         int searchId = scanner.nextInt();
         scanner.nextLine();
 
         Student searchedStudent = studentRepositoryObject.getStudent(searchId);
         if (searchedStudent != null) {
-            System.out.printf( "%s  %d found. %n",STUDENT_WITH_ID_MESSAGE,searchId);
+            System.out.printf( "%s  %d found. %n",STUDENTWITHIDMESSAGE,searchId);
             System.out.printf("Name: %s%n", searchedStudent.getName());
             System.out.printf("Age: %d%n",searchedStudent.getAge());
             System.out.printf("Grade: %c%n",searchedStudent.getGrade());
         } else {
-            System.out.println(STUDENT_WITH_ID_MESSAGE  + searchId + NOT_FOUND_MESSAGE);
+            System.out.println(STUDENTWITHIDMESSAGE  + searchId + NOTFOUNDMESSAGE);
         }
     }
 
@@ -52,13 +53,13 @@ public class Main {
             System.out.printf("Age: %d%n",searchedStudent.getAge());
             System.out.printf("Grade: %c%n",searchedStudent.getGrade());
         } else {
-            System.out.println("Student with Name:"+ searchName + NOT_FOUND_MESSAGE);
+            System.out.println("Student with Name:"+ searchName + NOTFOUNDMESSAGE);
         }
     }
 
     public void updateStudentRecord(StudentRepository studentRepositoryObject){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("\n"+ENTER_STUDENT_ID_MESSAGE);
+        System.out.println("\n"+ ENTERSTUDENTIDMESSAGE);
         int id = scanner.nextInt();
         System.out.println("\nChoose an option:\n1. Update Student Name\n2. Update Student Age\n2. Update Student Age\n3. Update Student Grade");
         Student student = studentRepositoryObject.getStudent(id);
