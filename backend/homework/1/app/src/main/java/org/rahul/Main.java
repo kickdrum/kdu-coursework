@@ -91,8 +91,8 @@ public class Main {
                     int id = Helper.enterID();
                     ArrayList<Student> students = repository.getStudent(id);
                     if (students.isEmpty()) {
-                        System.out.println("No student found with ID: %d", id);
-                        Logg.logger.info("No student found with ID: %d", id);
+                        System.out.println("No student found with ID: "+ id);
+                        Logg.logger.info("No student found with ID: "+ id);
                     } else {
                         Helper.printRetrievedStudents(students);
                         Logg.logger.info("Student printed successfully");
@@ -104,8 +104,8 @@ public class Main {
                     String name = Helper.enterName();
                     ArrayList<Student> students = repository.getStudent(name);
                     if (students.isEmpty()) {
-                        System.out.println("No student found with name: %s", name);
-                        Logg.logger.info("No student found with name: %s", name);
+                        System.out.println("No student found with name: "+ name);
+                        Logg.logger.info("No student found with name: "+ name);
                     } else {
                         Helper.printRetrievedStudents(students);
                         Logg.logger.info("Student(s) printed successfully");
@@ -116,8 +116,8 @@ public class Main {
                     char grade = Helper.enterGrade();
                     ArrayList<Student> students = repository.getStudent(grade);
                     if (students.isEmpty()) {
-                        System.out.println("No student found with grade: %c", grade);
-                        Logg.logger.info("No student found with grade: %c", grade);
+                        System.out.println("No student found with grade: "+ grade);
+                        Logg.logger.info("No student found with grade: "+ grade);
                     } else {
                         Helper.printRetrievedStudents(students);
                         Logg.logger.info("Student(s) printed successfully");
