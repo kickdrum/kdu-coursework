@@ -103,7 +103,7 @@ function getMetricValue(key, value) {
         default:
           break;
       }
-      returnValue = returnValue + "<br/>Note: A being best, E being worst";
+      returnValue = returnValue + "br/Note: A being best, E being worst";
       break;
     case `security_rating`:
       switch (value + "") {
@@ -126,19 +126,19 @@ function getMetricValue(key, value) {
         default:
           break;
       }
-      returnValue = returnValue + "<br/>Note: A being best, E being worst";
+      returnValue = returnValue + "br/Note: A being best, E being worst";
       break;
     case `alert_status`:
       switch (value) {
         case "OK":
-          returnValue = `<b>:white_check_mark: ${value}</b>`;
+          returnValue = `b:white_check_mark: ${value}/b`;
           break;
         case "ERROR":
-          returnValue = `<b>:x: ${value}</b>`;
+          returnValue = `b:x: ${value}/b`;
           break;
 
         default:
-          returnValue = `<b>:warning: ${value}</b>`;
+          returnValue = `b:warning: ${value}/b`;
           break;
       }
       break;
@@ -183,3 +183,4 @@ async function fetchMetricsData() {
 
 // Call the function to fetch metrics data and create a comment with the metrics table
 fetchMetricsData();
+
