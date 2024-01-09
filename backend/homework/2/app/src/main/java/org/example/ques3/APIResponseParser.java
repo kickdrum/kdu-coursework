@@ -23,7 +23,7 @@ public class APIResponseParser {
         book.setAverageRating(Double.parseDouble(resultStr));
 
         resultStr = extractString(4, response, startRule, endRule);
-        resultStr = resultStr.replaceAll(",", "");
+        resultStr = resultStr.replace(",", "");
         book.setRatingsCount(Integer.parseInt(resultStr));
 
         resultStr = extractString(5, response, startRule, endRule);
@@ -56,7 +56,7 @@ public class APIResponseParser {
 
         startRule = "<ratings_count type=\"integer\">";
         String ratingsCount = parse(response, startRule, endRule);
-        ratingsCount = ratingsCount.replaceAll(",", "");
+        ratingsCount = ratingsCount.replace(",", "");
 
         startRule = "<image_url>";
         String imageUrl = parse(response, startRule, endRule);

@@ -24,6 +24,9 @@ public class StudentUtil {
                         sum += 2.0;
                         break;
                     }
+                    default: {
+                        sum += 0.0;
+                    }
                 }
             }
             studentsGPA[student] = sum / (studentsGrades[student].length);
@@ -33,7 +36,7 @@ public class StudentUtil {
 
     public static int[] getStudentsByGPA(double lower, double higher, int[] studentIdList, char[][] studentsGrades) {
         if (lower > higher || lower < 0 || lower > 4 || higher > 4 || higher < 0 || studentIdList == null || studentsGrades == null) {
-            return null;
+            return [];
         }
         double[] studentsGPA = calculateGPA(studentIdList, studentsGrades);
         int numberOfStudents = studentIdList.length;
@@ -64,6 +67,10 @@ public class StudentUtil {
             Log.logger.info("Enter space separated grades for student with ID {}: ", studentIdList[student]);
             for (int grade = 0; grade < numberOfGrades; grade++) {
                 studentsGrades[student][grade] = scanner.next().charAt(0);
+                if(studentsGrades[student][grade] != 'A' && studentsGrades[student][grade] != 'B' && studentsGrades[student][grade] != 'C') {
+                    Log.logger.info("Invalid grade entered. Please enter again: ");
+                    grade--;
+                }
             }
         }
 
@@ -79,12 +86,12 @@ public class StudentUtil {
         if (students == null) {
             Log.logger.info("No record matched.");
         } else {
-            Log.logger.info("Students with GPA between {} and {} are: ", lower, higher);
+            Log.logger.info("ID of students with GPA between {} and {} are: ", lower, higher);
             for (int student : students) {
                 if (student == -1) {
                     continue;
                 }
-                Log.logger.info(student + ",");
+                Log.logger.info(student);
             }
 
         }
