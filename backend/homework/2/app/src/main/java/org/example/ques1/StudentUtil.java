@@ -92,7 +92,7 @@ public class StudentUtil {
                 if (student == -1) {
                     continue;
                 }
-                Log.logger.info(student);
+                Log.logger.info(String.valueOf(student));
             }
 
         }
