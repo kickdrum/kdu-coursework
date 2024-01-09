@@ -24,7 +24,7 @@ public class StudentRepository {
                 return student;
             }
         }
-        LogBack.filelogger().debug("Student with name: {} {}",name,NOT_FOUND_MESSAGE);
+        LogBack.filelogger().debug("Student with name: {0} {1}",name,NOT_FOUND_MESSAGE);
         return null;
     }
 

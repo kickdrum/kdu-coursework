@@ -32,9 +32,7 @@ public class Main {
         Student searchedStudent = studentRepositoryObject.getStudent(searchId);
         if (searchedStudent != null) {
             System.out.println(STUDENT_WITH_ID_MESSAGE + searchId + " found.");
-            System.out.println("Name: " + searchedStudent.getName());
-            System.out.println("Age: " + searchedStudent.getAge());
-            System.out.println("Grade: " + Character.toString(searchedStudent.getGrade()));
+            System.out.println("Name: " + searchedStudent.getName() + "\nAge: " + searchedStudent.getAge()+"\nGrade: " + Character.toString(searchedStudent.getGrade()));
         } else {
             System.out.println(STUDENT_WITH_ID_MESSAGE  + searchId + NOT_FOUND_MESSAGE);
         }
