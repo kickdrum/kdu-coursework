@@ -3,13 +3,13 @@ package org.example;
 import java.util.*;
 
 public class Main {
-            final String ENTER_STUDENT_ID_MESSAGE = "Enter Student Id: "
-            final   String STUDENT_WITH_ID_MESSAGE = "Student with id: ";
-            final String NOT_FOUND_MESSAGE = " NOT FOUND.";
+    final String ENTER_STUDENT_ID_MESSAGE = "Enter Student Id: ";
+    final   String STUDENT_WITH_ID_MESSAGE = "Student with id: ";
+    final String NOT_FOUND_MESSAGE = " NOT FOUND.";
 
     public void addStudent(StudentRepository studentRepositoryObject){
         Scanner scanner = new Scanner(System.in);
-        System.out.println(ENTER_STUDENT_ID_MESSAGE;
+        System.out.println(ENTER_STUDENT_ID_MESSAGE);
         int id = scanner.nextInt();
         scanner.nextLine();
         System.out.println("Enter Student Name:");
@@ -70,9 +70,9 @@ public class Main {
         scanner.nextLine();
         switch (choice){
             case 1: System.out.println("Enter the updated name:");
-                    String updatedName = scanner.nextLine();
-                    studentRepositoryObject.updateStudent(student,updatedName);
-                    break;
+                String updatedName = scanner.nextLine();
+                studentRepositoryObject.updateStudent(student,updatedName);
+                break;
 
             case 2: System.out.println("Enter the updated Age:");
                 int updatedAge = scanner.nextInt();
@@ -87,7 +87,7 @@ public class Main {
                 break;
 
             default: System.out.println("\nInvalid choice") ;
-                    break;
+                break;
 
 
 
