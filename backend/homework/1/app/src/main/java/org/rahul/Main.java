@@ -5,20 +5,10 @@ import java.util.Scanner;
 
 class Helper {
     private final static Scanner scanner = new Scanner(System.in);
-
+    private Helper() {
+    }
     public static void printMenu() {
-        System.out.println("\n1. Add student " +
-                "\n2. Remove student" +
-                "\n3. Print all students" +
-                "\n4. Print student by ID" +
-                "\n5. Print students by Name" +
-                "\n6. Print students by Grade" +
-                "\n7. Update Student Name" +
-                "\n8. Update Student Grade" +
-                "\n9. Update Student Age" +
-                "\n10. Update complete details of Student" +
-                "\n11. Exit !" +
-                "\n----------------------------------");
+        System.out.println("\n1. Add student \n2. Remove student \n3. Print all students \n4. Print student by ID \n5. Print students by Name \n6. Print students by Grade \n7. Update Student Name \n8. Update Student Grade \n9. Update Student Age \n10. Update complete details of Student \n11. Exit ! \n----------------------------------");
     }
 
     public static Student enterDetails() {
@@ -101,8 +91,8 @@ public class Main {
                     int id = Helper.enterID();
                     ArrayList<Student> students = repository.getStudent(id);
                     if (students.isEmpty()) {
-                        System.out.println("No student found with ID: " + id);
-                        Logg.logger.info("No student found with ID: " + id);
+                        System.out.println("No student found with ID: %d", id);
+                        Logg.logger.info("No student found with ID: %d", id);
                     } else {
                         Helper.printRetrievedStudents(students);
                         Logg.logger.info("Student printed successfully");
@@ -114,8 +104,8 @@ public class Main {
                     String name = Helper.enterName();
                     ArrayList<Student> students = repository.getStudent(name);
                     if (students.isEmpty()) {
-                        System.out.println("No student found with name: " + name);
-                        Logg.logger.info("No student found with name: " + name);
+                        System.out.println("No student found with name: %s", name);
+                        Logg.logger.info("No student found with name: %s", name);
                     } else {
                         Helper.printRetrievedStudents(students);
                         Logg.logger.info("Student(s) printed successfully");
@@ -126,8 +116,8 @@ public class Main {
                     char grade = Helper.enterGrade();
                     ArrayList<Student> students = repository.getStudent(grade);
                     if (students.isEmpty()) {
-                        System.out.println("No student found with grade: " + grade);
-                        Logg.logger.info("No student found with grade: " + grade);
+                        System.out.println("No student found with grade: %c", grade);
+                        Logg.logger.info("No student found with grade: %c", grade);
                     } else {
                         Helper.printRetrievedStudents(students);
                         Logg.logger.info("Student(s) printed successfully");
