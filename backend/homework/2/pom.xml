@@ -11,6 +11,7 @@
     <modules>
         <module>Q1</module>
         <module>Q2</module>
+        <module>Q3</module>
     </modules>
 
     <properties>
@@ -18,5 +19,13 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.3.5</version>
+        </dependency>
+    </dependencies>
 
 </project>
