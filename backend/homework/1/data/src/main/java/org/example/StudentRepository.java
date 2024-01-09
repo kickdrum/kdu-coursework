@@ -38,7 +38,7 @@ public class StudentRepository {
                 return student;
             }
         }
-        LogBack.filelogger().debug(studentNotFoundMessage(student.getID()));
+        LogBack.filelogger().debug(studentNotFoundMessage(student.getId()));
         return null;
     }
 
@@ -50,7 +50,7 @@ public class StudentRepository {
                 return;
             }
         }
-        LogBack.filelogger().debug(studentNotFoundMessage(student.getID()));
+        LogBack.filelogger().debug(studentNotFoundMessage(student.getId()));
     }
     public void updateStudent(Student student, int updatedAge) {
         for( Student s: students){
@@ -60,7 +60,7 @@ public class StudentRepository {
                 return;
             }
         }
-        LogBack.filelogger().debug(studentNotFoundMessage(student.getID()));
+        LogBack.filelogger().debug(studentNotFoundMessage(student.getId()));
     }
     public void updateStudent(Student student, char updatedGrade) {
         for( Student s: students){
@@ -70,7 +70,7 @@ public class StudentRepository {
                 return;
             }
         }
-        LogBack.filelogger().debug(studentNotFoundMessage(student.getID()));
+        LogBack.filelogger().debug(studentNotFoundMessage(student.getId()));
     }
 
 
