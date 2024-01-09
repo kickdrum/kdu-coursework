@@ -17,7 +17,7 @@
         <module>app</module>
     </modules>
 
-    <dependencies>
+<!--    <dependencies>-->
 <!--        <dependency>-->
 <!--            <groupId>org.backend1</groupId>-->
 <!--            <artifactId>Student</artifactId>-->
@@ -25,7 +25,7 @@
 <!--        </dependency>-->
 
 
-    </dependencies>
+<!--    </dependencies>-->
 
 
     <properties>
