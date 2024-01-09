@@ -2,12 +2,26 @@ package org.example;
 
 import java.util.*;
 
+/**
+ * The main class for the student management application.
+ *
+ * <p>This class provides a command-line interface for interacting with the StudentRepository.
+ * It allows users to add, search, and update student records.
+ */
 public class Main {
     static final String ENTERSTUDENTIDMESSAGE = "Enter Student Id: ";
     static final String STUDENTWITHIDMESSAGE = "Student with id: ";
     static final String NOTFOUNDMESSAGE = " NOT FOUND.";
 
+    public void printStudent(Student student){
+        System.out.printf("Student with Name: %s found.\nId: %d%nAge: %d%nGrade: %c%n",student.getName(),student.getId(),student.getAge(),student.getGrade());
+    }
 
+    /**
+     * Adds a new student to the repository.
+     *
+     * @param studentRepositoryObject The repository to add the student to.
+     */
     public void addStudent(StudentRepository studentRepositoryObject){
         Scanner scanner = new Scanner(System.in);
         System.out.println(ENTERSTUDENTIDMESSAGE);
@@ -24,6 +38,11 @@ public class Main {
         studentRepositoryObject.addStudent(student);
     }
 
+    /**
+     * Searches for a student by ID and prints their details.
+     *
+     * @param studentRepositoryObject The repository to search in.
+     */
     public void searchStudentByID(StudentRepository studentRepositoryObject){
         Scanner scanner = new Scanner(System.in);
         System.out.println(ENTERSTUDENTIDMESSAGE);
@@ -32,15 +51,17 @@ public class Main {
 
         Student searchedStudent = studentRepositoryObject.getStudent(searchId);
         if (searchedStudent != null) {
-            System.out.printf( "%s  %d found. %n",STUDENTWITHIDMESSAGE,searchId);
-            System.out.printf("Name: %s%n", searchedStudent.getName());
-            System.out.printf("Age: %d%n",searchedStudent.getAge());
-            System.out.printf("Grade: %c%n",searchedStudent.getGrade());
+            this.printStudent(searchedStudent);
         } else {
             System.out.println(STUDENTWITHIDMESSAGE  + searchId + NOTFOUNDMESSAGE);
         }
     }
 
+    /**
+     * Searches for a student by name and prints their details.
+     *
+     * @param studentRepositoryObject The repository to search in.
+     */
     public void searchStudentByName(StudentRepository studentRepositoryObject){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter Student Name:");
@@ -48,15 +69,17 @@ public class Main {
 
         Student searchedStudent = studentRepositoryObject.getStudent(searchName);
         if (searchedStudent != null) {
-            System.out.printf("Student with Name: %s found.",searchName);
-            System.out.printf("Id: %d%n", searchedStudent.getId());
-            System.out.printf("Age: %d%n",searchedStudent.getAge());
-            System.out.printf("Grade: %c%n",searchedStudent.getGrade());
+            this.printStudent(searchedStudent);
         } else {
             System.out.println("Student with Name:"+ searchName + NOTFOUNDMESSAGE);
         }
     }
 
+    /**
+     * Updates a student's record.
+     *
+     * @param studentRepositoryObject The repository containing the student to update.
+     */
     public void updateStudentRecord(StudentRepository studentRepositoryObject){
         Scanner scanner = new Scanner(System.in);
         System.out.println("\n"+ ENTERSTUDENTIDMESSAGE);
@@ -64,7 +87,7 @@ public class Main {
         System.out.println("\nChoose an option:\n1. Update Student Name\n2. Update Student Age\n2. Update Student Age\n3. Update Student Grade");
         Student student = studentRepositoryObject.getStudent(id);
         if(student==null) {
-            System.out.println("User not found.");
+            LogBack.filelogger().error("User not found.");
             return;
         }
         int choice = scanner.nextInt();
@@ -95,13 +118,19 @@ public class Main {
         }
 
     }
-
+    /**
+     * The main entry point for the application.
+     *
+     * @param args Command-line arguments (not used).
+     */
     public static void main(String[] args) {
         Main application = new Main();
         StudentRepository students = new StudentRepository();
 
+
         Boolean running = true;
         while (Boolean.TRUE.equals(running)) {
+
             System.out.println("\nChoose an option:\n1. Add student\n2. Search student by ID\n3. Search student by Name\n4. Update student\n6. Exit");
             Scanner scanner = new Scanner(System.in);
             int choice = scanner.nextInt();
