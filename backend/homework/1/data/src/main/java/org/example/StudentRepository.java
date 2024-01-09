@@ -48,7 +48,7 @@ public class StudentRepository {
                 return;
             }
         }
-        LogBack.filelogger().debug("{} {} {}",STUDENTWITHIDMESSAGE,student.getId(),NOTFOUNDMESSAGE);
+        LogBack.filelogger().debug("The {} {} {}",STUDENTWITHIDMESSAGE,student.getId(),NOTFOUNDMESSAGE);
     }
     public void updateStudent(Student student, int updatedAge) {
         for( Student s: students){
