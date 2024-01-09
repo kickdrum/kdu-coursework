@@ -14,7 +14,7 @@ public class Main {
     static final String NOTFOUNDMESSAGE = " NOT FOUND.";
 
     public void printStudent(Student student){
-        System.out.printf("Student with Name: %s found.\nId: %d%nAge: %d%nGrade: %c%n",student.getName(),student.getId(),student.getAge(),student.getGrade());
+        System.out.printf("Student with Name: %s found.%nId: %d%nAge: %d%nGrade: %c%n",student.getName(),student.getId(),student.getAge(),student.getGrade());
     }
 
     /**
