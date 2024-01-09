@@ -3,8 +3,8 @@ package org.example;
 import java.util.ArrayList;
 
 public class StudentRepository {
-    final static  String STUDENT_WITH_ID_MESSAGE = "Student with id: ";
-    final static String NOT_FOUND_MESSAGE = " NOT FOUND.";
+    static final   String STUDENT_WITH_ID_MESSAGE = "Student with id: ";
+    static final  String NOT_FOUND_MESSAGE = " NOT FOUND.";
     private  ArrayList<Student> students = new ArrayList<>();
 
 
@@ -24,7 +24,7 @@ public class StudentRepository {
                 return student;
             }
         }
-        LogBack.filelogger().debug("Student with name:"+name+NOT_FOUND_MESSAGE);
+        LogBack.filelogger().debug("Student with name: {} {}",name,NOT_FOUND_MESSAGE);
         return null;
     }
 
@@ -43,7 +43,7 @@ public class StudentRepository {
         for( Student s: students){
             if(s.getId() == student.getId()){
                 student.setName(updatedName);
-                LogBack.filelogger().debug(STUDENT_WITH_ID_MESSAGE+student.getId()+" Name Updated successfully.");
+                LogBack.filelogger().debug(STUDENT_WITH_ID_MESSAGE+ student.getId()+" Name Updated successfully.");
                 return;
             }
         }
