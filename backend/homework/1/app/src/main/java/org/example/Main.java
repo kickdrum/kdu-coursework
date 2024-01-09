@@ -3,6 +3,7 @@ package org.example;
 import java.util.*;
 
 public class Main {
+            CONST
 
     public void addStudent(StudentRepository studentRepositoryObject){
         Scanner scanner = new Scanner(System.in);
@@ -57,10 +58,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.println("\nEnter the Student Id:");
         int id = scanner.nextInt();
-        System.out.println("\nChoose an option:");
-        System.out.println("1. Update Student Name");
-        System.out.println("2. Update Student Age");
-        System.out.println("3. Update Student Grade");
+        System.out.println("\nChoose an option:\n1. Update Student Name\n2. Update Student Age\n2. Update Student Age\n3. Update Student Grade");
         Student student = studentRepositoryObject.getStudent(id);
         if(student==null) {
             System.out.println("User not found.");
@@ -104,12 +102,7 @@ public class Main {
 
 
         while (true) {
-            System.out.println("\nChoose an option:");
-            System.out.println("1. Add student");
-            System.out.println("2. Search student by ID");
-            System.out.println("3. Search student by Name");
-            System.out.println("4. Update student");
-            System.out.println("6. Exit");
+            System.out.println("\nChoose an option:\n1. Add student\n2. Search student by ID\n3. Search student by Name\n4. Update student\n6. Exit");
             Scanner scanner = new Scanner(System.in);
             int choice = scanner.nextInt();
             scanner.nextLine();
