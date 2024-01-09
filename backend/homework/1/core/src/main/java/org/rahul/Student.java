@@ -12,7 +12,6 @@ public class Student {
         this.grade = grade;
         this.age = age;
     }
-
     public String getName() {
         return name;
     }
