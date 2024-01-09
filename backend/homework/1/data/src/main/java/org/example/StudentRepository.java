@@ -38,7 +38,7 @@ public class StudentRepository {
                 return student;
             }
         }
-        LogBack.filelogger().debug(studentNotFoundMessage(student.getId()));
+        LogBack.filelogger().debug(studentNotFoundMessage(id));
         return null;
     }
 
