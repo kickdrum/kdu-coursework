@@ -3,9 +3,9 @@ package org.example;
 import java.util.ArrayList;
 
 public class StudentRepository {
-    final   String STUDENT_WITH_ID_MESSAGE = "Student with id: ";
-    final String NOT_FOUND_MESSAGE = " NOT FOUND.";
-    private final ArrayList<Student> students = new ArrayList<>();
+    final static  String STUDENT_WITH_ID_MESSAGE = "Student with id: ";
+    final static String NOT_FOUND_MESSAGE = " NOT FOUND.";
+    private  ArrayList<Student> students = new ArrayList<>();
 
 
 

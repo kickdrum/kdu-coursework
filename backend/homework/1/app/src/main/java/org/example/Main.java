@@ -3,9 +3,9 @@ package org.example;
 import java.util.*;
 
 public class Main {
-    final String ENTER_STUDENT_ID_MESSAGE = "Enter Student Id: ";
-    final   String STUDENT_WITH_ID_MESSAGE = "Student with id: ";
-    final String NOT_FOUND_MESSAGE = " NOT FOUND.";
+    final static String ENTER_STUDENT_ID_MESSAGE = "Enter Student Id: ";
+    final  static String STUDENT_WITH_ID_MESSAGE = "Student with id: ";
+    final static String NOT_FOUND_MESSAGE = " NOT FOUND.";
 
     public void addStudent(StudentRepository studentRepositoryObject){
         Scanner scanner = new Scanner(System.in);
