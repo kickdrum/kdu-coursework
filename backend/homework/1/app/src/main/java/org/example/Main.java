@@ -31,7 +31,7 @@ public class Main {
             System.out.println("Student with Id: " + searchId + " found.");
             System.out.println("Name: " + searchedStudent.getName());
             System.out.println("Age: " + searchedStudent.getAge());
-            System.out.println("Grade: " + searchedStudent.getGrade());
+            System.out.println("Grade: " + Character.toString(searchedStudent.getGrade()));
         } else {
             System.out.println("Student with Id: "  + searchId + " not found!");
         }
@@ -47,7 +47,7 @@ public class Main {
             System.out.println("Student with Name: " + searchName + " found.");
             System.out.println("Id: " + searchedStudent.getId());
             System.out.println("Age: " + searchedStudent.getAge());
-            System.out.println("Grade: " + searchedStudent.getGrade());
+            System.out.println("Grade: " + Character.toString(searchedStudent.getGrade()));
         } else {
             System.out.println("Student with Id:"+ searchName +" not found!");
         }
