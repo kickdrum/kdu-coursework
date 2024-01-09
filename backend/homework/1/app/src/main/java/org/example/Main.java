@@ -3,9 +3,9 @@ package org.example;
 import java.util.*;
 
 public class Main {
-    static final  String ENTER_STUDENT_ID_MESSAGE = "Enter Student Id: ";
-    static final   String STUDENT_WITH_ID_MESSAGE = "Student with id: ";
-    static final  String NOT_FOUND_MESSAGE = " NOT FOUND.";
+    final String ENTER_STUDENT_ID_MESSAGE = "Enter Student Id: ";
+    final   String STUDENT_WITH_ID_MESSAGE = "Student with id: ";
+    final String NOT_FOUND_MESSAGE = " NOT FOUND.";
 
     public void addStudent(StudentRepository studentRepositoryObject){
         Scanner scanner = new Scanner(System.in);
@@ -31,8 +31,10 @@ public class Main {
 
         Student searchedStudent = studentRepositoryObject.getStudent(searchId);
         if (searchedStudent != null) {
-            System.out.println(STUDENT_WITH_ID_MESSAGE + searchId + " found.");
-            System.out.println("Name: " + searchedStudent.getName() + "\nAge: " + searchedStudent.getAge()+"\nGrade: " + Character.toString(searchedStudent.getGrade()));
+            System.out.printf( "%s  %d found. %n",STUDENT_WITH_ID_MESSAGE,searchId);
+            System.out.printf("Name: %s%n", searchedStudent.getName());
+            System.out.printf("Age: %d%n",searchedStudent.getAge());
+            System.out.printf("Grade: %c%n",searchedStudent.getGrade());
         } else {
             System.out.println(STUDENT_WITH_ID_MESSAGE  + searchId + NOT_FOUND_MESSAGE);
         }
@@ -45,10 +47,10 @@ public class Main {
 
         Student searchedStudent = studentRepositoryObject.getStudent(searchName);
         if (searchedStudent != null) {
-            System.out.println("Student with Name: " + searchName + " found.");
-            System.out.println("Id: " + searchedStudent.getId());
-            System.out.println("Age: " + searchedStudent.getAge());
-            System.out.println("Grade: " + Character.toString(searchedStudent.getGrade()));
+            System.out.printf("Student with Name: %s found.",searchName);
+            System.out.printf("Id: %d%n", searchedStudent.getId());
+            System.out.printf("Age: %d%n",searchedStudent.getAge());
+            System.out.printf("Grade: %c%n",searchedStudent.getGrade());
         } else {
             System.out.println("Student with Name:"+ searchName + NOT_FOUND_MESSAGE);
         }
@@ -96,9 +98,9 @@ public class Main {
     public static void main(String[] args) {
         Main application = new Main();
         StudentRepository students = new StudentRepository();
-        Boolean running = true;
 
-        while (running==true) {
+        Boolean running = true;
+        while (Boolean.TRUE.equals(running)) {
             System.out.println("\nChoose an option:\n1. Add student\n2. Search student by ID\n3. Search student by Name\n4. Update student\n6. Exit");
             Scanner scanner = new Scanner(System.in);
             int choice = scanner.nextInt();
@@ -116,14 +118,11 @@ public class Main {
                     application.updateStudentRecord(students);
                     break;
                 case 6:
-                    LogBack.filelogger().debug("Exiting the Application");
+                    System.out.println("Exiting...");
                     running=false;
                     break;
                 default:
                     System.out.println("Invalid choice. Please try again.");
-            }
-            if(running==false){
-                break;
             }
         }
 

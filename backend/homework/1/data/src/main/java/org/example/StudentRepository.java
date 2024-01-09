@@ -1,10 +1,11 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.*;
 
 public class StudentRepository {
-    static final   String STUDENT_WITH_ID_MESSAGE = "Student with id: ";
-    static final  String NOT_FOUND_MESSAGE = " NOT FOUND.";
+    final  static String STUDENT_WITH_ID_MESSAGE = "Student with id: ";
+    final static String NOT_FOUND_MESSAGE = " NOT FOUND.";
     private  ArrayList<Student> students = new ArrayList<>();
 
 
@@ -43,7 +44,7 @@ public class StudentRepository {
         for( Student s: students){
             if(s.getId() == student.getId()){
                 student.setName(updatedName);
-                LogBack.filelogger().debug(STUDENT_WITH_ID_MESSAGE+ student.getId()+" Name Updated successfully.");
+                LogBack.filelogger().debug(STUDENT_WITH_ID_MESSAGE+student.getId()+" Name Updated successfully.");
                 return;
             }
         }
@@ -57,7 +58,7 @@ public class StudentRepository {
                 return;
             }
         }
-        LogBack.filelogger().debug(STUDENT_WITH_ID_MESSAGE+student.getId()+NOT_FOUND_MESSAGE);
+        LogBack.filelogger().debug("{} {} {}" ,STUDENT_WITH_ID_MESSAGE,student.getId(),NOT_FOUND_MESSAGE);
     }
     public void updateStudent(Student student, char updatedGrade) {
         for( Student s: students){
@@ -67,7 +68,7 @@ public class StudentRepository {
                 return;
             }
         }
-        LogBack.filelogger().debug(STUDENT_WITH_ID_MESSAGE+student.getId()+NOT_FOUND_MESSAGE);
+        LogBack.filelogger().debug("{} {} {}" ,STUDENT_WITH_ID_MESSAGE,student.getId(),NOT_FOUND_MESSAGE);
     }
 
 
