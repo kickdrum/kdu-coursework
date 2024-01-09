@@ -36,7 +36,7 @@ public class StudentRepository {
                 return student;
             }
         }
-        LogBack.filelogger().debug(STUDENTWITHIDMESSAGE +id+ NOTFOUNDMESSAGE);
+        LogBack.filelogger().debug("{} {} {}"STUDENTWITHIDMESSAGE,id,NOTFOUNDMESSAGE);
         return null;
     }
 
@@ -44,17 +44,17 @@ public class StudentRepository {
         for( Student s: students){
             if(s.getId() == student.getId()){
                 student.setName(updatedName);
-                LogBack.filelogger().debug(STUDENTWITHIDMESSAGE +student.getId()+" Name Updated successfully.");
+                LogBack.filelogger().debug("{} {} Name Updated successfully.",STUDENTWITHIDMESSAGE,student.getId());
                 return;
             }
         }
-        LogBack.filelogger().debug(STUDENTWITHIDMESSAGE +student.getId()+ NOTFOUNDMESSAGE);
+        LogBack.filelogger().debug("{} {} {}"STUDENTWITHIDMESSAGE,student.getId(),NOTFOUNDMESSAGE);
     }
     public void updateStudent(Student student, int updatedAge) {
         for( Student s: students){
             if(s.getId() == student.getId()){
                 student.setAge(updatedAge);
-                LogBack.filelogger().debug(STUDENTWITHIDMESSAGE +student.getId()+" Age Updated successfully.");
+                LogBack.filelogger().debug("{} {} Age Updated successfully.",STUDENTWITHIDMESSAGE,student.getId()+);
                 return;
             }
         }
@@ -64,7 +64,7 @@ public class StudentRepository {
         for( Student s: students){
             if(s.getId() == student.getId()){
                 student.setAge(updatedGrade);
-                LogBack.filelogger().debug(STUDENTWITHIDMESSAGE +student.getId()+" Grade Updated successfully.");
+                LogBack.filelogger().debug("{} {} Grade Updated successfully.",STUDENTWITHIDMESSAGE,student.getId());
                 return;
             }
         }
