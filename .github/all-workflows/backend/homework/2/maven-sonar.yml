@@ -52,7 +52,7 @@ jobs:
           PERSONAL_ACCESS_TOKEN_GITHUB: ${{ secrets.PERSONAL_ACCESS_TOKEN_GITHUB }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-          SONAR_PROJECT_KEY: ${{ secrets.KDUER_NAME }}-BE-Homework-2
+          SONAR_PROJECT_KEY: ${{ secrets.KDUER_NAME }}
           USERNAME_GITHUB: ${{ secrets.USERNAME_GITHUB }}
           REPO_NAME_GITHUB: ${{ secrets.REPO_NAME_GITHUB }}
           PULL_REQUEST_NUMBER: ${{ github.event.pull_request.number }}
