@@ -98,7 +98,7 @@ public class Main {
         StudentRepository students = new StudentRepository();
         Boolean running = true;
 
-        while (running) {
+        while (running==true) {
             System.out.println("\nChoose an option:\n1. Add student\n2. Search student by ID\n3. Search student by Name\n4. Update student\n6. Exit");
             Scanner scanner = new Scanner(System.in);
             int choice = scanner.nextInt();
@@ -118,8 +118,12 @@ public class Main {
                 case 6:
                     LogBack.filelogger().debug("Exiting the Application");
                     running=false;
+                    break;
                 default:
                     System.out.println("Invalid choice. Please try again.");
+            }
+            if(running==false){
+                break;
             }
         }
 
