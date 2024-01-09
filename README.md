@@ -7,7 +7,7 @@ A repo having skeleton of all KDU assignments, homework and assessment submissio
 - Scroll down to the `Security` section in the left panel.
 - Select `Secrets and Variables` -> `Actions`.
 - Click on `New repository secret` and create the following 6 secrets.
-
+#
  | Name | Secret Value |
  | ------- | ----------- |
  | KDUER_NAME | (your name) |
