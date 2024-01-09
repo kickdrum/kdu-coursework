@@ -8,7 +8,9 @@ public class StudentRepository {
     static final  String NOTFOUNDMESSAGE = " NOT FOUND.";
     private  ArrayList<Student> students = new ArrayList<>();
 
-
+    public String studentNotFoundMessage(int ID){
+        return String.format("Student with id: {} NOT FOUND",ID);
+    }
 
 
     public void addStudent(Student student){
@@ -36,7 +38,7 @@ public class StudentRepository {
                 return student;
             }
         }
-        LogBack.filelogger().debug("{} {} {}",STUDENTWITHIDMESSAGE,id,NOTFOUNDMESSAGE);
+        LogBack.filelogger().debug(studentNotFoundMessage(student.getID()));
         return null;
     }
 
@@ -48,7 +50,7 @@ public class StudentRepository {
                 return;
             }
         }
-        LogBack.filelogger().debug("The {} {} {}",STUDENTWITHIDMESSAGE,student.getId(),NOTFOUNDMESSAGE);
+        LogBack.filelogger().debug(studentNotFoundMessage(student.getID()));
     }
     public void updateStudent(Student student, int updatedAge) {
         for( Student s: students){
@@ -58,7 +60,7 @@ public class StudentRepository {
                 return;
             }
         }
-        LogBack.filelogger().debug("{} {} {}" , STUDENTWITHIDMESSAGE,student.getId(), NOTFOUNDMESSAGE);
+        LogBack.filelogger().debug(studentNotFoundMessage(student.getID()));
     }
     public void updateStudent(Student student, char updatedGrade) {
         for( Student s: students){
@@ -68,7 +70,7 @@ public class StudentRepository {
                 return;
             }
         }
-        LogBack.filelogger().debug("{} {} {}" , STUDENTWITHIDMESSAGE,student.getId(), NOTFOUNDMESSAGE);
+        LogBack.filelogger().debug(studentNotFoundMessage(student.getID()));
     }
 
 
