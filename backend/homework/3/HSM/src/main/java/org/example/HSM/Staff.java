@@ -1,13 +1,11 @@
-package org.example.HSM;
+package org.example.hsm;
 
 public class Staff extends User{
     private long staffId;
     private int yearsOfExperience;
     private String description;
     private double salary;
-    public Staff() {
 
-    }
 
     public long getStaffId(){
         return staffId;

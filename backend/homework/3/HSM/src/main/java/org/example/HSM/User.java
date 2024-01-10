@@ -1,11 +1,11 @@
-package org.example.HSM;
+package org.example.hsm;
 
-import org.example.BillingComponent.HealthInsurancePlan;
+import org.example.billingcomponent.HealthInsurancePlan;
 
-public abstract class User {
+public class User {
     private int id;
     private String firstName;
-    private String LastName;
+    private String lastName;
     private String gender;
     private String email;
     private int age;
@@ -26,10 +26,10 @@ public abstract class User {
         this.firstName=firstName;
     }
     public String getLastNAme(){
-        return LastName;
+        return lastName;
     }
-    public void setLAstName(String lAstName){
-        this.LastName=LastName;
+    public void setLastName(String lastName){
+        this.lastName=LastName;
     }
     public String getGender(){
         return gender;

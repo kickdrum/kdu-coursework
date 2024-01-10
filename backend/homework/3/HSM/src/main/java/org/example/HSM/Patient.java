@@ -1,5 +1,5 @@
-package org.example.HSM;
-import org.example.BillingComponent.HealthInsurancePlan;
+package org.example.hsm;
+import org.example.billingcomponent.HealthInsurancePlan;
 public class Patient extends User{
     private long patientId;
     private boolean insured;
@@ -15,14 +15,16 @@ public class Patient extends User{
     public boolean getInsured(){
         return insured;
     }
+    @Override
     public void setInsured(boolean insured){
         this.insured=insured;
     }
+    @Override
 
     public HealthInsurancePlan getInsurancePlan() {
         return insurancePlan;
     }
-
+@Override
     public void setInsurancePlan(HealthInsurancePlan insurancePlan) {
         this.insurancePlan = insurancePlan;
     }

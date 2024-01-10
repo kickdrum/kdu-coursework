@@ -1,4 +1,4 @@
-package org.example.BillingComponent;
+package org.example.billingcomponent;
 
 public class PlatinumPlan extends HealthInsurancePlan {
     public PlatinumPlan() {

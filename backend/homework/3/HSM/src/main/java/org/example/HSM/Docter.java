@@ -1,4 +1,4 @@
-package org.example.HSM;
+package org.example.hsm;
 
 public class Docter extends Staff {
     private long doctorId;

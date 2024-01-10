@@ -1,27 +1,36 @@
-package org.example.BillingComponent;
+package org.example.billingcomponent;
 
 
 public class BlueCrossBlueShield implements InsuranceBrand {
+
     @Override
     public double computeMonthlyPremium(HealthInsurancePlan insurancePlan, int age, boolean smoking) {
         double additionalPremium = 0;
 
         if (age > 55) {
             if (insurancePlan instanceof PlatinumPlan) {
-                additionalPremium += 200;
+                additionalPremium =additionalPremium+ 200;
             } else if (insurancePlan instanceof GoldPlan) {
-                additionalPremium += 150;
+                additionalPremium =additionalPremium+ 150;
             } else if (insurancePlan instanceof SilverPlan) {
-                additionalPremium += 100;
+                additionalPremium =additionalPremium+ 100;
             } else if (insurancePlan instanceof BronzePlan) {
-                additionalPremium += 50;
+                additionalPremium =additionalPremium+ 50;
             }
         }
 
         if (smoking) {
-            additionalPremium += (insurancePlan instanceof PlatinumPlan) ? 100 :
-                    (insurancePlan instanceof GoldPlan) ? 90 :
-                            (insurancePlan instanceof SilverPlan) ? 80 : 70;
+            int smokingAdditionalPremium = 70;
+
+            if (insurancePlan instanceof PlatinumPlan) {
+                smokingAdditionalPremium = 100;
+            } else if (insurancePlan instanceof GoldPlan) {
+                smokingAdditionalPremium = 90;
+            } else if (insurancePlan instanceof SilverPlan) {
+                smokingAdditionalPremium = 80;
+            }
+
+            additionalPremium += smokingAdditionalPremium;
         }
 
         return additionalPremium;

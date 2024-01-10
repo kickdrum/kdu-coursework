@@ -1,6 +1,6 @@
-package org.example.BillingComponent;
+package org.example.billingcomponent;
 
-import org.example.HSM.Patient;
+import org.example.hsm.Patient;
 
 public class Billing extends Patient{
     public static double[] computePaymentAmount(Patient patient, double amount) {
