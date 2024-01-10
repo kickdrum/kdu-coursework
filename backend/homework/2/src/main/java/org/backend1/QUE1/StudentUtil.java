@@ -6,12 +6,16 @@ import java.util.logging.Logger;
 
 public class StudentUtil {
 
-    private static final Logger LOGGER = Logger.getLogger(SentimentAnalyzer.class.getName());
+//   Changes made in the class name from SentimentalAnalyzer.class -> StudentUtil.class.
+    private static final Logger LOGGER = Logger.getLogger(StudentUtil.class.getName());
 
 
     public static double[] calculateGPA(int[] studentIdList, char[][] studentsGrades){
         if(studentIdList == null || studentsGrades == null || studentIdList.length != studentsGrades.length)
-            return null;
+        {
+           return new double[0];
+        }
+
 
         double[] var = new double[studentIdList.length];
 
@@ -42,7 +46,7 @@ public class StudentUtil {
     {
         if(lower > higher || lower < 0 || higher < 0 || studentGrades.length != studentIdList.length)
         {
-            return null;
+            return new int[0];
         }
 
         double[] gpa_avg = calculateGPA(studentIdList, studentGrades);
@@ -64,23 +68,19 @@ public class StudentUtil {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-//        System.out.print("Enter the number of students (n): ");
         LOGGER.info("Enter the number of students (n): ");
         int n = scanner.nextInt();
 
         int[] studentIdList = new int[n];
-//        System.out.println("Enter student IDs:");
         LOGGER.info("Enter student IDs:");
         for (int i = 0; i < n; i++) {
             studentIdList[i] = scanner.nextInt();
         }
 
         char[][] studentsGrades = new char[n][];
-//        System.out.println("Enter students' grades:");
         LOGGER.info("Enter students' grades:");
         for (int i = 0; i < n; i++) {
 
-//            System.out.print("Student " + studentIdList[i] + ": ");
             LOGGER.info("Student " + studentIdList[i] + ": ");
             String gradesInput = scanner.next();
             studentsGrades[i] = gradesInput.toCharArray();
@@ -88,19 +88,15 @@ public class StudentUtil {
 
 
         double[] gpas = calculateGPA(studentIdList, studentsGrades);
-//        System.out.println("GPAs: " + Arrays.toString(gpas));
         LOGGER.info("GPAs: " + Arrays.toString(gpas));
 
-//        System.out.print("Enter the lower number: ");
         LOGGER.info("Enter the lower number: ");
         double lower = scanner.nextDouble();
 
-//        System.out.print("Enter the high number: ");
         double higher = scanner.nextDouble();
         LOGGER.info("Enter the high number: ");
 
         int[] result = getStudentsbyGPA(lower, higher, studentIdList, studentsGrades);
-        System.out.println("Students with GPA between " + lower + " and " + higher + "is : " + Arrays.toString(result));
         LOGGER.info("Students with GPA between " + lower + " and " + higher + "is : " + Arrays.toString(result));
     }
 
