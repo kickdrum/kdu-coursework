@@ -28,7 +28,7 @@ public class User {
     public String getLastNAme(){
         return lastName;
     }
-    public void setLastName(String lastName){
+    public void setLastName(String LastName){
         this.lastName=LastName;
     }
     public String getGender(){
