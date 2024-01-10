@@ -6,6 +6,11 @@ public class StudentUtil {
 
     private static final Logger logger = Logger.getLogger(StudentUtil.class.getName());
 
+    /**
+     * Function desc
+     * stu
+     * sg
+     * return */
     public static double[] calculateGPA(int[] studentList, char[][] studentsGrades) {
         int size = studentList.length;
         double[] studentGPA = new double[size];
