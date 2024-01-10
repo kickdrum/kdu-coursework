@@ -14,7 +14,7 @@ public class Main {
 
             double monthlyPremium = insurancePlan.computeMonthlyPremium(5000, 56, true);
 
-            LOGGER.info("Computed monthly premium: " + monthlyPremium);
+            LOGGER.info(String.format("Computed monthly premium: %.2f", monthlyPremium));
 
     }
 }
