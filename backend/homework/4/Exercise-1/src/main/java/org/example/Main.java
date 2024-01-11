@@ -6,9 +6,9 @@ public class Main {
 
         int[] Studentid = {1001, 1002};
         char[][] grades = {{'A', 'A', 'A', 'B'}};
-
+        double[] dcal=new double[0];
         try {
-             StudentUtil.calculateGPA(Studentid, grades);
+             dcal =StudentUtil.calculateGPA(Studentid, grades);
 
         } catch (MissingGradeException e) {
             throw new InvalidDataException("Invalid data in calculateGPA method.", e);
