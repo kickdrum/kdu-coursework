@@ -36,10 +36,10 @@ public class StudentUtil {
 
     public static int[] getStudentsByGPA(double lower, double higher, int[] studentIdList, char[][] studentsGrades) throws MissingGradeException {
         if (lower < 0 || higher < 0 || lower > higher) {
-            return null;
+            return int[];
         }
 
-        double[] gpaList = new double[studentIdList.length];
+        double[] gpaList = studentIdList.length;
 
 
         gpaList = calculateGPA(studentIdList, studentsGrades);
