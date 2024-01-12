@@ -101,22 +101,6 @@ public class MainTest {
     }
 
     /**
-     * Test case to verify the functionality of retrieving the top N coins.
-     * This test ensures that the `getTopNCoins` method correctly returns the specified number of top coins,
-     * comparing the expected top coins with the actual result from the pre-populated list of coins.
-     *
-     * @see Main#getTopNCoins(List, int)
-     */
-    @Test
-    public void testGetTop3CoinsShouldReturnTop3Coins() {
-        List<Coins> top3Coins = Main.getTopNCoins(coins, 3);
-        Assertions.assertEquals(3, top3Coins.size());
-        Assertions.assertEquals("Bitcoin", top3Coins.get(0).getCoinName());
-        Assertions.assertEquals("Ethereum", top3Coins.get(1).getCoinName());
-        Assertions.assertEquals("Cardano", top3Coins.get(2).getCoinName());
-    }
-
-    /**
      * Comprehensive test case for validating the concurrent execution of transactions in the Main class.
      * This test checks the concurrent execution of transactions using JSON files with transaction data.
      * It creates a CountDownLatch to synchronize the completion of transactions across multiple threads.

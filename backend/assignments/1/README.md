@@ -6,7 +6,6 @@
 The following test cases are included:
 
 - testParseCSV: Validates CSV file parsing
-- testGetTop3CoinsShouldReturnTop3Coins: Verifies getting top N coins
 - testConcurrentTransactions: Tests concurrent execution
 - testConcurrentTransactions1: Tests concurrent execution with different input
 - testConcurrentTransactionsMediumFile: Tests concurrent execution with medium file
@@ -19,6 +18,7 @@ The tests utilize pre-populated test data and assertions to validate the system 
 Different input data sets are used to ensure robust testing.
 
 ## Necessary files and functions
+Your src/main/java should have the following files:
 - `Main.java` - which is the starting point of the program
 - `ExecuteTransaction.java` - which is the main class which executes each type of crypto transaction and implements the Runnable interface
 
@@ -39,6 +39,10 @@ incoming transactions and should use ExecuteTransaction class for processing eac
 None
 
 ### Latch Semantics
+Read:
+[https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CountDownLatch.html ]
+[https://www.baeldung.com/java-countdown-latch ]
+
 
 The latch parameter is used to control concurrent execution of transactions across multiple threads.
 
