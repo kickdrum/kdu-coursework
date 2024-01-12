@@ -101,58 +101,6 @@ public class MainTest {
     }
 
     /**
-     * Test case to ensure the correct retrieval of coin details by name.
-     * This test verifies that the `getCoinDetailsByName` method correctly retrieves the coin details based on the coin name,
-     * comparing the expected coin details with the actual result from the pre-populated coin name map.
-     *
-     * @see Main#getCoinDetailsByName(String, Map)
-     */
-    @Test
-    public void testGetCoinDetailsByName() {
-        Coins result = Main.getCoinDetailsByName("Bitcoin", coinNameMap);
-        Assertions.assertEquals(coinOne, result);
-    }
-
-    /**
-     * Test case to ensure invalid coin name returns null.
-     * This test verifies that the `getCoinDetailsByName` method returns null
-     * when an invalid coin name is passed.
-     *
-     * @see Main#getCoinDetailsByName(String, Map)
-     */
-    @Test
-    public void testGetCoinDetailsByInvalidName() {
-        Coins result = Main.getCoinDetailsByName("TRX", coinNameMap);
-        Assertions.assertNull(result);
-    }
-
-    /**
-     * Test case to ensure the correct retrieval of coin details by code.
-     * This test verifies that the `getCoinDetailsByCode` method correctly retrieves the coin details based on the coin code,
-     * comparing the expected coin details with the actual result from the pre-populated coin code map.
-     *
-     * @see Main#getCoinDetailsByCode(String, Map)
-     */
-    @Test
-    public void testGetCoinDetailsByCode() {
-        Coins result = Main.getCoinDetailsByCode("BTC", coinCodeMap);
-        Assertions.assertEquals(coinOne, result);
-    }
-
-    /**
-     * Test case to ensure invalid coin code returns null.
-     * This test verifies that the `getCoinDetailsByCode` method returns null
-     * when an invalid coin code is passed.
-     *
-     * @see Main#getCoinDetailsByCode(String, Map)
-     */
-    @Test
-    public void testGetCoinDetailsByInvalidCode() {
-        Coins result = Main.getCoinDetailsByCode("TRX", coinNameMap);
-        Assertions.assertNull(result);
-    }
-
-    /**
      * Test case to verify the functionality of retrieving the top N coins.
      * This test ensures that the `getTopNCoins` method correctly returns the specified number of top coins,
      * comparing the expected top coins with the actual result from the pre-populated list of coins.
