@@ -23,7 +23,7 @@ jobs:
           architecture: x64
 
       - name: Clean Maven workspace
-        run: cd ./backend/assignments/1 && mvn clean
+        run: mvn clean
 
       - name: Install and Run tests
-        run: cd ./backend/assignments/1 && mvn install
+        run: mvn install
