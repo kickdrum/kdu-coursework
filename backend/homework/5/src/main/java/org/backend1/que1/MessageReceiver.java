@@ -22,7 +22,7 @@ class MessageReceiver implements Runnable {
             try {
                 Thread.sleep(1000); // Add some delay between receiving messages
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                LOGGER.info("Thread Found");
             }
         }
     }
