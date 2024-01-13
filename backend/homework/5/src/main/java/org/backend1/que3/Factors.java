@@ -5,8 +5,6 @@ public class Factors extends Thread{
 
     private static final Logger LOGGER = Logger.getLogger(Factors.class.getName());
 
-
-    private String factrs;
     private int number;
 
     public Factors(int number){
@@ -15,7 +13,7 @@ public class Factors extends Thread{
 
     @Override
     public void run(){
-        factrs = calculateFactors(number);
+        String factrs = calculateFactors(number);
         LOGGER.info("factors are: " +  factrs);
     }
 

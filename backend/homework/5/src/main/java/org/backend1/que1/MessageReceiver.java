@@ -1,7 +1,5 @@
 package org.backend1.que1;
 
-import org.backend1.que3.Main;
-
 import java.util.logging.Logger;
 
 class MessageReceiver implements Runnable {
