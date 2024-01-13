@@ -1,10 +1,12 @@
 package org.backend1.que1;
 import java.util.*;
 import java.util.concurrent.ArrayBlockingQueue;
+import java.util.logging.Logger;
 
 class MessageQueue {
 
     private final Queue<String> queue = new ArrayBlockingQueue<>(10);
+    private static final Logger LOGGER = Logger.getLogger(MessageQueue.class.getName());
 
     public synchronized void addMessage(String msg) {
         if (queue.size() < 10) {
@@ -18,7 +20,7 @@ class MessageQueue {
             try {
                 wait(); // Wait if the queue is empty
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                LOGGER.info("Thread issues");
             }
         }
         return queue.poll();

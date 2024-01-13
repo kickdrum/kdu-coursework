@@ -5,6 +5,7 @@ import java.util.concurrent.*;
 public class MessageQueue {
 
     private final BlockingQueue<String> queue = new LinkedBlockingQueue<>(10);
+    private static final Logger LOGGER = Logger.getLogger(MessageQueue.class.getName());
 
     public void addMessage(String msg) {
         try {
@@ -20,7 +21,7 @@ public class MessageQueue {
             return queue.take();
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
-            e.printStackTrace();
+            LOGGER.info("Thread issues");
             return null;
         }
     }
