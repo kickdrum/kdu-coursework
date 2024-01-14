@@ -75,7 +75,7 @@ public class TraderRepository {
                 .stream()
                 .sorted(new DescendingComparator2())
                 .limit(n)
-                .collect(Collectors.toList());
+                .toList();
 
         MyLogger.customLogger("Top " + n + " Traders:", Constants.INFO_LOGGER);
         topNTraders.forEach(trader -> MyLogger.customLogger(trader.toString(), Constants.INFO_LOGGER));
@@ -92,7 +92,7 @@ public class TraderRepository {
                 .stream()
                 .sorted(new AscendingComparator())
                 .limit(n)
-                .collect(Collectors.toList());
+                .toList();
 
         MyLogger.customLogger("Bottom " + n + " Traders:", Constants.INFO_LOGGER);
         bottomMTraders.forEach(trader -> MyLogger.customLogger(trader.toString(), Constants.INFO_LOGGER));

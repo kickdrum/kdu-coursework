@@ -113,6 +113,8 @@ public Double getNetProfit() {
       if (coinInfo == null) {
          coinInfo = new CoinInfo(price, quantity);
       } else {
+         Double previousPrice = coinInfo.getPrice();
+         coinInfo.setPrice((previousPrice+price)/2);
          coinInfo.setQuantity(coinInfo.getQuantity() + quantity);
       }
       coinsBought.put(coin, coinInfo);
@@ -174,7 +176,7 @@ public Double getNetProfit() {
               '}';
    }
    private static class CoinInfo {
-      private final Double price;
+      private Double price;
       private Long quantity;
 
       public CoinInfo(Double price, Long quantity) {
@@ -189,6 +191,10 @@ public Double getNetProfit() {
        */
       public Double getPrice() {
          return price;
+      }
+      public void setPrice(Double price)
+      {
+         this.price=price;
       }
 
       /**
