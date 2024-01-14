@@ -116,6 +116,8 @@ public Double getNetProfit() {
          Double previousPrice = coinInfo.getPrice();
          coinInfo.setPrice((previousPrice+price)/2);
          coinInfo.setQuantity(coinInfo.getQuantity() + quantity);
+
+         MyLogger.customLogger("Coin has been previously bought: quantity-> "+coinInfo.getQuantity()+" price: "+coinInfo.getPrice()+" updated from "+previousPrice,"DEBUG");
       }
       coinsBought.put(coin, coinInfo);
 
