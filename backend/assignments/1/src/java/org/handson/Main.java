@@ -81,6 +81,7 @@ public class Main {
             TraderRepository.showBottomMTraders(5);
             CoinRepository.getInstance().displayCoinDetails("LUNA");
             CoinRepository.getInstance().showTopNCoins(5);
+            TraderRepository.displayTrader("0x344427a90da861f79cc80bac2ff8638f");
         } catch (Exception e) {
             Thread.currentThread().interrupt();
 

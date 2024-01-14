@@ -11,6 +11,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
+import java.util.stream.Collectors;
 
 class AscendingComparator implements Comparator<Trader> {
     @Override
@@ -70,19 +71,14 @@ public class TraderRepository {
      * @param n the number of top traders to be shown
      */
     public static void showTopNTraders(int n) {
-        List<Trader> traders = new ArrayList<>(traderMap.values());
+        List<Trader> topNTraders = traderMap.values()
+                .stream()
+                .sorted(new DescendingComparator2())
+                .limit(n)
+                .collect(Collectors.toList());
 
-        Collections.sort(traders, new DescendingComparator2());
         MyLogger.customLogger("Top " + n + " Traders:", Constants.INFO_LOGGER);
-        int count = 0;
-        for (Trader trader : traders) {
-            if (count < n) {
-                MyLogger.customLogger(trader.toString(), Constants.INFO_LOGGER);
-                count++;
-            } else {
-                break;
-            }
-        }
+        topNTraders.forEach(trader -> MyLogger.customLogger(trader.toString(), Constants.INFO_LOGGER));
     }
 
     /**
@@ -92,21 +88,16 @@ public class TraderRepository {
      * @return void
      */
     public static void showBottomMTraders(int n) {
-        List<Trader> traders = new ArrayList<>(traderMap.values());
-
-        Collections.sort(traders, new AscendingComparator());
+        List<Trader> bottomMTraders = traderMap.values()
+                .stream()
+                .sorted(new AscendingComparator())
+                .limit(n)
+                .collect(Collectors.toList());
 
         MyLogger.customLogger("Bottom " + n + " Traders:", Constants.INFO_LOGGER);
-        int count = 0;
-        for (Trader trader : traders) {
-            if (count < n) {
-                MyLogger.customLogger(trader.toString(), Constants.INFO_LOGGER);
-                count++;
-            } else {
-                break;
-            }
-        }
+        bottomMTraders.forEach(trader -> MyLogger.customLogger(trader.toString(), Constants.INFO_LOGGER));
     }
+
 
     /**
      * Loads data from a CSV file into the traderMap.

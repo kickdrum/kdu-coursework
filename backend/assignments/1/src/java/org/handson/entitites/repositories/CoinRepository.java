@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.handson.Constants;
 import org.handson.entitites.concrete.Coins;
@@ -98,21 +99,17 @@ public class CoinRepository {
             return true;
         }
     }
-    
-    public void showTopNCoins(int n)
-    {
-        List<Coins> coins = new ArrayList<>(coinMap.values());
-        Collections.sort(coins,new DescendingComparator());
+
+    public void showTopNCoins(int n) {
+        List<Coins> topNCoins = coinMap.values()
+                .stream()
+                .sorted(new DescendingComparator())
+                .limit(n)
+                .collect(Collectors.toList());
+
         MyLogger.customLogger("Top " + n + " Coins:", Constants.INFO_LOGGER);
-        int count = 0;
-        for (Coins coin : coins) {
-            if (count < n) {
-                MyLogger.customLogger(coin.toString(), Constants.INFO_LOGGER);
-                count++;
-            } else {
-                break;
-            }
-        }
+
+        topNCoins.forEach(coin -> MyLogger.customLogger(coin.toString(), Constants.INFO_LOGGER));
     }
     public void displayCoinDetails(String name)
     {
