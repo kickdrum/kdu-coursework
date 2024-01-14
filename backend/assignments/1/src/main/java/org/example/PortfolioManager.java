@@ -34,7 +34,6 @@ public class PortfolioManager {
         } else {
             slf4jLogger.info("Error: Negative quantity in the portfolio");
         }
-//        slf4jLogger.info(portfolio);
     }
 
     public static void getCoinDetails(String coinCode) {
@@ -106,7 +105,4 @@ public class PortfolioManager {
                 .forEach(entry -> slf4jLogger.info("Trader: " + entry.getKey() +
                         ", Profit/Loss: " + -entry.getValue().getOrDefault("totalInvestment", 0)));
     }
-
-
-
 }

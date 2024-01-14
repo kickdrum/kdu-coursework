@@ -13,7 +13,6 @@ public class ExecuteTransaction implements Runnable{
     private String type;
     private JsonNode dataNode;
     private CountDownLatch latch;
-
     private static ArrayList<ArrayList<String>> coins; //for storing coins
     private static ArrayList<ArrayList<String>> traders; //for storing traders
     private static JsonNode jsonTransactions;
@@ -26,7 +25,6 @@ public class ExecuteTransaction implements Runnable{
         this.traders=traders;
 
     }
-
 
     @Override
     public void run() {
@@ -72,7 +70,6 @@ public class ExecuteTransaction implements Runnable{
                     slf4jLogger.info("BUY transaction processed for coin: " + coin);
 
                     //Updating Traders Portfolio
-//                    public static void updatePortfolio(String walletAddress, String coin, int quantity, int price)
                     String strPrice=coins.get(i).get(4);
                     price= Double.parseDouble(strPrice);
                     PortfolioManager.updatePortfolio(walletAddress, coin, quantity,price);
@@ -101,7 +98,6 @@ public class ExecuteTransaction implements Runnable{
 
             // Check if the trader has enough coins in the portfolio
             Map<String, Integer> traderPortfolio = portfolio.get(walletAddress);
-            int testQuantity=traderPortfolio.get(coin);
             if (traderPortfolio.containsKey(coin) && traderPortfolio.get(coin) >= quantity) {
 
                 //Updating Traders Portfolio

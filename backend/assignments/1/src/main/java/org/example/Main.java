@@ -18,7 +18,6 @@ import org.slf4j.LoggerFactory;
 
 import static org.example.PortfolioManager.*;
 
-
 public class Main {
     public static final Logger slf4jLogger = LoggerFactory.getLogger(Main.class);
     public static ArrayList<ArrayList<String>> coins = new ArrayList<>(); //for storing coins
@@ -42,10 +41,6 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
-//        printing coin.csv for testing
-//        for (ArrayList<String> row : coins) {
-//            System.out.println(row);
-//        }
 
         //parsing CSV  files of traders
         try (CSVReader reader = new CSVReader(new FileReader("src/main/resources/traders.csv"))) {
@@ -60,11 +55,6 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-//        printing coin.csv for testing
-//        for (ArrayList<String> row : traders) {
-//            System.out.println(row);
-//        }
 
         //parsing JSON Files
         try {
@@ -81,9 +71,6 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-//        printing transactions.csv for testing
-//        System.out.println(jsonTransactions);
 
         CountDownLatch latch = new CountDownLatch(jsonTransactions.size());
         executeTransactions(jsonTransactions,latch);
@@ -136,7 +123,7 @@ public class Main {
                 e.printStackTrace();
             }
 
-            // Shutdown the executor after all transactions are done
+                // Shutdown the executor after all transactions are done
                 executorService.shutdown();
 
         }
