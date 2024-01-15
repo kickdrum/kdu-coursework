@@ -2,13 +2,16 @@ package org.example;
 import com.opencsv.CSVReader;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.opencsv.exceptions.CsvException;
 import com.opencsv.exceptions.CsvValidationException;
 
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
+import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -25,7 +28,33 @@ public class Main {
     public static JsonNode jsonTransactions=null; //JsonNode object for storing transactions
     public static JsonNode[] transactions = null; //JsonNode object array for storing transactions in the form of array
 
+    public static ArrayList<String[]> parseCSV(Path filePath) {
+        ArrayList<String[]> csvData = new ArrayList<>();
 
+        try (CSVReader reader = new CSVReader(new FileReader(filePath.toString()))) {
+            reader.readNext();
+            List<String[]> records = reader.readAll();
+            csvData.addAll(records);
+        } catch (IOException e) {
+            e.printStackTrace(); // Handle the exception according to your needs
+        } catch (CsvValidationException e) {
+            throw new RuntimeException(e);
+        } catch (CsvException e) {
+            throw new RuntimeException(e);
+        }
+
+        return csvData;
+    }
+
+    public static JsonNode parseJsonFile(String filePath) throws IOException {
+        JsonNode jsonNode = null;
+        Path file = Path.of(filePath);
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        jsonNode = objectMapper.readTree(file.toFile());
+
+        return jsonNode;
+    }
     public static void main(String[] args) throws CsvValidationException {
 
         //parsing CSV  files

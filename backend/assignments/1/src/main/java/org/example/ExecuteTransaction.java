@@ -16,7 +16,7 @@ public class ExecuteTransaction implements Runnable{
     private static ArrayList<ArrayList<String>> coins; //for storing coins
     private static ArrayList<ArrayList<String>> traders; //for storing traders
     private static JsonNode jsonTransactions;
-
+    public ExecuteTransaction(){}
     public ExecuteTransaction(String type, JsonNode dataNode, CountDownLatch latch, ArrayList<ArrayList<String>> coins, ArrayList<ArrayList<String>> traders) {
         this.type = type;
         this.dataNode = dataNode;
