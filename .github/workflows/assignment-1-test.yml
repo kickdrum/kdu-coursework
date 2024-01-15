@@ -1,0 +1,29 @@
+name: Assignment 1 test run
+
+on:
+  push:
+    branches:
+      - main # the name of your main branch
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'  # Adjust the Java version you need
+          distribution: 'temurin'
+          architecture: x64
+
+      - name: Clean Maven workspace
+        run: cd ./backend/assignments/1 && mvn clean
+
+      - name: Install and Run tests
+        run: cd ./backend/assignments/1 && mvn install
