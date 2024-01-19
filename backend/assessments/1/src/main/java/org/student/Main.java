@@ -88,8 +88,8 @@ public class Main {
 
                 hmap.add(key);
                 hmap.add(key1);
-                finale.add(strArr1);
                 finale.add(strArr);
+                finale.add(strArr1);
 
                 match += 2;
             }
