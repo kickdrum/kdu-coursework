@@ -56,7 +56,7 @@ public class Main {
 
         List<String []> result = new ArrayList<>();
         HashSet<String> hmap = new HashSet<>();
-        HashSet<String []> finale = new HashSet<>();
+        List<String []> finale = new ArrayList<>();
 
         int match = 1;
         SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
@@ -75,7 +75,7 @@ public class Main {
 
                 strArr[0] = c.getTime().toString();
                 c.add(Calendar.HOUR,3);
-                strArr1[1] = c.getTime().toString();
+                strArr1[0] = c.getTime().toString();
                 c.add(Calendar.HOUR,21);
                 strArr[1] = Integer.toString(match);
                 strArr1[1] = Integer.toString(match + 1);
