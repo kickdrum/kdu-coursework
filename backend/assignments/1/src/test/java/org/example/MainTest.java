@@ -3,7 +3,6 @@ package org.example;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -63,6 +62,7 @@ public class MainTest {
     @Test
     public void testParseCSV() throws IOException {
         // check for coins.csv
+        System.out.println("running");
         Path coinCsvPath = Path.of("src/test/resources/coins.csv");
         ArrayList<String[]> expectedCoins = new ArrayList<>();
         expectedCoins.add(new String[]{"0", "1", "Bitcoin", "BTC", "34194.58", "18938712"});
@@ -126,7 +126,7 @@ public class MainTest {
             Main.executeTransactions(transactionArray, latch);
         } catch (IOException e) {
             // TODO Auto-generated catch block
-            fail();
+            fail(e);
         }
 
 
@@ -164,7 +164,7 @@ public class MainTest {
             Main.executeTransactions(transactionArray, latch);
         } catch (IOException e) {
             // TODO Auto-generated catch block
-            fail();
+            fail(e);
         }
 
         try {
@@ -200,7 +200,7 @@ public class MainTest {
 
             Main.executeTransactions(transactionArray, latch);
         } catch (IOException e) {
-            fail();
+            fail(e);
         }
 
         try {
@@ -236,7 +236,7 @@ public class MainTest {
 
             Main.executeTransactions(transactionArray, latch);
         } catch (IOException e) {
-            fail();
+            fail(e);
         }
 
         try {
