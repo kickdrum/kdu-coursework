@@ -7,8 +7,6 @@ import com.example.springboot3.exception.custom.ResourceNotFoundException;
 import com.example.springboot3.model.Vehicle;
 import com.example.springboot3.service.VehicleService;
 import lombok.AllArgsConstructor;
-import org.slf4j.ILoggerFactory;
-import org.springframework.context.annotation.Profile;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

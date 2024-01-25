@@ -2,36 +2,36 @@ package com.example.springboot3.repository;
 
 import com.example.springboot3.model.Vehicle;
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 
 import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.springboot3.Springboot3Application.slf4jLogger;
-
+@Slf4j
 @Data
 public class InventoryStore {
     private List<Vehicle> vehicles=new ArrayList<>();
 
     public void save(Vehicle vehicle){
-        slf4jLogger.info("Vehicle added");
+        log.info("Vehicle added");
         this.vehicles.add(vehicle);
     }
     public Vehicle findById(int id){
-        slf4jLogger.info("Id found!");
+        log.info("Id found!");
         return vehicles.get(id);
 
     }
     public void updateVehicle(int id, Vehicle vehicle){
         vehicles.get(id).setName(vehicle.getName());
         vehicles.get(id).setPrice(vehicle.getPrice());
-        slf4jLogger.info("Vehicle updated!");
+        log.info("Vehicle updated!");
 
 
     }
     public void delete(int id){
         vehicles.remove(id);
-        slf4jLogger.info("Vehicle Deleted");
+        log.info("Vehicle Deleted");
 
     }
     public Vehicle mostExpensive(){
