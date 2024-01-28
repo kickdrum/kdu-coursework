@@ -23,8 +23,12 @@ import java.util.List;
 public class GeoApi {
     private static final Logger logger = LoggerFactory.getLogger(GeoApi.class);
 
-    @Autowired
-    private GeoCodingService geoCodingService;
+
+    private final GeoCodingService geoCodingService;
+
+    public GeoApi(GeoCodingService geoCodingService) {
+        this.geoCodingService = geoCodingService;
+    }
 
     @GetMapping("/geocoding")
     public GeoCodeResponseDto geocoding(@RequestParam String address) {
@@ -32,7 +36,7 @@ public class GeoApi {
         return geoCodingService.getGeoCode(address);
     }
     @GetMapping("/reverse-geocoding")
-    public ReverseGeoCodeResponseDto reverseGeocoding(@RequestParam("latitude") double latitude, @RequestParam("longitude") double longitude) {
+    public String reverseGeocoding(@RequestParam("latitude") double latitude, @RequestParam("longitude") double longitude) {
         logger.info("Reverse geocode request: {}, {}",latitude,longitude);
         return geoCodingService.getAddress(new ArrayList<>(List.of(latitude, longitude)));
     }

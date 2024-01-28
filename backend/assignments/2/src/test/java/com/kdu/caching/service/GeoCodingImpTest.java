@@ -219,14 +219,14 @@ public class GeoCodingImpTest {
 
         // Ensure that the cache is populated after the first request
         assertNotNull("Cache 'reverse-geocoding' should not be null", cacheManager.getCache("reverse-geocoding").toString());
-        assertNotNull("Cache entry '[37.431155, -120.781462]' should not be null", (String) cachedValue);
+        assertNotNull("Cache entry '[37.431155, -120.781462]' should not be null", cachedValue.toString());
 
         // Call the endpoint again
         hitReverseGeoCodingCache("37.431155", "-120.781462");
 
         // Verify that the cached value is retrieved the second time
         assertNotNull("Cache 'reverse-geocoding' should not be null", cacheManager.getCache("reverse-geocoding").toString());
-        assertNotNull("Cache entry '[37.431155, -120.781462]' should not be null", (String) cachedValue);
+        assertNotNull("Cache entry '[37.431155, -120.781462]' should not be null", cachedValue.toString());
     }
 
     /**

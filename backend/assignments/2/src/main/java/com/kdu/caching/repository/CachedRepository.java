@@ -1,6 +1,6 @@
 package com.kdu.caching.repository;
 
-import com.kdu.caching.services.GeoCodingService;
+
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.caffeine.CaffeineCacheManager;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import java.util.Collections;
@@ -17,10 +18,10 @@ import java.util.List;
 @Repository
 public class CachedRepository {
     private static final Logger logger = LoggerFactory.getLogger(CachedRepository.class);
-    CacheManager cacheManager;
-    @Autowired
-    public CachedRepository(){
-        cacheManager = new CaffeineCacheManager();
+
+    CaffeineCacheManager cacheManager;
+    public CachedRepository(@Autowired CaffeineCacheManager cacheManager){
+        this.cacheManager = cacheManager;
     }
 
     public List<Double> getGeocodingResult(String location) {

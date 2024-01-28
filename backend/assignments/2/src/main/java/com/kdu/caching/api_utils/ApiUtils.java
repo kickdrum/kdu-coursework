@@ -3,6 +3,8 @@ package com.kdu.caching.api_utils;
 import lombok.experimental.UtilityClass;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.client.HttpClientErrorException;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -38,7 +40,7 @@ public class ApiUtils {
             result = results.getJSONObject(0);
         }
         else {
-            result = null;
+            throw new HttpClientErrorException(HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return result;
     }

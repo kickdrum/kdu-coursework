@@ -8,8 +8,8 @@
 		<version>2.7.8</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.kdu</groupId>
-	<artifactId>caching</artifactId>
+	<groupId>com.kdu.cache</groupId>
+	<artifactId>2</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>KDU Caching</name>
 	<description>KDU Caching</description>
@@ -31,6 +31,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>com.vaadin.external.google</groupId>
+					<artifactId>android-json</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.json/json -->
 		<dependency>
