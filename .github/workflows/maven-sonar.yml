@@ -33,6 +33,7 @@ jobs:
           -Dsonar.verbose=true 
           -Dsonar.projectKey=${{ secrets.KDUER_NAME }}-BE-Assignment-1
           -Dsonar.projectName=${{ secrets.KDUER_NAME }}-BE-Assignment-1
+          -Dsonar.sources=src/main
       ## below steps are for posting comment on Github PR
       - name: Setup Node
         uses: actions/setup-node@v3
