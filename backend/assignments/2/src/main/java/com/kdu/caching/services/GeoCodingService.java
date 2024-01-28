@@ -2,7 +2,6 @@ package com.kdu.caching.services;
 
 import com.kdu.caching.api_utils.ApiUtils;
 import com.kdu.caching.dto.GeoCodeResponseDto;
-import com.kdu.caching.dto.ReverseGeoCodeResponseDto;
 import com.kdu.caching.repository.CachedRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.tuple.Pair;

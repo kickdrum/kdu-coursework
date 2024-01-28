@@ -1,6 +1,5 @@
 package com.kdu.caching.exceptions;
 import com.kdu.caching.dto.ErrorDto;
-//import com.kdu.caching.exceptions.custom.MyException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -13,11 +12,6 @@ import java.io.IOException;
  */
 @ControllerAdvice
 public class CustomHandler {
-//    `@ExceptionHandler(MyException.class)
-//    public ResponseEntity<ErrorDto> handleMyException(MyException ex) {
-//        ErrorDto errorDTO = new ErrorDto(ex.getMessage(), HttpStatus.BAD_REQUEST.value());
-//        return new ResponseEntity<>(errorDTO, HttpStatus.BAD_REQUEST);
-//    }`
 
     @ExceptionHandler(IOException.class)
     public ResponseEntity<ErrorDto> handleIOException(IOException ex) {
