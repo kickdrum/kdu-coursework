@@ -1,32 +1,25 @@
 package org.handson;
-import java.util.random.*;
 
-class RandomFile {
-    static int hi_There_Constant = 4;
-    static int CAPITAL_LETTER_WORDS = 3;
-    static String api_key = "nrwewtibjrwt";
-    // Method with code smells
-    static void DOSOMETHING(int x, int y) {
-        if (x == 0) {
-            System.out.println("x is zero");
-        } else {
-            System.out.println("x is not zero");
-        }
+public class randomfile {
 
-        if (y == 0) {
-            System.out.println("y is zero");
+    // Method with poorly named variables and lack of comments
+    static void m(int x, int y) {
+        int z = 0; // Magic number
+        int result = x + y * z; // Complex expression
+
+        if (result > 10) {
+            System.out.println("Result is greater than 10");
         } else {
-            System.out.println("y is not zero");
+            System.out.println("Result is less than or equal to 10");
         }
-        System.out.println(CAPITAL_LETTER_WORDS);
     }
 
+    // Unused method
+    static void unusedMethod() {
+        // Some code here that is never called
+    }
 
     public static void main(String[] args) {
-        DOSOMETHING(0, 5);
-        System.out.println("hi there"+"access key "+2312+" "+hi_There_Constant);
-        int a = 2;
-
-
+        m(5, 3);
     }
 }
