@@ -98,8 +98,11 @@ public class MainTest {
             String[] actualRow = actual.get(i);
             Assertions.assertArrayEquals(expectedRow, actualRow);
         }
+        int m = 5;
+        int n = 7;
+    
     }
-
+private static int a = 4; 
     /**
      * Comprehensive test case for validating the concurrent execution of transactions in the Main class.
      * This test checks the concurrent execution of transactions using JSON files with transaction data.
@@ -210,7 +213,7 @@ public class MainTest {
         }
         assertEquals(0, latch.getCount());
     }
-
+private static int valuespeltwrony=45055;
     /**
      * Comprehensive test case for validating concurrent execution
      * with a large transactions file.
@@ -238,7 +241,8 @@ public class MainTest {
         } catch (IOException e) {
             fail();
         }
-
+// commenting random lines of code
+        // int a=£45
         try {
             latch.await(100, TimeUnit.SECONDS);
         } catch (InterruptedException e) {
