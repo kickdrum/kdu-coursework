@@ -2,22 +2,27 @@ package com.kdu.caching.services;
 
 import com.kdu.caching.api_utils.ApiUtils;
 import com.kdu.caching.dto.GeoCodeResponseDto;
+import com.kdu.caching.dto.ReverseGeoCodeResponseDto;
 import com.kdu.caching.repository.CachedRepository;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.tuple.Pair;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cache.CacheManager;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 @Service
 public class GeoCodingService {
+    private static final Logger logger = LoggerFactory.getLogger(GeoCodingService.class);
+
     @Value("${api-key}")
     private String apiKey;
     private final CachedRepository cache;
@@ -25,26 +30,28 @@ public class GeoCodingService {
     public GeoCodingService (){
         cache = new CachedRepository();
     }
-    public String getAddress(List<Double> coordinates){
+    public ReverseGeoCodeResponseDto getAddress(List<Double> coordinates){
         String address = cache.getReverseGeocodingResult(coordinates.toString());
         if (address==null){
-            System.out.println("Not Cached");
+            logger.info("{} not cached calling 3rd party API", coordinates);
             address = positionStackReverse(coordinates);
             cache.putReverse(coordinates.toString(),address);
         }
-        System.out.println(address);
-        return address;
+        return new ReverseGeoCodeResponseDto(address);
     }
 
 
     public GeoCodeResponseDto getGeoCode(String address){
         List<Double> coordinates = cache.getGeocodingResult(address);
-        if (coordinates==null){
-            System.out.println("Not Cached");
-            coordinates = positionStackForward(address);
-            cache.putForward(address,coordinates);
+        if (coordinates==null || coordinates.isEmpty()){
+            logger.info("{} not cached calling 3rd party API", address);
+            Pair<Boolean,List<Double>> goaCheckAndCoordinate = positionStackForward(address);
+            assert goaCheckAndCoordinate != null;
+            coordinates = goaCheckAndCoordinate.getRight();
+            if (Boolean.FALSE
+                    .equals(goaCheckAndCoordinate.getLeft()))
+                cache.putForward(address,coordinates);
         }
-        System.out.println(coordinates);
         return new GeoCodeResponseDto(coordinates.get(0),coordinates.get(1), HttpStatus.OK.value());
     }
 
@@ -54,29 +61,31 @@ public class GeoCodingService {
         try {
             response = ApiUtils.makeRequest(apiUrl);
         }catch (Exception e){
-            return "Error";
+            logger.error("Error while making get request {}",e.getMessage());
+            return null;
         }
         if (response!=null) {
-            JSONObject JsonResponse = ApiUtils.getJsonResponse(response);
-            return JsonResponse.getString("label");
+            JSONObject jsonResponse = ApiUtils.getJsonResponse(response);
+            return jsonResponse.getString("label");
         }
         else
-            return "Error";
+            return null;
     }
 
-    private List<Double> positionStackForward(String address){
+    private Pair<Boolean, List<Double>> positionStackForward(String address){
         String encodedAddress = URLEncoder.encode(address, StandardCharsets.UTF_8);
         String apiUrl = "http://api.positionstack.com/v1/forward?access_key=" + apiKey + "&query=" + encodedAddress;
         String response;
         try {
             response = ApiUtils.makeRequest(apiUrl);
         }catch (Exception e){
-            System.out.println("Exception");
+            logger.error("Error while making get request {}",e.getMessage());
             return null;
         }
         if (response!=null) {
-            JSONObject JsonResponse = ApiUtils.getJsonResponse(response);
-            return new ArrayList<Double>(List.of(new Double[]{JsonResponse.getDouble("latitude"), JsonResponse.getDouble("longitude")}));
+            JSONObject jsonResponse = ApiUtils.getJsonResponse(response);
+            List<Double> coordinates = List.of(jsonResponse.getDouble("latitude"), jsonResponse.getDouble("longitude"));
+            return Pair.of(jsonResponse.getString("region").toLowerCase().contains("goa"),coordinates);
         }
         else
             return null;
