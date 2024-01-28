@@ -12,6 +12,9 @@ import org.springframework.stereotype.Repository;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Repository class to manage caches
+ */
 @Slf4j
 @Repository
 public class CachedRepository {
@@ -22,6 +25,11 @@ public class CachedRepository {
         this.cacheManager = cacheManager;
     }
 
+    /**
+     * Return forward Geocode result from cache
+     * @param location address
+     * @return coordinates
+     */
     public List<Double> getGeocodingResult(String location) {
         Cache cache = cacheManager.getCache("geocoding");
         if (cache!=null) {
@@ -35,6 +43,11 @@ public class CachedRepository {
         }
     }
 
+    /**
+     * Return reverse geocode result from cache
+     * @param location coordinates
+     * @return address
+     */
     public String getReverseGeocodingResult(String location) {
         Cache cache = cacheManager.getCache("reverse-geocoding");
         if (cache!=null) {
@@ -45,19 +58,29 @@ public class CachedRepository {
         else return null;
     }
 
-    public void putReverse(String key, String address){
+    /**
+     * Add new address to reverse geocode cache
+     * @param coordinates key
+     * @param address value
+     */
+    public void putReverse(String coordinates, String address){
         logger.info("Added to reverse cache");
         Cache cache = cacheManager.getCache("reverse-geocoding");
         if (cache!=null) {
-            cache.put(key, address);
+            cache.put(coordinates, address);
         }
     }
 
-    public void putForward(String key, List<Double> coordinates){
+    /**
+     * Add new latitude and longitude to forward geocode cache
+     * @param address key
+     * @param coordinates value
+     */
+    public void putForward(String address, List<Double> coordinates){
         logger.info("Added to cache");
         Cache cache = cacheManager.getCache("geocoding");
         if (cache!=null) {
-            cache.put(key, coordinates);
+            cache.put(address, coordinates);
         }
     }
 

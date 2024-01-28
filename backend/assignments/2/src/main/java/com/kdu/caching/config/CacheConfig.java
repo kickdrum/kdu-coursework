@@ -15,6 +15,10 @@ import static java.util.Arrays.asList;
 @Configuration
 @EnableCaching
 public class CacheConfig {
+    /**
+     * Creating the cache manager bean using LRU policy with both caches
+     * @return cache manager bean
+     */
     @Bean
     public CaffeineCacheManager cacheManager() {
         CaffeineCacheManager cacheManager = new CaffeineCacheManager();

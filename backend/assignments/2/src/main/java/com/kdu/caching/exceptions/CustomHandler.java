@@ -12,16 +12,25 @@ import java.io.IOException;
  */
 @ControllerAdvice
 public class CustomHandler {
-
+    /**
+     * Handler for IO exceptions
+     * @param exception
+     * @return
+     */
     @ExceptionHandler(IOException.class)
-    public ResponseEntity<ErrorDto> handleIOException(IOException ex) {
-        ErrorDto errorDTO = new ErrorDto("Bad data", HttpStatus.BAD_REQUEST.value());
+    public ResponseEntity<ErrorDto> handleIOException(IOException exception) {
+        ErrorDto errorDTO = new ErrorDto(exception.getMessage(), HttpStatus.BAD_REQUEST.value());
         return new ResponseEntity<>(errorDTO, HttpStatus.BAD_REQUEST);
     }
 
+    /**
+     * Handler for Client error exception
+     * @param exception
+     * @return
+     */
     @ExceptionHandler(HttpClientErrorException.class)
-    public ResponseEntity<ErrorDto> handleIOException(HttpClientErrorException ex) {
-        ErrorDto errorDTO = new ErrorDto("Server Issue", HttpStatus.BAD_REQUEST.value());
+    public ResponseEntity<ErrorDto> handleIOException(HttpClientErrorException exception) {
+        ErrorDto errorDTO = new ErrorDto(exception.getMessage(), HttpStatus.BAD_REQUEST.value());
         return new ResponseEntity<>(errorDTO, HttpStatus.BAD_REQUEST);
     }
 }

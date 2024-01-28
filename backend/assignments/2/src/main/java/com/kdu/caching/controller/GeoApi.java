@@ -28,11 +28,23 @@ public class GeoApi {
         this.geoCodingService = geoCodingService;
     }
 
+    /**
+     * GeoCoding API method
+     * @param address Address to perform geocoding on
+     * @return Latitude and longitude in GeoCodeResponseDto
+     */
     @GetMapping("/geocoding")
     public GeoCodeResponseDto geocoding(@RequestParam String address) {
         logger.info("Geocode request: {}",address);
         return geoCodingService.getGeoCode(address);
     }
+
+    /**
+     * Reverse GeoCoding API method
+     * @param latitude of address to lookup
+     * @param longitude of address to lookup
+     * @return address as a String
+     */
     @GetMapping("/reverse-geocoding")
     public String reverseGeocoding(@RequestParam("latitude") double latitude, @RequestParam("longitude") double longitude) {
         logger.info("Reverse geocode request: {}, {}",latitude,longitude);

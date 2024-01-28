@@ -1,6 +1,6 @@
 package com.kdu.caching.services;
 
-import com.kdu.caching.api_utils.ApiUtils;
+import com.kdu.caching.utils.ApiUtils;
 import com.kdu.caching.dto.GeoCodeResponseDto;
 import com.kdu.caching.repository.CachedRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -30,6 +30,13 @@ public class GeoCodingService {
     public GeoCodingService (@Autowired CachedRepository cache){
         this.cache = cache;
     }
+
+    /**
+     * Service layer function for reverse GeoCoding.
+     * Checks the cache, makes ap call, updates the cache if not present
+     * @param coordinates latitude and longitude
+     * @return address
+     */
     public String getAddress(List<Double> coordinates){
         String address = cache.getReverseGeocodingResult(coordinates.toString());
         if (address==null){
@@ -41,6 +48,12 @@ public class GeoCodingService {
     }
 
 
+    /**
+     * Service layer function for forward GeoCoding.
+     * Checks the cache, makes ap call, updates the cache if not present
+     * @param address address
+     * @return latitude and longitude in a dto
+     */
     public GeoCodeResponseDto getGeoCode(String address){
         List<Double> coordinates = cache.getGeocodingResult(address);
         if (coordinates==null || coordinates.isEmpty()){
@@ -55,6 +68,11 @@ public class GeoCodingService {
         return new GeoCodeResponseDto(coordinates.get(0),coordinates.get(1), HttpStatus.OK.value());
     }
 
+    /**
+     * Helper function for getAddress, uses utils to get data from position stack
+     * @param coordinates latitude and longitude
+     * @return address
+     */
     private String positionStackReverse(List<Double> coordinates){
         String apiUrl = "http://api.positionstack.com/v1/reverse?access_key=" + apiKey + "&query=" + coordinates.get(0) + "," + coordinates.get(1);
         String response;
@@ -72,6 +90,11 @@ public class GeoCodingService {
             return null;
     }
 
+    /**
+     * Helper function for getGeoCode, uses utils to get data from position stack
+     * @param address address
+     * @return latitude and longitude
+     */
     private Pair<Boolean, List<Double>> positionStackForward(String address){
         String encodedAddress = URLEncoder.encode(address, StandardCharsets.UTF_8);
         String apiUrl = "http://api.positionstack.com/v1/forward?access_key=" + apiKey + "&query=" + encodedAddress;

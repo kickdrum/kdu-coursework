@@ -1,4 +1,4 @@
-package com.kdu.caching.api_utils;
+package com.kdu.caching.utils;
 
 import lombok.experimental.UtilityClass;
 import org.json.JSONArray;
@@ -11,8 +11,19 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+
+/**
+ * Utility class for helper functions used during position stack api calls
+ */
 @UtilityClass
 public class ApiUtils {
+
+    /**
+     * Method to make an API call to the input url and return the response as a string
+     * @param urlString Complete API request url
+     * @return API response string
+     * @throws IOException
+     */
     public String makeRequest(String urlString) throws IOException{
         URL url = new URL(urlString);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -32,6 +43,12 @@ public class ApiUtils {
         return Integer.toString(responseCode);
     }
 
+
+    /**
+     * Method to convert API Response string to JSON object and get the best matching address.
+     * @param response API response string
+     * @return best address
+     */
     public JSONObject getJsonResponse(String response) {
         JSONObject jsonResponse = new JSONObject(response);
         JSONArray results = jsonResponse.getJSONArray("data");
