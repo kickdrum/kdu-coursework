@@ -4,8 +4,10 @@ import com.caching.dto.LocationData;
 import com.caching.dto.LocationResponse;
 import com.caching.dto.ReverseGeocodingData;
 import com.caching.dto.ReverseGeocodingResponse;
+import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -27,6 +29,7 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 @Slf4j
+@Data
 public class LocationServiceImpl implements LocationService {
 
     @Value("${api-key}")
@@ -89,9 +92,6 @@ public class LocationServiceImpl implements LocationService {
                     LocationData modifiedData = new LocationData();
                     modifiedData.setLatitude(data.getLatitude());
                     modifiedData.setLongitude(data.getLongitude());
-//                    modifiedData.setName(data.getName());
-//                    modifiedData.setLocality(data.getLocality());
-//                    modifiedData.setLabel(data.getLabel());
                     return modifiedData;
                 })
                 .collect(Collectors.toList());
@@ -126,10 +126,6 @@ public class LocationServiceImpl implements LocationService {
         List<ReverseGeocodingData> modifiedDataList = reverseGeocodingResponse.getData().stream()
                 .map(data -> {
                     ReverseGeocodingData modifiedData = new ReverseGeocodingData();
-//                    modifiedData.setLatitude(data.getLatitude());
-//                    modifiedData.setLongitude(data.getLongitude());
-//                    modifiedData.setName(data.getName());
-//                    modifiedData.setLocality(data.getLocality());
                     modifiedData.setLabel(data.getLabel());
                     return modifiedData;
                 })

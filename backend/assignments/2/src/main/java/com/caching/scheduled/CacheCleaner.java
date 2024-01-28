@@ -1,5 +1,6 @@
 package com.caching.scheduled;
 
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
@@ -9,9 +10,10 @@ import org.springframework.stereotype.Component;
 import java.util.Objects;
 
 @Component
+@Data
 public class CacheCleaner {
 
-    @Autowired
+
     private CacheManager cacheManager;
 
     @Scheduled(fixedRate = 3600000) // Run every hour, adjust as needed
