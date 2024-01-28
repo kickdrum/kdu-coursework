@@ -58,7 +58,10 @@
 			<version>3.12.4</version> <!-- Use the latest version available -->
 			<scope>test</scope>
 		</dependency>
-
+		<dependency>
+			<groupId>com.github.ben-manes.caffeine</groupId>
+			<artifactId>caffeine</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
