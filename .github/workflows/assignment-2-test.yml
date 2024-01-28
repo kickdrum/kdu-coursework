@@ -1,5 +1,4 @@
 name: Assignment 2 test run
-assignment-2-test.yml
 on:
   push:
     branches:
