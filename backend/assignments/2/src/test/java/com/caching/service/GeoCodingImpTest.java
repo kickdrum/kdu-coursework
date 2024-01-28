@@ -1,4 +1,4 @@
-package com.kdu.caching.service;
+package com.caching.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.*;
@@ -29,8 +29,8 @@ import static org.junit.jupiter.api.Assertions.*;
 public class GeoCodingImpTest {
     private static Object expectedGeoCodingApiResponse;
     private static Object expectedReverseGeoCodingApiResponse;
-    private static String geoCodingTestUrl;
-    private static String reverseGeoCodingTestUrl;
+    private static String geoCodingTestUrl="http://api.positionstack.com/v1/forward?access_key=ed48d89a74e3a54f84b161eaab00af27\n&query=delhi";
+    private static String reverseGeoCodingTestUrl="http://api.positionstack.com/v1/reverse?access_key=ed48d89a74e3a54f84b161eaab00af27\n&query=37.431155,-120.781462";
     @Autowired
     private MockMvc mockMvc;
     @Autowired
@@ -163,7 +163,7 @@ public class GeoCodingImpTest {
         String[] addressArray = resultInStringFormat.split(", ");
 
         // Convert JSON string to Map
-        Integer actualResponse = Integer.parseInt((String) (addressArray[0].split(" ")[0]));
+        Integer actualResponse = Integer.parseInt((String) (addressArray[0].split(",")[0]));
 
         // Check that the response body is not empty
         assertNotNull(actualResponse, "Response body should not be null");
@@ -271,7 +271,6 @@ public class GeoCodingImpTest {
     @AfterEach
     @BeforeEach
     public void tearDown() {
-
         cacheManager.getCache("geocoding").clear();
         cacheManager.getCache("reverse-geocoding").clear();
     }
@@ -285,26 +284,35 @@ public class GeoCodingImpTest {
 
     private void hitReverseGeoCodingCache(String latitude, String longitude) throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/reverse-geocoding")
-                        .param("latitude", latitude)
-                        .param("longitude", longitude)
+                        .param("latitude", "37.431155")
+                        .param("longitude", "-120.781462")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk());
     }
 
-    @BeforeAll
-    public static void setup(@Value("${geocoding-url}") String geoCodingUrl,
-                             @Value("${reverse-geocoding-url}") String reverseGeoCodingUrl) {
-        geoCodingTestUrl = geoCodingUrl;
-        reverseGeoCodingTestUrl = reverseGeoCodingUrl;
+//    @BeforeAll
+//    public static void setup( String geoCodingUrl,
+//                              String reverseGeoCodingUrl) {
+//        geoCodingTestUrl = "http://api.positionstack.com/v1/forward?access_key=60f36a8f160f118eda5abe7ea352f6d5&query=delhi";
+//        reverseGeoCodingTestUrl = "http://api.positionstack.com/v1/reverse?access_key=60f36a8f160f118eda5abe7ea352f6d5&query=37.431155,-120.781462";
+//
+//        RestTemplate restTemplate = new RestTemplate();
+//        expectedGeoCodingApiResponse = restTemplate.getForObject(
+//                geoCodingTestUrl,
+//                Object.class);
+//
+//        expectedReverseGeoCodingApiResponse = restTemplate.getForObject(
+//                reverseGeoCodingTestUrl,
+//                Object.class);
+//    }
+@BeforeAll
+public static void setup() {
+    geoCodingTestUrl = "http://api.positionstack.com/v1/forward?access_key=ed48d89a74e3a54f84b161eaab00af27&query=delhi";
+    reverseGeoCodingTestUrl = "http://api.positionstack.com/v1/reverse?access_key=ed48d89a74e3a54f84b161eaab00af27&query=37.431155,-120.781462";
 
-        RestTemplate restTemplate = new RestTemplate();
-        expectedGeoCodingApiResponse = restTemplate.getForObject(
-                geoCodingTestUrl,
-                Object.class);
-
-        expectedReverseGeoCodingApiResponse = restTemplate.getForObject(
-                reverseGeoCodingTestUrl,
-                Object.class);
-    }
+    RestTemplate restTemplate = new RestTemplate();
+    expectedGeoCodingApiResponse = restTemplate.getForObject(geoCodingTestUrl, Object.class);
+    expectedReverseGeoCodingApiResponse = restTemplate.getForObject(reverseGeoCodingTestUrl, Object.class);
 }
 
+}
