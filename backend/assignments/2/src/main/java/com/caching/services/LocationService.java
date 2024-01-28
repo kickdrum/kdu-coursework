@@ -2,10 +2,7 @@ package com.caching.services;
 
 import com.caching.dto.LocationData;
 import com.caching.dto.ReverseGeocodingData;
-import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
-//import org.springframework.cache.annotation.CacheEvict;
-//import org.springframework.cache.annotation.Cacheable;
 
 import java.util.List;
 

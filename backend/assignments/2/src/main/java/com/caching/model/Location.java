@@ -12,7 +12,6 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 public class Location {
     @JsonTypeId
     @Generated
-//    private long id;
 
     private String address;
     private Double latitude;
