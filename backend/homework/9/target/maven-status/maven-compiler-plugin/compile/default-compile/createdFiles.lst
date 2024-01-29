@@ -1,0 +1,7 @@
+com/example/handson3/Handson3Application.class
+com/example/handson3/model/Vehicle.class
+com/example/handson3/util/LogBack.class
+com/example/handson3/dto/VehicleDTO.class
+com/example/handson3/repositories/InventoryRepository.class
+com/example/handson3/service/FactoryService.class
+com/example/handson3/controller/VehicleController.class
