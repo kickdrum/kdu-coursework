@@ -33,6 +33,13 @@ public class GeoCodingImp implements GeoCoding{
         this.cacheManager = cacheManager;
     }
 
+    /**
+     * Retrieves geographic coordinates (latitude and longitude) for a given address.
+     *
+     * @param requestDTO The request containing the address to geocode.
+     * @return A {@link GeoCodingResponseDTO} containing the latitude and longitude, or null if an error occurs.
+     * @throws ResponseStatusException (400 BAD_REQUEST) if the address is null or empty.
+     */
     public GeoCodingResponseDTO getGeoCoding(GeoCodingRequestDTO requestDTO){
         String address = requestDTO.getAddress();
         if (address == null || address.isEmpty()) {
@@ -77,7 +84,13 @@ public class GeoCodingImp implements GeoCoding{
         }
         return null;
     }
-
+    /**
+     * Retrieves an address for given geographic coordinates (latitude and longitude).
+     *
+     * @param requestDTO The request containing the latitude and longitude to reverse geocode.
+     * @return A {@link ReverseGeoCodingResponseDTO} containing the address, or null if an error occurs.
+     * @throws ResponseStatusException (400 BAD_REQUEST) if the latitude or longitude is invalid.
+     */
     public ReverseGeoCodingResponseDTO getReverseGeoCoding(ReverseGeoCodingRequestDTO requestDTO){
         double latitude = requestDTO.getLatitude();
         double longitude = requestDTO.getLongitude();

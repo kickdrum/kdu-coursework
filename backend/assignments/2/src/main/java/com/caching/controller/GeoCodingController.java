@@ -20,6 +20,12 @@ public class GeoCodingController {
     public GeoCodingController(GeoCodingImp geoCodingService){
         this.geoCodingService = geoCodingService;
     }
+    /**
+     * Performs forward geocoding to retrieve geographic coordinates for a given address.
+     *
+     * @param address The address to geocode.
+     * @return A {@link ResponseEntity} containing the geocoding results as a {@link GeoCodingResponseDTO}.
+     */
     @GetMapping("/geocoding")
     public ResponseEntity<GeoCodingResponseDTO> forwardGeoCoding(@RequestParam("address") String address) {
         log.info(address);
@@ -28,6 +34,13 @@ public class GeoCodingController {
                 .build();
         return ResponseEntity.ok(geoCodingService.getGeoCoding(requestDTO));
     }
+    /**
+     * Performs reverse geocoding to retrieve an address for given geographic coordinates.
+     *
+     * @param latitude  The latitude of the location.
+     * @param longitude The longitude of the location.
+     * @return A {@link ResponseEntity} containing the reverse geocoding results as a {@link ReverseGeoCodingResponseDTO}.
+     */
     @GetMapping("/reverse-geocoding")
     public ResponseEntity<ReverseGeoCodingResponseDTO> reverseGeoCoding(@RequestParam("latitude") Double latitude, @RequestParam("longitude") Double longitude){
         ReverseGeoCodingRequestDTO requestDTO = ReverseGeoCodingRequestDTO.builder()
