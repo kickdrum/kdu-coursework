@@ -21,7 +21,7 @@ public class PersonUserDetails implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Person person = personService.getPersonUsername(username);
+        Person person = personService.getPersonUserName(username);
         String personUserName = null;
         String personPassword = null;
         List<GrantedAuthority> authorities = null;

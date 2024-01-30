@@ -7,7 +7,6 @@ import lombok.Data;
 @AllArgsConstructor
 public class Person {
     private String name;
-
     private String username;
     private String password;
     private String role;

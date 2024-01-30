@@ -23,7 +23,8 @@ public class CustomSecurityConfig {
                 .addFilterBefore(new TokenValidatorFilter(), BasicAuthenticationFilter.class)
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers("/person/login").permitAll()
-                        .requestMatchers("/user/**", "/search/user", "/user").hasRole("ADMIN")
+                        .requestMatchers("/admin/**", "/admin/finduser", "/admin").hasRole("ADMIN")
+                        .requestMatchers("/user/getAllUsers", "/user/finduser").hasRole("USER")
                         .anyRequest().authenticated()).csrf().disable();
         http.httpBasic(withDefaults());
         return http.build();

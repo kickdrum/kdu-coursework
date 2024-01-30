@@ -26,7 +26,7 @@ public class CustomAuthenticationManager implements AuthenticationProvider {
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         String username = authentication.getName();
         String pwd = authentication.getCredentials().toString();
-        Person person = personService.getPersonUsername(username);
+        Person person = personService.getPersonUserName(username);
 
         if(person == null){
             throw new BadCredentialsException("No user registered with this details!");
