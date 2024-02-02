@@ -1,7 +1,3 @@
-Assignment 3
-
-API contracts are as follows:
-
 # User Controller
 
 ## API Endpoint: `POST /api/v1/auth/register`
