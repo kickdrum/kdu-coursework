@@ -2,7 +2,7 @@ package com.example.assesment2.service;
 
 import com.example.assesment2.entity.Cart;
 import com.example.assesment2.entity.Product;
-import com.example.assesment2.entity.User;
+import com.example.assesment2.entity.Users;
 import com.example.assesment2.repository.CartRepository;
 import com.example.assesment2.repository.ProductRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -25,7 +25,7 @@ public class CartService {
     }
 
     public Cart getOrCreateCart(String userEmail) {
-        User user = userService.getUserByEmail(userEmail);
+        Users user = userService.getUserByEmail(userEmail);
         return cartRepository.findByUser(user)
                 .orElseGet(() -> {
                     Cart newCart = new Cart();

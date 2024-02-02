@@ -10,16 +10,19 @@ import java.util.List;
 public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(
+            name = "cartId"
+    )
+    private Long cartId;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "userId")
+    private Users user;
 
     @ManyToMany
     @JoinTable(name = "cart_products",
-            joinColumns = @JoinColumn(name = "cart_id"),
-            inverseJoinColumns = @JoinColumn(name = "product_id"))
+            joinColumns = @JoinColumn(name = "cartId"),
+            inverseJoinColumns = @JoinColumn(name = "productId"))
     private List<Product> products;
 
 }

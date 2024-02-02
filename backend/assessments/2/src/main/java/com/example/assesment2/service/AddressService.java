@@ -2,7 +2,7 @@ package com.example.assesment2.service;
 
 import com.example.assesment2.dto.AddressDto;
 import com.example.assesment2.entity.Address;
-import com.example.assesment2.entity.User;
+import com.example.assesment2.entity.Users;
 import com.example.assesment2.repository.AddressRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,7 +19,7 @@ public class AddressService {
     }
 
     public Address addAddress(AddressDto addressDto, String userEmail) {
-        User user = userService.getUserByEmail(userEmail);
+        Users user = userService.getUserByEmail(userEmail);
         //street city state postalCode nickname
         Address newAddress = new Address();
         newAddress.setStreet(addressDto.getStreet());

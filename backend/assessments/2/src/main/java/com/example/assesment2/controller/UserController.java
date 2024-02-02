@@ -1,6 +1,6 @@
 package com.example.assesment2.controller;
 
-import com.example.assesment2.entity.User;
+import com.example.assesment2.entity.Users;
 import com.example.assesment2.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +21,7 @@ public class UserController {
 
     @GetMapping("/{email}")
     public ResponseEntity<?> getUserProfile(@PathVariable String email) {
-        User user = userService.getUserByEmail(email);
+        Users user = userService.getUserByEmail(email);
         return ResponseEntity.ok(user);
     }
 }

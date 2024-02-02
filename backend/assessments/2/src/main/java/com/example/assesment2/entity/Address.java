@@ -8,7 +8,8 @@ import lombok.Data;
 public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "address_id")
+    private Long addressId;
     private String street;
     private String city;
     private String state;
@@ -16,6 +17,6 @@ public class Address {
     private String nickname;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "userId")
+    private Users user;
 }

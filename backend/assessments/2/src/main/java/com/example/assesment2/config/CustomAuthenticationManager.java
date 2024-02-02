@@ -1,8 +1,9 @@
 package com.example.assesment2.config;
 
-import com.example.assesment2.entity.User;
+import com.example.assesment2.entity.Users;
 import com.example.assesment2.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -15,6 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class CustomAuthenticationManager implements AuthenticationProvider {
     @Autowired
     UserService personService;
@@ -26,7 +28,7 @@ public class CustomAuthenticationManager implements AuthenticationProvider {
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         String username = authentication.getName();
         String pwd = authentication.getCredentials().toString();
-        User person = personService.getUserByEmail(username);
+        Users person = personService.getUserByEmail(username);
 
         if(person == null){
             throw new BadCredentialsException("No user registered with this details!");

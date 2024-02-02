@@ -1,6 +1,6 @@
 package com.example.assesment2.controller;
 
-import com.example.assesment2.entity.Order;
+import com.example.assesment2.entity.Orders;
 import com.example.assesment2.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,7 +22,7 @@ public class OrderController {
 
     @PostMapping("/{email}/{shippingAddress}")
     public ResponseEntity<?> placeOrder(@PathVariable String email, @PathVariable String shippingAddress) {
-        Order newOrder = orderService.placeOrder(email, shippingAddress);
+        Orders newOrder = orderService.placeOrder(email, shippingAddress);
         return new ResponseEntity<>(newOrder, HttpStatus.CREATED);
     }
 }

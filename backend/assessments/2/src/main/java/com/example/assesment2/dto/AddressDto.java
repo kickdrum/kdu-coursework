@@ -1,6 +1,6 @@
 package com.example.assesment2.dto;
 
-import com.example.assesment2.entity.User;
+import com.example.assesment2.entity.Users;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -14,5 +14,5 @@ public class AddressDto {
     private String state;
     private String postalCode;
     private String nickname;
-    private User user;
+    private Users user;
 }

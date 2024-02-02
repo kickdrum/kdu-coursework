@@ -22,11 +22,11 @@ public class OrderService {
         this.userService = userService;
     }
 
-    public Order placeOrder(String userEmail, String shippingAddress) {
-        User user = userService.getUserByEmail(userEmail);
+    public Orders placeOrder(String userEmail, String shippingAddress) {
+        Users user = userService.getUserByEmail(userEmail);
         Cart cart = cartService.getOrCreateCart(userEmail);
 
-        Order newOrder = new Order();
+        Orders newOrder = new Orders();
         newOrder.setUser(user);
         newOrder.setOrderItems(createOrderItems(cart.getProducts(), newOrder));
         newOrder.setOrderDate(LocalDate.now());
@@ -39,13 +39,13 @@ public class OrderService {
         return orderRepository.save(newOrder);
     }
 
-    private List<OrderItem> createOrderItems(List<Product> products, Order order) {
+    private List<OrderItem> createOrderItems(List<Product> products, Orders order) {
         return products.stream()
                 .map(product -> {
                     OrderItem orderItem = new OrderItem();
                     orderItem.setProduct(product);
-                    orderItem.setOrder(order);
-                    orderItem.setQuantity(1); // You can enhance this based on your business logic
+//                    orderItem.setOrder(order);order
+                    orderItem.setQuantity(1);
                     return orderItem;
                 })
                 .collect(Collectors.toList());
