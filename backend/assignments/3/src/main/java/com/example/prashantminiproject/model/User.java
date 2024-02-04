@@ -28,7 +28,4 @@ public class User {
 
     @ManyToMany
     private List<House> houses = new ArrayList<>();
-
-
-
 }

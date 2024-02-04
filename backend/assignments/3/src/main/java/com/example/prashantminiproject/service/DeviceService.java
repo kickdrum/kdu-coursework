@@ -9,16 +9,15 @@ import org.springframework.stereotype.Service;
 public class DeviceService {
 
     private final DeviceRepository deviceRepository;
-
     private final InventoryService inventoryService;
+
     @Autowired
     public DeviceService(DeviceRepository deviceRepository, InventoryService inventoryService){
-        this.deviceRepository=deviceRepository;
-        this.inventoryService=inventoryService;
+        this.deviceRepository = deviceRepository;
+        this.inventoryService = inventoryService;
     }
 
     public Device registerDevice(String kickstonId, String deviceUsername, String devicePassword, String manufactureDateTime, String manufactureFactoryPlace) {
-
         if (inventoryService.validateDeviceInInventory(kickstonId, deviceUsername, devicePassword, manufactureDateTime, manufactureFactoryPlace)) {
             Device device = new Device();
             device.setKickstonId(kickstonId);
@@ -28,5 +27,4 @@ public class DeviceService {
         }
         return null;
     }
-
 }

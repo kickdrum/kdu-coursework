@@ -22,7 +22,6 @@ public class UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
-
     private final UserMapper userMapper = new UserMapper();
 
     public User registerUser(UserDto userDto) {

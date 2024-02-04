@@ -16,7 +16,7 @@ public class Device {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long deviceId;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "room_id")
     @JsonBackReference
     private Room room;

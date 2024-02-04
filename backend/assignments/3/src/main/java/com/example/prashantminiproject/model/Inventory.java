@@ -21,6 +21,4 @@ public class Inventory {
     private String devicePassword;
     private LocalDateTime manufactureDateTime;
     private String manufactureFactoryPlace;
-
-
 }

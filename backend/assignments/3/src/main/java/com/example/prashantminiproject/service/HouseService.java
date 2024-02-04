@@ -5,6 +5,7 @@ import com.example.prashantminiproject.model.House;
 import com.example.prashantminiproject.model.User;
 import com.example.prashantminiproject.repository.HouseRepository;
 //import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,10 +13,11 @@ import java.util.List;
 @Service
 public class HouseService {
 
-    HouseRepository houseRepository;
-//    @Autowired
+    private final HouseRepository houseRepository;
+
+    @Autowired
     public HouseService(HouseRepository houseRepository){
-        this.houseRepository=houseRepository;
+        this.houseRepository = houseRepository;
     }
 
     public House addHouse(House house) {
@@ -38,12 +40,11 @@ public class HouseService {
         }
     }
 
-    public void addUserToHouse(Long houseId, User users) {
+    public void addUserToHouse(Long houseId, User user) {
         House house = houseRepository.findById(houseId).orElse(null);
         if (house != null) {
-            house.addUser(users);
+            house.addUser(user);
             houseRepository.save(house);
         }
     }
-
 }

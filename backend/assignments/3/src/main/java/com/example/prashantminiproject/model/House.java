@@ -14,12 +14,12 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@JsonIgnoreProperties({"users","rooms"})
+@JsonIgnoreProperties({"users", "rooms"})
 @Table(name = "house")
 public class House {
     @Id
-    @Column(name = "house_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "house_id")
     private Long houseId;
     private String name;
     private String address;
@@ -28,12 +28,14 @@ public class House {
     @ManyToMany(mappedBy = "houses", cascade = CascadeType.ALL)
     private List<User> users = new ArrayList<>();
 
-    @OneToMany(mappedBy = "house")
+    @OneToMany(mappedBy = "house", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<Room> rooms = new ArrayList<>();
 
-    public void addUser(User users) {
-
+    public void addUser(User user) {
+        this.users.add(user);
+        user.getHouses().add(this);
     }
 }
+
 

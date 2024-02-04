@@ -8,22 +8,25 @@ import com.example.prashantminiproject.repository.HouseRepository; // Add this i
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 @Service
 public class RoomService {
 
     private final RoomRepository roomRepository;
-    @Autowired
-    public RoomService(RoomRepository roomRepository){
-        this.roomRepository=roomRepository;
-    }
+    private final HouseRepository houseRepository;
 
     @Autowired
-    private HouseRepository houseRepository;
+    public RoomService(RoomRepository roomRepository, HouseRepository houseRepository){
+        this.roomRepository = roomRepository;
+        this.houseRepository = houseRepository;
+    }
 
     public Room addRoomToHouse(Long houseId, Room room) {
         House house = houseRepository.findById(houseId).orElse(null);
-
+        if (house != null) {
+            room.setHouse(house);
+            return roomRepository.save(room);
+        }
         return null;
     }
-
 }
