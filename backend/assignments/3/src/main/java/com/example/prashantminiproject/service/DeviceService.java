@@ -2,7 +2,6 @@ package com.example.prashantminiproject.service;
 
 import com.example.prashantminiproject.model.Device;
 import com.example.prashantminiproject.repository.DeviceRepository;
-import com.example.prashantminiproject.repository.InventoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,8 +25,8 @@ public class DeviceService {
             device.setKickstonId(kickstonId);
             device.setDeviceUsername(deviceUsername);
             device.setDevicePassword(devicePassword);
-            device.setManufactureDateTime(manufactureDateTime);
-            device.setManufactureFactoryPlace(manufactureFactoryPlace);
+//            device.setManufactureDateTime(manufactureDateTime);
+//            device.setManufactureFactoryPlace(manufactureFactoryPlace);
             // Set other necessary properties
             return deviceRepository.save(device);
         }

@@ -5,29 +5,30 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "users")
 public class User {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "users_id")
-    private Long usersId;
-
+    @Column(name = "user_id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long userId;
     private String username;
     private String password;
-    private String name;
+    private String email;
     private String firstName;
     private String lastName;
-    private String emailId;
+    private String role;
+    private String token;
 
-    @ManyToMany(mappedBy = "users")
-    private List<House> houses;
+    @ManyToMany
+    private List<House> houses = new ArrayList<>();
+
+
+
 }
-
-

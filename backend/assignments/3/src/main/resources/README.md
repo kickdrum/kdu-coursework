@@ -1,1 +1,0 @@
-All your resources files go here.

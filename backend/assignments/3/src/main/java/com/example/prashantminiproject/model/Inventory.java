@@ -1,27 +1,26 @@
 package com.example.prashantminiproject.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "device")
-public class Device {
+@Table(name = "inventory")
+public class Inventory {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long deviceId;
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "room_id")
-    @JsonBackReference
-    private Room room;
-
+    @Column(name = "kickston_id")
     private String kickstonId;
+
     private String deviceUsername;
     private String devicePassword;
+    private LocalDateTime manufactureDateTime;
+    private String manufactureFactoryPlace;
+
+
 }

@@ -1,14 +1,16 @@
 package com.example.prashantminiproject.dto;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 @AllArgsConstructor
-public class UserDto {
+public class RequestUserDto {
     private String username;
     private String password;
-    private String name;
-    private String firstname;
-    private String lastname;
-    private String emailId;
+    private String email;
+    private String firstName;
+    private String lastName;
 }

@@ -1,63 +1,51 @@
 package com.example.prashantminiproject.service;
 
-import com.example.prashantminiproject.exception.custom.NoUserFoundException;
+import com.example.prashantminiproject.dto.RequestUserDto;
+import com.example.prashantminiproject.mapper.UserMapper;
 import com.example.prashantminiproject.model.User;
-import com.example.prashantminiproject.dto.UserDto;
 import com.example.prashantminiproject.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-import java.util.Optional;
 @Service
-public class UserService{
+@Transactional
+public class UserService {
     private final UserRepository userRepository;
 
-    public UserService(UserRepository userRepository) {
+    private final PasswordEncoder passwordEncoder;
+
+    @Autowired
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
-    }
-
-    public List<User> getAllUsers() throws NoUserFoundException {
-        try {
-            List<User> users = userRepository.findAll();
-            if(users.isEmpty()){
-                throw new NoUserFoundException("No UsersRepository found in the database");
-            }
-            return users;
-        } catch (NoUserFoundException e) {
-            throw new NoUserFoundException(e.getMessage());
-        }
-    }
-
-    public User getUserByName(String name){
-        Optional<User> user = userRepository.findById(name);
-
-        if (user.isPresent()) {
-            return user.get();
-        }
-        throw new NoUserFoundException("No user found with name " + name);
-
-    }
-
-    public void addUser(UserDto userDto) {
-        try {
-            User newUser = new User();
-            newUser.setUsername(userDto.getUsername());
-            newUser.setName(userDto.getName());
-            newUser.setEmailId(userDto.getEmailId());
-            newUser.setPassword(userDto.getPassword());
-            newUser.setFirstName(userDto.getFirstname());
-            newUser.setLastName(userDto.getLastname());
-            userRepository.save(newUser);
-        } catch (Exception e) {
-            throw new RuntimeException("Error occurred while adding user");
-        }
+        this.passwordEncoder = passwordEncoder;
     }
 
 
-}
+    private final UserMapper userMapper = new UserMapper();
 
-//    public User getUserByUsername(String username) {
-//        Optional<User> userOptional = userRepository.findUserByUsername(username);
-//        return userOptional.orElse(null);
+    public User registerUser(RequestUserDto requestUserDto) {
+        User user = userMapper.mapUserDtoToUser(requestUserDto);
+        user.setPassword(passwordEncoder.encode(requestUserDto.getPassword()));
+        return userRepository.save(user);
+    }
+
+//    public void validateUser(RequestUserDto requestUserDto) {
+//        if (userRepository.findByUsername(requestUserDto.getUsername()) != null) {
+//            throw new UserAlreadyExistException("User already exists");
+//        }
 //    }
-
+//    public void validateUser(String username) {
+//        if (userRepository.findByUsername(username) == null) {
+//            throw new UserDoesntExistException("User does not exists");
+//        }
+//    }
+//
+//    public void validateAdminUser(String token) {
+//        UserEntity userEntity = userRepository.findByToken(token);
+//        if (!userEntity.getRole().equals("ROLE_ADMIN")) {
+//            throw new OnlyAdminAllowedException("User is not admin");
+//        }
+//    }
+}

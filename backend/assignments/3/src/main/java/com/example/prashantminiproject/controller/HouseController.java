@@ -1,7 +1,6 @@
 package com.example.prashantminiproject.controller;
 
 import com.example.prashantminiproject.model.House;
-//import com.example.prashantminiproject.model.Users;
 import com.example.prashantminiproject.model.User;
 import com.example.prashantminiproject.service.HouseService;
 import org.springframework.beans.factory.annotation.Autowired;

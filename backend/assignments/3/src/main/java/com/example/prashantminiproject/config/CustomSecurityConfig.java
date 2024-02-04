@@ -1,54 +1,35 @@
 package com.example.prashantminiproject.config;
-import com.example.prashantminiproject.service.UserService;
-import org.springframework.security.authentication.AuthenticationProvider;
-import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
+
+import com.example.prashantminiproject.filter.TokenGeneratorFilter;
+import com.example.prashantminiproject.filter.TokenValidatorFilter;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import com.example.prashantminiproject.model.User;
-import java.util.ArrayList;
-import java.util.List;
+import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
-public class CustomSecurityConfig implements AuthenticationProvider {
+import static org.springframework.security.config.Customizer.withDefaults;
 
-    private final UserService userService;
-    private final PasswordEncoder passwordEncoder;
-
-    public CustomSecurityConfig(UserService userService, PasswordEncoder passwordEncoder) {
-        this.userService = userService;
-        this.passwordEncoder = passwordEncoder;
+@Configuration
+@EnableWebSecurity
+public class CustomSecurityConfig {
+    @Bean
+    SecurityFilterChain customDefaultFilter(HttpSecurity http) throws Exception {
+        http.
+                addFilterAfter(new TokenGeneratorFilter(), BasicAuthenticationFilter.class)
+                .addFilterBefore(new TokenValidatorFilter(), BasicAuthenticationFilter.class)
+                .authorizeHttpRequests(requests -> requests
+                        .requestMatchers("/api/v1/auth/**").permitAll()
+                        .anyRequest().authenticated()).csrf().disable();
+        http.httpBasic(withDefaults());
+        return http.build();
     }
 
-    @Override
-    public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-        String name = authentication.getName();
-        String password = authentication.getCredentials().toString();
-        User user = userService.getUserByName(name);
-        if(user == null){
-            throw new BadCredentialsException("No user registered with this details!");
-        }else{
-            if (passwordEncoder.matches(password, user.getPassword())) {
-                return new UsernamePasswordAuthenticationToken(name, password, getGrantedAuthorities("ROLE_USER"));
-            } else {
-                throw new BadCredentialsException("Invalid password!");
-            }
-        }
+    @Bean
+    PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
-
-    @Override
-    public boolean supports(Class<?> authentication) {
-        return (UsernamePasswordAuthenticationToken.class.isAssignableFrom(authentication));
-    }
-
-    private List<GrantedAuthority> getGrantedAuthorities(String role) {
-        List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
-
-        grantedAuthorities.add(new SimpleGrantedAuthority(role));
-
-        return grantedAuthorities;
-    }
-
 }

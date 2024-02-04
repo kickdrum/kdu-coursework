@@ -1,12 +1,11 @@
 package com.example.prashantminiproject.filter;
+
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -20,9 +19,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-
 public class TokenGeneratorFilter extends OncePerRequestFilter {
-    public final Logger log = LoggerFactory.getLogger(TokenGeneratorFilter.class);
     public static final String JWT_KEY = "jxgEQeXHuPq8VdbyYFNkANdudQ53YUn4";
     public static final String JWT_HEADER = "Authorization";
 
@@ -31,14 +28,14 @@ public class TokenGeneratorFilter extends OncePerRequestFilter {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (null != authentication) {
             SecretKey key = Keys.hmacShaKeyFor(JWT_KEY.getBytes(StandardCharsets.UTF_8));
-            String jwt = Jwts.builder().issuer("kdu").subject("JWT Token")
+            String jwt = Jwts.builder().issuer("kdu").subject(authentication.getName())
                     .claim("username", authentication.getName())
+//                    .claim("userId", authenticate())
                     .claim("roles", populateAuthorities(authentication.getAuthorities()))
                     .issuedAt(new Date())
                     .expiration(new Date((new Date()).getTime() + 30000000))
                     .signWith(key).compact();
             response.setHeader(JWT_HEADER, jwt);
-            log.info(jwt);
         }
 
         filterChain.doFilter(request, response);
@@ -46,7 +43,7 @@ public class TokenGeneratorFilter extends OncePerRequestFilter {
 
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) {
-        return !(request.getServletPath().equals("/api/v1/auth/register"));
+        return !request.getServletPath().equals("/api/v1/auth/register");
     }
 
     private String populateAuthorities(Collection<? extends GrantedAuthority> collection) {
@@ -57,13 +54,13 @@ public class TokenGeneratorFilter extends OncePerRequestFilter {
         return String.join(",", authoritiesSet);
     }
 
-    public static String generateToken(String name, String role){
+    public String generateToken(String username, String role) {
         SecretKey key = Keys.hmacShaKeyFor(JWT_KEY.getBytes(StandardCharsets.UTF_8));
         return Jwts.builder().issuer("kdu").subject("JWT Token")
-                .claim("username", name)
+                .claim("username", username)
                 .claim("roles", role)
                 .issuedAt(new Date())
-                .expiration(new Date((new Date()).getTime() + 30000000))
+                .expiration(new Date((new Date()).getTime() + 864000000))
                 .signWith(key).compact();
     }
 }

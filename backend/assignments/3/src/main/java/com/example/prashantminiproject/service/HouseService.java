@@ -19,8 +19,6 @@ public class HouseService {
     }
 
     public House addHouse(House house) {
-        // Validate and handle logic for adding a house
-        // Set other necessary properties
         return houseRepository.save(house);
     }
 
