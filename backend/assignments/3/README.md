@@ -1,398 +1,88 @@
-Assignment 3
+# Smart Home 
 
-API contracts are as follows:
+Kickdrum is developing a sophisticated Smart Home Management System, empowering users to seamlessly control and monitor their connected devices through a unified mobile application.
 
-# User Controller
+## Problem Statement
 
-## API Endpoint: `POST /api/v1/auth/register`
+Our customer envisions an application with comprehensive features:
 
-### Description:
+1. Users can effortlessly create and manage multiple houses.
+2. The creator of a house assumes the role of the admin, wielding control over house-related operations.
+3. Exclusive privileges are granted to admins, enabling them to add users to their house securely.
+4. Admins can organize their houses by creating distinct rooms.
+5. Admins have the capability to incorporate various devices into their house ecosystem.
+6. Users enjoy the flexibility to relocate devices within the confines of the same house.
+7. A global view is provided for users to list all houses within the system.
+8. Detailed insights are available, allowing users to list all rooms and associated devices within a specific house.
+9. Users can effortlessly add or update the address associated with their house.
+10. The application maintains a meticulous inventory of all manufactured devices, including essential details such as kickston_id, device_username, device_password, manufacture_date_time, and manufacture_factory_place.
 
-This API endpoint is used to register a new user.
+## Tasks
 
-### Request:
+To accomplish these objectives, the following tasks are to be undertaken:
 
-- **Method:** `POST`
-- **Path:** `/register`
-- **Request Body:**
-    - **Content-Type:** `application/json`
-    - **Attributes:**
-        - `username` (Type: String) - The username of the user.
-        - `password` (Type: String) - The password for the user.
-        - `name` (Type: String) - The full name of the user.
-        - `firstName` (Type: String) - The first name of the user.
-        - `lastName` (Type: String) - The last name of the user.
-        - `emailId` (Type: String) - The email ID of the user.
+- **Database Schema Definition:** Design a robust database schema capable of handling the specified use cases.
+- **Database Definition Language (DDL):** Create a DDL statement to initialize the database, tables, and indexes systematically.
+- **Database Manipulation Language (DML):** Develop DML statements to populate the inventory table with device details.
+- **REST API Implementation:** Craft REST APIs that seamlessly manage all the outlined use cases.
 
-### Response:
+## Best Practices and Implementation Details
 
-- **Success Response:**
-    - **HTTP Status:** `200 OK`
-    - **Body:**
-        - `message` (Type: String) - A success message.
-        - `token` (Type: String) - The authentication token for the registered user.
+To ensure a high-quality and maintainable codebase, developers are expected to adhere to the following best practices:
 
-# House Controller
+- **Naming Conventions:** Rigorously follow Java naming conventions for class names, variables, methods, and database entities.
+- **Packaging Structure:** Maintain a well-organized packaging structure for the Java Spring application.
 
-## API Endpoint: `POST /api/v1/house`
+### Folder Structure
 
-### Description:
+The folder structure includes the following components:
 
-This API endpoint is used to add a new house.
+- **auth:** Authentication-related functionalities.
+- **controllers:** Controllers handling the incoming HTTP requests and responses.
+- **dto:** Data Transfer Objects for communication between layers.
+- **exceptions:** Custom and global exception handling.
+- **models:** Entity models representing database tables.
+- **repositories:** Data access layer for database operations.
+- **services:** Business logic layer for handling application-specific functionality.
+- **utils:** Utility classes, including constants and DtoMapper for data mapping.
 
-### Request:
+- **Entity Timestamps:** Include created date, modified date, and deleted date for all entities to track their lifecycle.
 
-- **Method:** `POST`
-- **Request Body:**
-    - **Content-Type:** `application/json`
-    - **Attributes:**
-        - `address` (Type: String) - The address of the house.
-        - `house_name` (Type: String) - The name of the house.
-        - `latitude` (Type: Double) - The latitude of the house's location.
-        - `longitude` (Type: Double) - The longitude of the house's location.
+### Authentication and Authorization
 
-### Response:
+- **Security Measures:** Leverage JWT tokens and Spring Security for robust authentication and authorization.
+- **API Base URL:** The base URL for all APIs is "/api/v1/".
 
-- **Success Response:**
+### Technology Stack
 
-    - **HTTP Status:** `200 OK`
-    - **Body:**
-        - `message` (Type: String) - A success message.
-        - `house` (Type: House) - Details of the added house.
-        - `httpStatus` (Type: HttpStatus) - HTTP status of the response.
-- **Error Response:**
+- **Backend** Spring Boot (Java and Maven)
+- **Database:** PostgreSQL is utilized as the primary database for data storage.
+- **API Testing:** Postman is employed for comprehensive API testing.
+- **Documentation:** Swagger is integrated for clear and accessible API documentation.
+- **Additional Features:** The application boasts Logging functionality, User profiles, Indexing, Data validation, and advanced Security measures such as JWT.
 
-    - **HTTP Status:** `400 Bad Request`
-    - **Body:**
-        - `message` (Type: String) - An error message describing the issue.
-        - `httpStatus` (Type: HttpStatus) - HTTP status of the response.
+## Getting Started
 
-## API Endpoint: `POST /{houseId}/add-user`
+To kickstart development, follow these steps:
 
-### Description
-This API endpoint is used to add a user to a house.
+1. Clone the repository to your local machine.
+2. Set up a PostgreSQL database and configure the application.properties file with your database credentials.
+3. Run the application locally.
+4. Access and test the APIs using the provided base URL "/api/v1/".
 
-### Request:
-- **Method:** `POST`
-- **Path Parameters:**
-    - `houseId` (Type: String) - The identifier of the house to which the user will be added.
-- **Request Body:**
-    - **Content-Type:** `application/json`
-    - **Attributes:**
-        - `username` (Type: String) - The username of the user to be added to the house
+## API Endpoints
 
-### Response:
-- **Success Response:**
-    - **HTTP Status:** `200 OK`
-    - **Body:**
-        - `message` (Type: String) - A success message.
-        - `object` (Type: String) - Additional information about the added user.
-        - `httpStatus` (Type: HttpStatus) - HTTP status of the response.
-- **Error Response:**
+Explore the extensive range of functionalities through the following API endpoints:
 
-    - **HTTP Status:** `400 Bad Request`
-    - **Body:**
-        - `message` (Type: String) - An error message describing the issue.
-        - `httpStatus` (Type: HttpStatus) - HTTP status of the response.
-
-### API Endpoint: `GET /api/v1/house`
-
-#### Description:
-
-
-This API endpoint retrieves a list of houses.
-
-#### Request:
-
-- **Method:** `GET`
-- **Query Parameters:**
-    - `pageNumber` (Type: Integer, Default: 0) - The page number for pagination.
-    - `pageSize` (Type: Integer, Default: 100) - The number of houses to include per page.
-
-#### Response:
-
-- **Success Response:**
-
-    - **HTTP Status:** `200 OK`
-    - **Body:**
-        - `message` (Type: String) - A success message.
-        - `houses` (Type: String) - JSON representation of the list of houses.
-        - `httpStatus` (Type: HttpStatus) - HTTP status of the response.
-- **Error Response:**
-
-    - **HTTP Status:** `500 Internal Server Error`
-    - **Body:**
-        - `message` (Type: String) - An error message describing the issue.
-        - `httpStatus` (Type: HttpStatus) - HTTP status of the response.
-
-
-
-### API Endpoint: `PUT /api/v1/house`
-
-#### Description:
-
-This API endpoint is used to update the address of a house.
-
-#### Request:
-
-- **Method:** `PUT`
-- **Query Parameter:**
-    - `houseId` (Type: String) - The identifier of the house for which the address will be updated.
-- **Request Body:**
-    - **Content-Type:** `application/json`
-    - **Attributes:**
-        - `newAddress` (Type: String) - The new address to be set for the house.
-
-#### Response:
-
-- **Success Response:**
-
-    - **HTTP Status:** `200 OK`
-    - **Body:**
-        - `message` (Type: String) - A success message.
-        - `object` (Type: String) - Additional information about the updated address.
-        - `httpStatus` (Type: HttpStatus) - HTTP status of the response.
-- **Error Response:**
-
-    - **HTTP Status:** `400 Bad Request`
-    - **Body:**
-        - `message` (Type: String) - An error message describing the issue.
-        - `httpStatus` (Type: HttpStatus) - HTTP status of the response.
-
-
-## API Endpoint: `GET /api/v1/house/{houseId}`
-
-### Description:
-
-This API endpoint retrieves all rooms and devices associated with a specific house.
-
-### Request:
-
-- **Method:** `GET`
-- **Path Parameters:**
-    - `houseId` (Type: String) - The identifier of the house for which rooms and devices will be retrieved.
-
-### Response:
-
-- **Success Response:**
-
-    - **HTTP Status:** `200 OK`
-    - **Body:**
-        - `message` (Type: String) - A success message.
-        - `roomsAndDevices` (Type: String) - JSON representation of rooms and devices in the specified house.
-        - `httpStatus` (Type: HttpStatus) - HTTP status of the response.
-- **Error Response:**
-
-    - **HTTP Status:** `400 Bad Request`
-    - **Body:**
-        - `message` (Type: String) - An error message describing the issue.
-        - `httpStatus` (Type: HttpStatus) - HTTP status of the response.
-
-## API Endpoint: `POST /api/v1/house`
-
-### Description:
-
-This API endpoint is used to add a new house.
-
-### Request:
-
-- **Method:** `POST`
-- **Request Body:**
-    - **Content-Type:** `application/json`
-    - **Attributes:**
-        - `address` (Type: String) - The address of the house.
-        - `house_name` (Type: String) - The name of the house.
-        - `latitude` (Type: Double) - The latitude of the house's location.
-        - `longitude` (Type: Double) - The longitude of the house's location.
-
-### Response:
-
-- **Success Response:**
-
-    - **HTTP Status:** `200 OK`
-    - **Body:**
-        - `message` (Type: String) - A success message.
-        - `house` (Type: House) - Details of the added house.
-        - `httpStatus` (Type: HttpStatus) - HTTP status of the response.
-- **Error Response:**
-
-    - **HTTP Status:** `400 Bad Request`
-    - **Body:**
-        - `message` (Type: String) - An error message describing the issue.
-        - `httpStatus` (Type: HttpStatus) - HTTP status of the response.
-
-# Room Controller
-
-### API Endpoint : `POST/room`
-
-#### Description:
-
-This API endpoint is used to add rooms to a house.
-
-#### Request:
-
-- **Method:** `POST`
-- **Query Parameter:**
-    - `houseId` (Type: String) - The identifier of the house to which the rooms will be added.
-- **Request Body:**
-    - **Content-Type:** `application/json`
-    - **Attributes:**
-        - `room_name` (Type: String) - The name of the room to be added.
-
-#### Response:
-
-- **Success Response:**
-
-    - **HTTP Status:** `200 OK`
-    - **Body:**
-        - `message` (Type: String) - A success message.
-        - `room` (Type: Room) - Details of the added room.
-        - `httpStatus` (Type: HttpStatus) - HTTP status of the response.
-- **Error Response:**
-
-    - **HTTP Status:** `400 Bad Request`
-    - **Body:**
-        - `message` (Type: String) - An error message describing the issue.
-        - `httpStatus` (Type: HttpStatus) - HTTP status of the response.
-
-
-
-# Inventory Controller
-
-## API Endpoint: `GET /api/v1/inventory`
-
-### Description:
-
-This API endpoint retrieves the list of items in the inventory.
-
-### Request:
-
-- **Method:** `GET`
-
-### Response:
-
-- **Success Response:**
-
-    - **HTTP Status:** `200 OK`
-    - **Body:**
-        - `inventory` (Type: String) - JSON representation of the list of items in the inventory.
-        - `httpStatus` (Type: HttpStatus) - HTTP status of the response.
-- **Error Response:**
-
-    - **HTTP Status:** `500 Internal Server Error`
-    - **Body:**
-        - `message` (Type: String) - An error message describing the issue.
-        - `httpStatus` (Type: HttpStatus) - HTTP status of the response.
-
-## API Endpoint: `POST /api/v1/inventory`
-
-### Description:
-
-This API endpoint is used to add an item to the inventory.
-### Request:
-
-- **Method:** `POST`
-- **Request Body:**
-    - **Content-Type:** `application/json`
-    - **Attributes:**
-        - `kickston_id` (Type: String) - The identifier for the inventory item.
-        - `device_username` (Type: String) - The username associated with the device.
-        - `device_password` (Type: String) - The password associated with the device.
-        - `manufacture_date_time` (Type: String) - The manufacturing date and time of the device (format: "yyyy-MM-dd'T'HH:mm:ss").
-        - `manufacture_factory_place` (Type: String) - The place where the device was manufactured.
-
-### Response:
-
-- **Success Response:**
-
-    - **HTTP Status:** `200 OK`
-    - **Body:**
-        - `message` (Type: String) - A success message.
-        - `object` (Type: String) - Additional information about the added inventory item.
-        - `httpStatus` (Type: HttpStatus) - HTTP status of the response.
-- **Error Response:**
-
-    - **HTTP Status:** `500 Internal Server Error`
-    - **Body:**
-        - `message` (Type: String) - An error message describing the issue.
-        - `httpStatus` (Type: HttpStatus) - HTTP status of the response.
-
-
-
-
-# Device Controller
-
-## API Endpoint: `POST /api/v1/device/register`
-
-### Description:
-
-This API endpoint is used to register a new device.
-
-### Request:
-
-- **Method:** `POST`
-- **Path:** `/register`
-- **Request Body:**
-    - **Content-Type:** `application/json`
-    - **Attributes:**
-        - `kickston_id` (Type: String) - The identifier for the device.
-        - `device_username` (Type: String) - The username associated with the device.
-        - `device_password` (Type: String) - The password associated with the device.
-
-### Response:
-
-- **Success Response:**
-
-    - **HTTP Status:** `200 OK`
-    - **Body:**
-        - `message` (Type: String) - A success message.
-        - `object` (Type: String) - Additional information about the registered device.
-        - `httpStatus` (Type: HttpStatus) - HTTP status of the response.
-- **Error Response:**
-
-    - **HTTP Status:** `400 Bad Request`
-    - **Body:**
-        - `message` (Type: String) - An error message describing the issue.
-        - `httpStatus` (Type: HttpStatus) - HTTP status of the response.
-
-
-
-
-
-## API Endpoint: `POST /api/v1/device/add`
-
-### Description:
-
-This API endpoint is used to add a device to a house.
-
-### Request:
-
-- **Method:** `POST`
-- **Path:** `/add`
-- **Request Body:**
-    - **Content-Type:** `application/json`
-    - **Attributes:**
-        - `houseId` (Type: String) - The identifier of the house to which the device will be added.
-        - `roomId` (Type: String) - The identifier of the room in the house where the device will be placed.
-        - `kickstonId` (Type: String) - The identifier of the device to be added.
-
-### Response:
-
-- **Success Response:**
-
-    - **HTTP Status:** `200 OK`
-    - **Body:**
-        - `message` (Type: String) - A success message.
-        - `object` (Type: String) - Additional information about the added device.
-        - `httpStatus` (Type: HttpStatus) - HTTP status of the response.
-- **Error Response:**
-
-    - **HTTP Status:** `400 Bad Request`
-    - **Body:**
-        - `message` (Type: String) - An error message describing the issue.
-        - `httpStatus` (Type: HttpStatus) - HTTP status of the response.
-
-
-
-
+- `POST /api/v1/auth/register`: Register a new user.
+- `POST /api/v1/house`: Add a new house.
+- `POST /api/v1/house/{houseId}/add-user`: Add a user to a house.
+- `GET /api/v1/house/`: Retrieve a list of houses.
+- `PUT /api/v1/house`: Update the address of a house.
+- `GET /api/v1/house/{houseId}`: Retrieve all rooms and devices associated with a specific house.
+- `POST /api/v1/room`: Add rooms to a house.
+- `GET /api/v1/inventory`: Retrieve the list of items in the inventory.
+- `POST /api/v1/inventory`: Add an item to the inventory.
+- `POST /api/v1/device/register`: Register a new device.
+- `POST /api/v1/device/add`: Add a device to a house.
 
