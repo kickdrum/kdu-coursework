@@ -1,6 +1,6 @@
 package com.example.prashantminiproject.service;
 
-import com.example.prashantminiproject.dto.RequestUserDto;
+import com.example.prashantminiproject.dto.UserDto;
 import com.example.prashantminiproject.mapper.UserMapper;
 import com.example.prashantminiproject.model.User;
 import com.example.prashantminiproject.repository.UserRepository;
@@ -25,27 +25,10 @@ public class UserService {
 
     private final UserMapper userMapper = new UserMapper();
 
-    public User registerUser(RequestUserDto requestUserDto) {
-        User user = userMapper.mapUserDtoToUser(requestUserDto);
-        user.setPassword(passwordEncoder.encode(requestUserDto.getPassword()));
+    public User registerUser(UserDto userDto) {
+        User user = userMapper.mapUserDtoToUser(userDto);
+        user.setPassword(passwordEncoder.encode(userDto.getPassword()));
         return userRepository.save(user);
     }
 
-//    public void validateUser(RequestUserDto requestUserDto) {
-//        if (userRepository.findByUsername(requestUserDto.getUsername()) != null) {
-//            throw new UserAlreadyExistException("User already exists");
-//        }
-//    }
-//    public void validateUser(String username) {
-//        if (userRepository.findByUsername(username) == null) {
-//            throw new UserDoesntExistException("User does not exists");
-//        }
-//    }
-//
-//    public void validateAdminUser(String token) {
-//        UserEntity userEntity = userRepository.findByToken(token);
-//        if (!userEntity.getRole().equals("ROLE_ADMIN")) {
-//            throw new OnlyAdminAllowedException("User is not admin");
-//        }
-//    }
 }

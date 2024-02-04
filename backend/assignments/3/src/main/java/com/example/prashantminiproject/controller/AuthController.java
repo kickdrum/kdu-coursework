@@ -1,7 +1,7 @@
 package com.example.prashantminiproject.controller;
 
-import com.example.prashantminiproject.dto.RequestUserDto;
-import com.example.prashantminiproject.dto.ResponseUserDto;
+import com.example.prashantminiproject.dto.UserDto;
+import com.example.prashantminiproject.dto.ResponseUser;
 import com.example.prashantminiproject.model.User;
 import com.example.prashantminiproject.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +24,9 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<ResponseUserDto> registerUser(@RequestBody RequestUserDto requestUserDto) {
-        User user = userService.registerUser(requestUserDto);
+    public ResponseEntity<ResponseUser> registerUser(@RequestBody UserDto userDto) {
+        User user = userService.registerUser(userDto);
         String token = user.getToken();
-        return new ResponseEntity<>(new ResponseUserDto("User registered", token), HttpStatus.OK);
+        return new ResponseEntity<>(new ResponseUser("User registered", token), HttpStatus.OK);
     }
 }

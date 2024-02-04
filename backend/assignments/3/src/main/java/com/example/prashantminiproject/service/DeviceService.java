@@ -18,20 +18,15 @@ public class DeviceService {
     }
 
     public Device registerDevice(String kickstonId, String deviceUsername, String devicePassword, String manufactureDateTime, String manufactureFactoryPlace) {
-        // Validate and handle logic for registering a new device
-        // Check against the inventory and register only if it matches
+
         if (inventoryService.validateDeviceInInventory(kickstonId, deviceUsername, devicePassword, manufactureDateTime, manufactureFactoryPlace)) {
             Device device = new Device();
             device.setKickstonId(kickstonId);
             device.setDeviceUsername(deviceUsername);
             device.setDevicePassword(devicePassword);
-//            device.setManufactureDateTime(manufactureDateTime);
-//            device.setManufactureFactoryPlace(manufactureFactoryPlace);
-            // Set other necessary properties
             return deviceRepository.save(device);
         }
-        return null; // or throw an exception indicating the device is not in the inventory
+        return null;
     }
 
-    // Implement other device-related methods as needed
 }

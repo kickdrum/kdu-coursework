@@ -31,7 +31,6 @@ public class HouseService {
     }
 
     public void updateHouseAddress(Long houseId, String newAddress) {
-        // Validate and handle logic for updating house address
         House house = houseRepository.findById(houseId).orElse(null);
         if (house != null) {
             house.setAddress(newAddress);
@@ -39,16 +38,7 @@ public class HouseService {
         }
     }
 
-//    public void addUserToHouse(Long houseId, Users users) {
-//        // Validate and handle logic for adding user to a house
-//        House house = houseRepository.findById(houseId).orElse(null);
-////        if (house != null) {
-////            house.addUsers(users);
-////            houseRepository.save(house);
-////        }
-//    }
     public void addUserToHouse(Long houseId, User users) {
-        // Validate and handle logic for adding user to a house
         House house = houseRepository.findById(houseId).orElse(null);
         if (house != null) {
             house.addUser(users);
@@ -56,5 +46,4 @@ public class HouseService {
         }
     }
 
-    // Implement other house-related methods as needed
 }

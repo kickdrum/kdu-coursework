@@ -9,5 +9,4 @@ import org.springframework.stereotype.Repository;
 @EnableJpaRepositories
 public interface RoomRepository extends JpaRepository<Room, Long> {
 
-    // Add additional query methods if needed
 }
