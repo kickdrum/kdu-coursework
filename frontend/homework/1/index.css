@@ -1,0 +1,132 @@
+body{
+    margin: 0;
+    font-size: large;
+}
+
+header ~ article {
+    font-size: x-large;
+}
+header{
+    margin-top: 80px;
+}
+.heading{
+    text-align: center;
+}
+
+#navbar{
+    display: inline-block;
+    border: black solid 2px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: rgb(28, 138, 56);
+    position: fixed;
+    top: 0;
+    z-index: 999;
+}
+
+#navbar a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 25px 20px;
+    margin-right: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+    text-decoration: none;
+    font-size: larger;
+    color: rgb(255, 255, 255);
+    width: 150px;
+}
+
+#navbar a:hover{
+    background-color: rgb(27, 26, 24);
+}
+
+#navbar a:active{
+    background-color: rgb(27, 26, 24);
+}
+
+::selection{
+    background-color: rgb(168, 252, 252);
+}
+
+#kickdrumLogo{
+    display: inline;
+    float: left;
+    padding: 18px 30px;
+    margin-right: 20px;
+    margin-top: auto;
+    height: 35px;
+    width: 100px;
+    margin-bottom: auto;
+}
+
+.headingLeft{
+    display: block;
+    position: relative;
+    left: 20px;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.orderedList li{
+    display: list-item;
+    position: relative;
+    left: 40px;
+    font-size: large;
+    margin: 10px;
+}
+
+.section{
+    display: block;
+    position: relative;
+    left: 20px;
+    padding: 10px;
+}
+
+section + h1{
+    text-align: center;
+}
+
+.article{
+    box-sizing: content-box;
+    width: 80%;
+    text-align: left;
+}
+
+#form{
+    margin: 0 auto; 
+    width: 60%;
+    padding: 20px;
+    text-align: center; 
+    border: 2px solid black;
+    box-sizing: border-box; /* Include padding and border in width calculation */
+}
+
+#form label,
+#form textarea {
+    display: block;
+    margin: 10px auto;
+}
+
+#form .radio label,
+#form .select label {
+    display: inline;
+}
+
+#form .radio input[type="radio"],
+#form .select input[type="checkbox"] {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+#footer{
+    margin: 15px auto;
+    position: relative;
+    text-align: center;
+}
+
+#footer p{
+    display: inline;
+}

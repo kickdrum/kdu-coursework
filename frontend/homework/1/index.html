@@ -4,50 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hands On-1</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
+    <nav id="navbar">
+        <img src="kickdrum.png" alt="Kickdrum logo" id="kickdrumLogo" width="100px" height="33px">
+        <a href="#" target="_self">Home</a>
+        <a href="https://www.google.com" target="_blank">Go to google</a>
+        <a href="https://www.kickdrum.com" target="_top">Go to Kickdrum</a>
+    </nav>
 
     <!--Header -->
     <header>
-        <h1>Welcome to Kickdrum</h1>
-        <code>
+        <h1 class="heading w3-tag">Welcome to Kickdrum</h1>
+        <code class="heading" style="display: block;">
             System.out.println("Welcome to kickdrum")
         </code>
     </header>
 
     <br>
 
-    <nav>
-        <a href="https://www.google.com" target="_blank">Go to google</a>
-        <a href="https://www.kickdrum.com" target="_top">Go to Kickdrum</a>
-    </nav>
 
     <!-- Main -->
     <main>
 
-        <h3>Image tags</h3>
-        <img src="kickdrum.png" alt="Kickdrum logo">
-
-        <br>
-
-        <h3>Our Team</h3>
-        <ol type="1">
+        <h2 class="headingLeft">Our Team</h3>
+        <ol type="1" class="orderedList">
             <li>Ganesh</li>
             <li>Thanika</li>
             <li>Rahul</li>
         </ol>
 
-        <br>
-
-        <h3>Interns</h3>
-
-        <ul>
+        <h2 class="headingLeft">Interns</h2>
+        <ul class="orderedList">
             <li>Kartik</li>
             <li>Kirtan</li>
             <li>Raghav</li>
         </ul>
 
-        <section>
+        <section class="section">
             <h2>We are hiring</h2>
             <aside>
                 <blockquote cite="kickdrum.com">
@@ -58,8 +53,8 @@
                 Hello there.
                 Yes! You heard it right. We are hiring.
             </pre>
-            <h3>About us</h3>
-            <article>
+            <h2>About us</h2>
+            <article class="article">
                 We are enterprise-grade engineers, architects, and strategists. With a design-driven philosophy, our development approach decreases technical debt, improves customer experiences, and increases enterprise value.
 
                 We partner with both investors and their portfolio companies across the full lifecycle - from diligence through divestiture to identify, plan, and execute technology strategies for revenue growth, profit optimization, and value enhancement.
@@ -68,74 +63,58 @@
             </article>
         </section>
 
-        <br>
+        <h1>Form</h1>
+        <form action="#">
+            <div id="form">
+                <label for="name">Name</label>
+                <input type="text" name="name" tabindex="1" required>
+    
+                <label for="password">Password</label>
+                <input type="password" name="password" tabindex="2" required>
+    
+                <p>Gender</p>
+                <div class="radio">
+                    <input type="radio" name="gender" value="male" tabindex="3" required>
+                    <label for="male">Male</label>
 
-        <h3>Form</h3>
-        <form>
-            <label for="name">Name</label>
-            <input type="text" name="name" required>
-
-            <br>
-
-            <label for="password">Password</label>
-            <input type="password" name="password" required>
-
-            <br>
-
-            <p>Gender</p>
-            <input type="radio" name="gender" value="male" required>
-            <label for="male">Male</label>
-
-            <input type="radio" name="gender" value="female">
-            <label for="female">Female</label>
-
-            <br>
-
-            <p>Specilization</p>
-            <input type="checkbox" name="frontend" value="frontend">
-            <label for="frontend">Frontend</label>
-
-            <input type="checkbox" name="backend" value="backend">
-            <label for="backend">Backend</label>
-
-            <input type="checkbox" name="cloud" value="cloud">
-            <label for="cloud">Cloud</label>
-
-            <br>
-
-            <label for="location">Location</label>
-            <select name="location" required>
-                <option value="Bengaluru">Bengaluru</option>
-                <option value="Mumbai">Mumbai</option>
-                <option value="Gurgaon">Gurgaon</option>
-            </select>
-
-            <br>
-
-            <label for="experience">Work experience (in years)</label>
-            <input type="number" name="experience" required>
-
-            <br>
-
-            <label for="phone">Phone number</label>
-            <input type="tel" name="phone" required>
-
-            <br>
-
-            <label for="skills">Search your skills</label>
-            <input type="search" name="skills">
-
-            <br>
-
-            <label for="about">About</label>
-            <textarea name="about" cols="30" rows="3"></textarea>
-
-            <br>
-
-            <input type="submit" value="submit">
-            <input type="reset" value="reset">
-
-            <br>
+                    <input type="radio" name="gender" value="female" tabindex="4">
+                    <label for="female">Female</label>
+                </div>
+    
+                <p>Specilization</p>
+                <div class="select">
+                    <input type="checkbox" name="frontend" value="frontend" tabindex="5">
+                    <label for="frontend">Frontend</label>
+        
+                    <input type="checkbox" name="backend" value="backend" tabindex="6">
+                    <label for="backend">Backend</label>
+        
+                    <input type="checkbox" name="cloud" value="cloud" tabindex="7">
+                    <label for="cloud">Cloud</label>
+                </div>
+    
+                <label for="location">Location</label>
+                <select name="location">
+                    <option value="Bengaluru">Bengaluru</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Gurgaon" selected>Gurgaon</option>
+                </select>
+    
+                <label for="experience">Work experience (in years)</label>
+                <input type="number" name="experience" tabindex="8" required>
+    
+                <label for="phone">Phone number</label>
+                <input type="tel" name="phone" tabindex="9" required>
+    
+                <label for="skills">Search your skills</label>
+                <input type="search" name="skills" tabindex="10">
+    
+                <label for="about">About</label>
+                <textarea name="about" cols="30" rows="4" tabindex="11"></textarea>
+    
+                <input type="submit" value="submit" tabindex="12">
+                <input type="reset" value="reset" tabindex="13">
+            </div>
         
         </form>
     </main>
@@ -143,7 +122,7 @@
     <!-- Footer -->
 
     <footer>
-        <footer>
+        <footer id="footer">
             <p><i>By : </i></p>
             <p><u><strong>Kartik Dangi</strong></u></p>
             <p><sub>RAJ</sub> <s>GUJ</s> <sup>KA</sup></p>
