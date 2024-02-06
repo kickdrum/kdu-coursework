@@ -1,6 +1,118 @@
 <!DOCTYPE html>
 <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Prashant's Page</title>
+    <style>
+        * {
+        margin: 1;
+        padding: 1;
+      }
+      /* Style for the container */
+      .container {
+        position: relative;
+        height: 200px;
+        border: 1px solid black;
+      }
+
+      /* Style for the box */
+      .box {
+        width: 400px;
+        height: 100px;
+        margin: 20px;
+        padding: 10px;
+        border: 2px solid black;
+        background-color: lightblue;
+        box-sizing: content-box;
+      }
+      /* Positioning styles */
+      .fixed-box {
+        position: fixed;
+        left: 20px;
+        top: 20px;
+      }
+      .static-box {
+        position: static;
+        top: 10px;
+        left: 10px;
+      }
+
+      .relative-box {
+        position: relative;
+        /* top: 20px;
+        left: 20px; */
+      }
+
+      .absolute-box {
+        position: absolute;
+        top: 50px;
+        bottom: 10px;
+        /* left: 10px; */
+        right: 20px;
+        
+      }
+      .nav{
+        position:fixed;
+      }
+
+      body {
+        width: 500px;
+        margin: 0 auto;
+      }
+
+      p {
+        background: rgb(255 84 104 / 30%);
+        border: 2px solid rgb(255 84 104);
+        padding: 10px;
+        /* margin: 10px; */
+      }
+      #para1{
+        text-align:left;
+        color:blue;
+        background-color: yellow;
+      }
+      .para2{
+        background-color: bisque;
+        color:brown;
+        text-align: center;
+      }
+      p::first-line {
+        color: #ff0000;
+        font-variant: small-caps;
+      }
+      p::first-letter {
+        color: #ff0000;
+        font-size: xx-large;
+      }
+
+      span {
+        background: white;
+        border: 1px solid black;
+      }
+
+      .inline-block-element {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        background-color: lightblue;
+        margin: 10px;
+        padding: 5px;
+      }
+      a:hover {
+        color: #FF00FF;
+      }
+      div p {
+        background-color: yellow;
+      }
+      div >p {
+        background-color: pink;
+      }
+      div + p {
+        background-color: green;
+      }
+
+
+    </style>
 </head>
 <body style="background-color:powderblue;">
     <header>
@@ -13,8 +125,8 @@
             </center>
             </nav>
     <center>
-        <h1>Welcome to the first webpage</h1>
-    <h4>This is the first webpage during the frontend track in KDU.</h4>
+        <h1 >Welcome to the first webpage</h1>
+        <h4>This is the first webpage during the frontend track in KDU.</h4>
     </center>
 
     </header>
@@ -23,9 +135,11 @@
         <section>
             <center>
                 <article>
-                <p>Builders. Not box checkers.
+                    <div class="container">
+                <p class="para2">Builders. Not box checkers.
                     <b>We are enterprise-grade engineers, architects, and strategists</b>. With a design-<br> driven philosophy, our development approach decreases technical debt, improves <br>customer experiences, and increases enterprise value.<br><br>
                 </p>
+            </div>
 
                 <pre>
 <b>We partner with both investors and their portfolio companies across the full
@@ -33,18 +147,19 @@ lifecycle </b>- from diligence through divestiture – to identify, plan, and ex
 technology strategies for revenue growth, profit optimization, and value<br> enhancement.
                 </pre>
                 
-                <p>
+                <p id="para1">
                     <b>Our work pre- and post-transaction is investment-driven</b> - from our proven<br> maturity assessment model to our value creation solutions, we bring real-world<br> operating wisdom to your process.
                 </p>
             </article>
-
+                <div  class="fixed-box">
                 <p>My favorite color is <del>blue</del> <ins>red</ins>!</p>
 
                 <p>Here is a quote from <u>Drake's verse</u> in Life is Good:</p>
 
                 <blockquote cite="https://genius.com/Feat-drake-life-is-good-lyrics">
-                    Working on the weekend like usual                
+                    "Working on the weekend like usual"                
                 </blockquote>
+            </div>
             </center>
         </section>
 
@@ -129,11 +244,34 @@ technology strategies for revenue growth, profit optimization, and value<br> enh
                     y = 6;
                     z = x + y;
 
-                    <p>Subscript: 2<sup>2</sup>=4</p>
+                    <p class="para2">Subscript: 2<sup>2</sup>=4</p>
                     <p>We inhale O<sub>2</sub> and exhale CO<sub>2</sub>.</p>
 
                 </code>
             </center>
+        </section>
+
+        <section>
+            <h3 style="text-align: center;">                
+                We will be testing the Combinators below:
+            </h3>
+            <div>
+                <p>
+                    Team Outings
+                    It is not all about work at Kickdrum.
+                    We are always looking for an excuse to break away to an outdoor team event or lunch. 
+                    We try to do one or two overnight trips with the team every six months. 
+                    We do monthly lunches picking a different hangout or watering-hole in and around Koramangala each month. 
+                    Our team also participates in “community giving” and “marathon” type events from time to time. 
+                    These outings are a fantastic way to bond with colleagues who aren’t working on the same project or product. 
+                </p>
+            </div>
+            <p>Collaborative Workspace
+                We have a hip and human-centric office that allows our engineers to perform at the top of their game. 
+                The setting is casual and functional and team members work at their open desks, cafe-style tables, and soft couches. 
+                Pick a nook or pop into a meeting room to tackle tasks or project that need focus. 
+                We have a break area that is well-stocked with quick bites and healthy picks to satisfy our engineers’ hunger pangs. 
+                We have table-tennis, a pool table, carrom and several board games to unwind during the workday.</p>
         </section>
 
 
@@ -142,6 +280,6 @@ technology strategies for revenue growth, profit optimization, and value<br> enh
 
     <footer>        
         <center>
-            <font size="4" face="verdana" color="green"><p>Open link in a new window or tab of our kickdrum website:</font> <a href="https://www.kickdrum.com/" target="_blank">Visit Kickdrum!</a></p>
+            <font size="4" face="verdana" color="green"><p>Open link in a new window or tab of our kickdrum website:</font><br> <a href="https://www.kickdrum.com/" target="_blank">Visit Kickdrum!</a></p>
         </center></footer>
     </body>
