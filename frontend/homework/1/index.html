@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cristiano Ronaldo</title>
+    <style>
+        /* CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #8eaad4;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        /* Descendant Selector */
+        header ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        /* Child Selector */
+        nav > ul {
+            list-style-type: none;
+        }
+        /* Adjacent Sibling Selector */
+        h1 + nav {
+            margin-bottom: 20px;
+        }
+        main {
+            padding: 20px;
+            display: flex; /* Flex container */
+        }
+        section {
+            margin-bottom: 20px;
+            background-color: #fff;
+            padding: 20px;
+            flex: 1; /* Flex item */
+            border-radius: 10px; /* Rounded corners for premium feel */
+            border: 2px solid #ddd; /* Border for premium feel */
+        }
+        /* General Sibling Selector */
+        section ~ footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+        }
+        h2 {
+            color: #333;
+        }
+        form {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px; /* Rounded corners for premium feel */
+            border: 2px solid #ddd; /* Border for premium feel */
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        textarea,
+        select {
+            width: calc(100% - 22px); /* Adjusted width for better alignment */
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="radio"],
+        input[type="checkbox"] {
+            display: inline-block; /* Display radio and checkbox inputs inline */
+            margin-right: 10px; /* Added margin for spacing */
+        }
+        input[type="submit"],
+        input[type="reset"] {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 10px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        input[type="submit"]:hover,
+        input[type="reset"]:hover {
+            background-color: #555;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .image-container {
+            flex: 1; 
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+        }
+        #profile-image {
+            max-width: 100%; 
+            max-height: 100%; 
+            border-radius: 10px; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Cristiano Ronaldo</h1>
+        <nav>
+            <ul>
+                <li><a href="#bio" target="_self">Biography</a></li>
+                <li><a href="#stats" target="_self">Stats</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="bio">
+            <!-- Heading tag -->
+            <section id="bio">
+            <h2>About Cristiano Ronaldo</h2>
+            <p>Cristiano Ronaldo dos Santos Aveiro is a Portuguese professional footballer who plays as a forward for Manchester United and the Portugal national team.</p>
+            <p>He is often considered one of the greatest football players of all time.</p>
+            <aside>
+                <h3>Quick Facts</h3>
+                <ol>
+                    <li>Full Name: Cristiano Ronaldo dos Santos Aveiro</li>
+                    <li>Date of Birth: February 5, 1985</li>
+                    <li>Place of Birth: Funchal, Madeira, Portugal</li>
+                </ol>
+            </section>
+            </aside>
+            <section id="stats">
+                <h2>Stats</h2>
+                <p>Here are some stats about Cristiano Ronaldo:</p>
+                <ol>
+                    <li>Goals scored: 800+</li>
+                    <li>Ballon d'Or awards: 5</li>
+                    <li>Champions League titles: 5</li>
+                </ol>
+            </section>
+            <h3>Contact Form</h3>
+            <form action="#" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" min="18" required>
+                
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Format: 123-456-7890" required>
+                
+                <label for="search">Search:</label>
+                <input type="search" id="search" name="search">
+                
+                <label for="gender">Gender:</label>
+                <input type="radio" id="male" name="gender" value="male" required>
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="female" required>
+                <label for="female">Female</label>
+                
+                <label for="interests">Interests:</label>
+                <input type="checkbox" id="sport" name="interest" value="sport">
+                <label for="sport">Sport</label>
+                <input type="checkbox" id="music" name="interest" value="music">
+                <label for="music">Music</label>
+                
+                <label for="country">Country:</label>
+                <select id="country" name="country" required>
+                    <option value="">Select Country</option>
+                    <option value="USA">USA</option>
+                    <option value="UK">UK</option>
+                    <option value="Canada">Canada</option>
+                </select>
+                
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+            </form>
+            
+        </section>
+        
+        <div class="image-container">
+            <img id="profile-image" src="./public/ronaldo_real_madrid.jpg" alt="Cristiano Ronaldo">
+        </div>
+    </main>
+
+    <footer>
+        <!-- Paragraph tag -->
+        <p>&copy; 2024 Cristiano Ronaldo Fan Club</p>
+    </footer>
+</body>
+</html>
+
