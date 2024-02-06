@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us Form</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #11072e;
+        }
+        header {
+            text-align: center;
+        }
+
+        header img{
+            height: 150px;
+            width: 400px;
+            background-color: rgb(107, 4, 4);
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        input[type="radio"], input[type="checkbox"] {
+            margin-right: 5px;
+        }
+        button[type="submit"], button[type="button"] {
+            background-color: #11072e;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            border-color: rgb(167, 11, 11);
+            font-size: 16px;
+        }
+        
+.list {
+    list-style-type: none; /* Remove default list bullets */
+    padding: 0;
+    margin: 0;
+    border: #ccc;
+    border-width: 2px;
+}
+
+.list li {
+    background-color: #11072e;
+    color: white;
+    padding: 8px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+}
+
+/* pseudo selector */
+
+.list li:hover {
+    background-color: rgb(167, 11, 11);
+}
+
+ol {
+    list-style-type: decimal; /* Ordered list style: 1, 2, 3, ... */
+}
+
+ol li {
+    color: aliceblue;
+    font-weight: bold;
+}
+   
+.listhead{
+    color: white;
+    font-size: medium;
+    font-weight: bold;
+    padding-left: 4px;
+}
+        label, legend{
+            color: aliceblue;
+        }
+        nav {
+            text-align: center;
+            overflow: hidden;
+        }
+        .connect{
+            margin-top: 128px;
+            font-size: 128px;
+            color: rgb(240, 248, 255);
+        }
+        .connecttag{
+            margin-top: -120px;
+            color:rgb(240, 248, 255);
+            font-size: 64px;
+            font-weight:normal;
+
+        }
+        .line{
+            color: rgb(167,11,11);
+            font-size: xx-large;
+            font-weight: 800; 
+            margin-top: -64px;
+        }
+        .list1{
+            border:1px solid white;
+            margin-top: 32px;
+            padding: 4px;
+        }
+        #listhead2{
+            color: white;
+
+        }
+        .focus{
+            border:1px solid rgb(226, 64, 64);
+            margin-top: 32px;
+            padding: 32px;   
+        }
+
+
+        nav a {
+
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font:bold;
+            font-size: xx-large;
+            text-align: center;
+        }
+        footer{
+            color: rgb(255, 255, 255);
+            margin-top: 64px;
+            text-align: center;
+        }
+
+        nav a:hover {
+            color: rgb(167, 11, 11);
+            
+        }
+        .nav{
+        text-align: center;
+        }
+        .defaulthover{
+            color:rgb(167, 11, 11)
+        }
+        blockquote{
+            color: white;
+        }
+        .code{
+        color: white;
+        }
+      
+        article {
+            flex: 2;
+           padding-bottom: 16px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            padding-bottom: 64px;
+        }
+
+    article > a{
+            border:2px solid white;
+            padding: 12px 32px;
+            margin-bottom:8px;
+            margin-top: 8px;
+            color: white;
+            text-decoration: none;
+
+        }
+
+        /* pseudo element selector */
+        article::first-line {
+            color: rgb(171, 143, 207);  
+        }
+
+        aside {
+            margin: 10px;
+            border: 1px solid #ccc;
+        }
+     
+
+        /* class selector */
+        fieldset legend:first-child{
+            color: rgb(156, 62, 62);
+        }
+        footer {
+            border-top: 2px solid white;
+    display: flex;
+    justify-content: space-around; /* or any other value based on your preference */
+    align-items: center; /* Align items vertically */
+    background-color: #190533; /* Just for demonstration */
+    padding: 20px;
+}
+
+/* CSS combinator */
+
+/* child selector */
+footer > div {
+    flex: 1; /* Distribute available space equally among children */
+    text-align: center; /* Align text content in the center */
+}
+
+/* adjacent sibling selector */
+h2 + p{
+  font-weight: bolder;
+  color: crimson;
+  font-size: xx-large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+} 
+
+/* general sibling selector */
+.subsup ~ p{
+ color: rgb(21, 104, 21);
+}
+
+
+footer code {
+    display: block; /* Ensures code block spans the full width */
+    white-space: pre-wrap; /* Preserve white space */
+}
+.sectionlast{
+    position: relative;
+}
+.secondlast{
+    position: relative;
+}
+.duck{
+    position:absolute;
+    right: 0;
+    font-size: xx-large;
+}
+.heart{
+    position: absolute;
+    font-size: xx-large;
+    right: 0;
+}
+        
+     
+    </style>
+</head>
+<body>
+    <header id="header">
+        <img src="./assets/kdu.png" alt="kdu logo">
+    </header>
+
+    <main>
+    <div class="nav">
+    <nav>
+        <a href="#home" tabindex="1">SERVICE</a>
+        <a href="#about" tabindex="2">RESULTS</a>
+        <a href="#contact" tabindex="3" class="defaulthover">TEAM</a>
+        <a href="#contact" tabindex="4">RESOURCE</a>
+        <a href="#contact" tabindex="5">CAREER</a>
+        <a href="#contact" tabindex="6">CONTACT</a>
+    </nav>
+</div>
+
+    <section>
+    <p class="connect"> Connect With Us.</p>
+    <p class="connecttag"> unlock best-in-class technology decision making.</p>
+        <p class="line">..........</p>
+        <blockquote>
+            CONTACT HERE 
+        </blockquote>
+    </section>
+
+
+
+    <form action="#" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <fieldset>
+            <legend>Preferred Contact Method:</legend>
+            <input type="radio" id="contact-email" name="contact-method" value="email" checked>
+            <label for="contact-email">Email</label>
+            <input type="radio" id="contact-phone" name="contact-method" value="phone">
+            <label for="contact-phone">Phone</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Interests:</legend>
+            <input type="checkbox" id="interest-web" name="interests" value="web" checked>
+            <label for="interest-web">Web Development</label>
+            <input type="checkbox" id="interest-design" name="interests" value="design">
+            <label for="interest-design">Design</label>
+        </fieldset>
+
+        <div class="list1">
+            <p class="listhead">services</p>
+       <ul class="list">
+        <li class="abc"> product</li>
+        <li>Development</li>
+        <li>salesforce migration</li>
+       </ul>
+    </div>
+       <div class="list2">
+        <h2 id="listhead2"> we focus on</h2>
+        <ol class="focus">
+            <li><i>Our PRINCIPLES</i></li>
+            <li><b>Our RESULTS</b></li>
+           </ol>
+       </div>
+        <label for="country">Country:</label>
+        <select id="country" name="country">
+            <option value="usa">United States</option>
+            <option value="canada">Canada</option>
+        </select>
+       
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" min="1" max="10" value="1">
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" placeholder="123-456-7890" required>
+
+        <label for="search">Search:</label>
+        <input type="search" id="search" name="search">
+
+        <div>
+            <button type="submit">Submit</button>
+            <button type="button">Reset</button>
+        </div>
+        </form>
+        </main>
+        <footer>
+
+            <div>
+           <p class="subsup"> made with love by <sup>shrishti</sup></p>
+    <p>Inhale O<sub>2</sub> Thankss</p>
+</div>
+            <div class="code">
+           <code>
+<!--               helooooooooooooo aaaaaaaaa
+ahhshdhd
+ahdhd -->
+<!-- hh -->
+            &lt;NOTE&gt;
+                &lt;p&gt;WE ARE HIRING TOOOO&lt;/p&gt;
+            &lt;/NOTE&gt;
+            
+        </code>
+    </div>
+    <div>
+        <article class="secondlast">
+            <div class="duck">
+                🦆
+            </div>
+            <h2>read articles here</h2>
+            <a href="#">click me</a>
+        </article>
+</div>
+<div>
+        <aside class="sectionlast">
+            <div class="heart">
+                ❤️
+            </div>
+            <h2>Thanks to</h2>
+            <p> k <span> .</span></p>
+            
+        </aside>
+    </div>
+        </footer>
+
+
+
+</body>
+</html>
