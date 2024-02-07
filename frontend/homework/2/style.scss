@@ -1,0 +1,83 @@
+@font-face {
+font-family: 'Roboto';
+font-weight: 100;
+font-style: normal;
+src: url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+}
+body {
+font-family: 'Roboto', sans-serif;
+box-shadow: 0 0 10px rgb(205, 205, 205);
+
+}
+.flex-container-2{
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.flex-container-1{
+    display: flex;
+    justify-content: space-around;
+    justify-self:left;  
+    margin-block-end: 20px;
+  
+}
+.flex-container-1 > div{
+    display: flex;
+    width: 100%;   
+    padding-left: 1%;
+    align-items: start;
+}
+.temps{
+    display: flex;
+    text-align: center;
+    justify-content:center;
+}
+.pollen{
+    text-align: center;
+}
+.items-2{
+    text-align: center;
+}
+.main{
+    padding:10px;
+    margin:10px;
+}
+.main-temp{
+    display: flex;
+}
+p{
+    margin-block-start: 5px;
+    margin-block-end: 5px;
+    color: rgb(85, 85, 85);
+}
+.big-temp{
+    font-size: 50px;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+}
+h3{
+    margin-block-start: 8px;
+    margin-block-end: 8px;
+
+}
+
+h1{
+    margin-block-start: 8px;
+    margin-block-end: 8px;
+    font-size: 70px;
+    font-weight: 250;
+
+}
+.degree{
+    margin-top:8px;
+}
+.min-temp{
+    font-size: 25px;    
+    margin:0px;
+
+}
+.max-temp{
+    font-size: 25px;
+    margin: 0px;
+}
