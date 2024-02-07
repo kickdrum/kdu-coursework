@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+*{
+    font-size: large;
+    font-weight: 200;
+}
+h1{
+    font-size:  xx-large;
+    font-weight: bold;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+}
+.container{
+    padding-left: 50px;
+    padding-right: 50px;
+    width:50vw;
+    height:auto;
+}
+p{
+    margin:0;
+}
+.overcast{
+    display: flex;
+}
+.temperature{
+    flex-grow: 1;
+    display: flex;
+    align-self: start;
+    margin:0;
+    padding-top: 10px;
+}
+
+.conditions{
+    flex-grow: 1;
+    align-self: center;
+    margin-bottom: 25px;
+    margin-left: 125px;
+}
+.days{
+    display:flex;
+    justify-content: space-between;
+}
+#temperatureno{
+    font-size: 40px;
+}
+#farenheit{
+    font-size: medium;
+}
+.weekdays{
+    font-weight: bold;
+}
+.conditions p{
+    margin-bottom: 5px;
+}
+.daydate p{
+    margin-bottom: 5px;
+}
