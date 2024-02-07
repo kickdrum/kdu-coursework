@@ -1,0 +1,83 @@
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 200;
+    src: url('https://fonts.gstatic.com/s/roboto/v27/KFOmCnqEu92Fr1Mu4mxK.woff2') format('woff2');
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    padding: 0; 
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.25); 
+    padding-left: 7px;
+
+    h1 {
+        font-size: 50px;
+        margin: 0;
+        padding-top: 10px;
+        letter-spacing: 1px;
+    }
+
+    #subheading {
+        margin: 0;
+    }
+
+    #mid-section {
+        display: flex;
+
+        #F {
+            align-self: flex-start;
+            margin-top: 4px;
+        }
+    }
+
+    .item1 {
+        flex: 5;
+        display: flex;
+        align-items: flex-start;
+        margin: 0;
+
+        p {
+            margin: 0px;
+            margin-top: 2px;
+            display: flex; 
+            justify-content: flex-start; 
+            align-items: center; 
+        }
+
+        #temp {
+            font-size: 37px;
+            letter-spacing: 1.5px;
+        }
+    }
+
+    .item2 {
+        flex: 5;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: column;
+
+    }
+
+    #days {
+        display: flex;
+        margin-top: 25px;
+        justify-content: space-around;
+
+        .day {
+            font-weight: 1000;
+            text-align: center;
+            margin: 0;
+        }
+
+        .pollen {
+            font-size: smaller;
+        }
+    }
+
+    .lower-bottom {
+        margin: 0;
+        margin-bottom: 10px;
+    }
+}
