@@ -1,0 +1,55 @@
+name: Frontend Sonar Analysis
+on:
+  push:
+    branches:
+      - main # the name of your main branch
+  pull_request:
+    types: [opened, synchronize, reopened]
+jobs:
+  build:
+    name: Sonar analysis
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14.x'
+
+      - name: Install SonarQube Scanner
+        run: npm install -g sonarqube-scanner
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: SonarQube Scan
+        run: |
+          cd ./frontend/homework/12 && sonar-scanner \
+            -Dsonar.projectKey=${{ secrets.KDUER_NAME }}-FE-Homework-12 \
+            -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
+            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+      ## below steps are for posting analysis comment on Github PR
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          cache: npm
+          cache-dependency-path: .github/actions-scripts/package-lock.json
+
+      - name: Install dependencies
+        run: npm install
+        working-directory: .github/actions-scripts/
+
+      - name: Run script
+        run: |
+          node .github/actions-scripts/post-comment.js
+        env:
+          PERSONAL_ACCESS_TOKEN_GITHUB: ${{ secrets.PERSONAL_ACCESS_TOKEN_GITHUB }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          SONAR_PROJECT_KEY: ${{ secrets.KDUER_NAME }}-FE-Homework-12
+          USERNAME_GITHUB: ${{ secrets.USERNAME_GITHUB }}
+          REPO_NAME_GITHUB: ${{ secrets.REPO_NAME_GITHUB }}
+          PULL_REQUEST_NUMBER: ${{ github.event.pull_request.number }}
