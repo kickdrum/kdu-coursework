@@ -14,7 +14,7 @@ describe("Tweet Box Section", () => {
    */
   const visitPageAndSetViewport = (width, height) => {
     // Visit the specified page
-    cy.visit(Cypress.env('HOME_PAGE_URL'));
+    cy.visit(Cypress.env("HOME_PAGE_URL"));
 
     // Set viewport size
     cy.viewport(width, height);
@@ -53,7 +53,11 @@ describe("Tweet Box Section", () => {
     ensureElementVisible(".tweet-box");
 
     // Capture screenshot of the tweet-box element
-    captureElementScreenshot(".tweet-box", "provided-tweet-box", 0.2);
+    captureElementScreenshot(
+      ".tweet-box",
+      "provided-tweet-box",
+      Cypress.env("TEST_THRESHOLD")
+    );
   });
 
   /**
@@ -73,6 +77,10 @@ describe("Tweet Box Section", () => {
     cy.wait(1000);
 
     // Capture screenshot of the tweet-box element
-    captureElementScreenshot(".tweet-box", "MV-provided-tweet-box", 0.2);
+    captureElementScreenshot(
+      ".tweet-box",
+      "MV-provided-tweet-box",
+      Cypress.env("TEST_THRESHOLD")
+    );
   });
 });
