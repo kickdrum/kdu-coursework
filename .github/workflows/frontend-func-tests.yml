@@ -1,0 +1,29 @@
+name: Frontend Functional tests
+on:
+  push:
+    branches:
+      - main # the name of your main branch
+  pull_request:
+    types: [opened, synchronize, reopened]
+jobs:
+  build:
+    name: Functional tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+
+      - name: Install Cypress
+        run: npm install cypress@13.6.3 
+        
+      - name: Install cypress visual regression plugin
+        run: npm install cypress-visual-regression@3.0.0
+
+      - name: Run cypress tests
+        run: cd ./frontend/assignments/1 && npx cypress run --env type=actual ALWAYS_GENERATE_DIFF=true --spec "cypress/e2e/**/*"
+    
