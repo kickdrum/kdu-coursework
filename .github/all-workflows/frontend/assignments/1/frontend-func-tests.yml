@@ -19,9 +19,12 @@ jobs:
           node-version: '16.x'
 
       - name: Install Cypress
-        run: npm install cypress
+        run: npm install cypress@13.6.3 
+        
+      - name: Install cypress visual regression plugin
+        run: npm install cypress-visual-regression@3.0.0
 
       - name: Run Cypress tests
-        run: npx cypress run --headless --spec "cypress/e2e/**/*"
+        run: npx cypress run --env type=actual ALWAYS_GENERATE_DIFF=true --spec "cypress/e2e/**/*"
         env:
           HOME_PAGE_URL: 'https://your-home-page-url.com'
