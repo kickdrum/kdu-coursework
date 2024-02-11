@@ -120,12 +120,24 @@ ul {
     border-top-left-radius: 9999px;
     border-top-right-radius: 9999px;  
     text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center ;
 }
 .btn-div{
     color:white;
+    background-color: rgb(29, 155, 240);;
     font-family: TwitterChirp, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     line-height: 20px;
-    text-align: center;
+    min-width: 52px;
+    // min-height: 52px;
+    // 
+    text-align: center;    
+    border-bottom-left-radius: 9999px;
+    border-bottom-right-radius: 9999px;
+    border-top-left-radius: 9999px;
+    border-top-right-radius: 9999px;
     font-weight: 700;
     font-size:20px;
     align-items: center;
@@ -133,8 +145,11 @@ ul {
     align-items: center;
 }
 .btn-span{
+    align-items: center;
     line-height: 20px;
     max-width: 100%;
+    max-height: 100%;
+    // padding-top: 25px;
 }
 
 .nav-bottom{
@@ -223,6 +238,10 @@ ul {
     flex-direction: column;
     font-size: 15px;
     // font:inherit
+}
+.tweet-box>div{
+    display: flex;
+    // flex-direction: column;
 }
 .public-access{
     margin-left: -8px;
@@ -514,7 +533,7 @@ ul {
     .navigation-section {
         position: fixed;
         top: 0;
-        // left: -259px; /* Initially hide the navigation section off-screen */
+        left: 0; /* Initially hide the navigation section off-screen */
         height: 100%;
         width: 280px;
         background-color: #000;
@@ -526,6 +545,9 @@ ul {
         flex-basis: auto;
         justify-content: start;
         transition: left 0.3s ease; /* Add transition for smooth sliding animation */
+    }
+    .navigation-section.open {
+        left: 0; /* Slide the navigation section into view when it's open */
     }
     .nav-item{
         padding: 0;
@@ -567,12 +589,66 @@ ul {
         right: 20px; /* Adjust horizontal position */
         width: 50px; /* Adjust size */
         height: 50px; /* Adjust size */
-        background-color: #4caf50; /* Add background color */
+        background-color: rgb(29, 155, 240); /* Add background color */
         border-radius: 50%; /* Make it circular */
         z-index: 999; /* Ensure it's above other content */
     }
-
-    /* Additional styles as needed for smaller screens */
+    .newtweet{
+        // height: 100%;
+        // width:100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 13px;
+    }
+    .post-mobile-top{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 2px;
+        padding-bottom: 4px;
+    }
+    .tweet-btn{
+        color:#808080;
+        background-color:#0F4E78;
+    }
+    .draft{
+        color:rgb(29, 155, 240);
+        font-family: TwitterChirp, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        font-weight: 700;
+        padding-left: 16px;
+        padding-right: 25px;
+        font-size: 14px;
+    }
+    .public-access{
+        display: flex;
+        flex-direction: row;
+    }
+    .bottom-mobile{
+        display: flex;
+        flex-direction: column;
+    }
+    .web{
+        padding-left: 16px;
+        padding-right: 4px;
+    }
+    .p-web{
+        color:rgb(29, 155, 240);
+        font-family: TwitterChirp, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        font-weight: 900;    
+    }        
+    .public-access{
+        justify-content: start;
+    }
+    .post-input textarea{
+        padding-bottom: 90px;
+    }
+    .btns-right{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
 
 
 

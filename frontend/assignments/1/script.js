@@ -145,15 +145,15 @@ function addComment(list, content) {
     list.appendChild(commentItem);
 }
 
-// JavaScript for sidebar functionality
+// JavaScript for navigationSection functionality
 // const postImageNav = document.querySelector('.post-image-nav');
 // const navigationSection = document.querySelector('.navigation-section');
 
 // postImageNav.addEventListener('click', () => {
-//     navigationSection.classList.toggle('sidebar-open'); // Toggle the class to open/close the sidebar
+//     navigationSection.classList.toggle('navigationSection-open'); // Toggle the class to open/close the navigationSection
 // });
 
-// JavaScript for sidebar navigation
+// JavaScript for navigationSection navigation
 // document.addEventListener('DOMContentLoaded', function () {
 //     const postImageNav = document.querySelector('.post-image-nav');
 //     const sideNav = document.querySelector('.side-nav');
@@ -175,24 +175,68 @@ function addComment(list, content) {
 //         event.stopPropagation();
 //     });
 // });
-document.addEventListener('DOMContentLoaded', function () {
-    const postImageNav = document.querySelector('.post-image-nav');
-    const sideNav = document.querySelector('.navigation-section');
+// document.addEventListener('DOMContentLoaded', function () {
+//     const postImageNav = document.querySelector('.post-image-nav');
+//     const sideNav = document.querySelector('.navigation-section');
 
-    // Toggle side navigation when clicking on post-image-nav
-    postImageNav.addEventListener('click', function () {
-        sideNav.classList.toggle('open');
+//     // Toggle side navigation when clicking on post-image-nav
+//     postImageNav.addEventListener('click', function () {
+//         sideNav.classList.toggle('open');
+//     });
+
+//     // Close side navigation when clicking outside of it
+//     document.addEventListener('click', function (event) {
+//         if (!sideNav.contains(event.target) && event.target !== postImageNav) {
+//             sideNav.classList.remove('open');
+//         }
+//     });
+
+//     // Prevent closing side navigation when clicking inside of it
+//     sideNav.addEventListener('click', function (event) {
+//         event.stopPropagation();
+//     });
+// });
+
+// document.addEventListener('DOMContentLoaded', function () {
+//     const profileIcon = document.querySelector('.profile-icon');
+//     const navigationSection = document.querySelector('.navigation-section');
+
+//     // Toggle navigationSection when clicking on profile icon
+//     profileIcon.addEventListener('click', function () {
+//         navigationSection.classList.toggle('open');
+//     });
+
+//     // Close navigationSection when clicking outside of it
+//     document.addEventListener('click', function (event) {
+//         if (!navigationSection.contains(event.target) && event.target !== profileIcon) {
+//             navigationSection.classList.remove('open');
+//         }
+//     });
+
+//     // Prevent closing navigationSection when clicking inside of it
+//     navigationSection.addEventListener('click', function (event) {
+//         event.stopPropagation();
+//     });
+// });
+
+document.addEventListener('DOMContentLoaded', function () {
+    const profileIcon = document.querySelector('.profile-icon');
+    const navigationSection = document.querySelector('.navigation-section');
+
+    // Toggle navigation section when clicking on profile icon
+    profileIcon.addEventListener('click', function () {
+        navigationSection.classList.toggle('open');
     });
 
-    // Close side navigation when clicking outside of it
+    // Close navigation section when clicking outside of it
     document.addEventListener('click', function (event) {
-        if (!sideNav.contains(event.target) && event.target !== postImageNav) {
-            sideNav.classList.remove('open');
+        if (!navigationSection.contains(event.target) && event.target !== profileIcon) {
+            navigationSection.classList.remove('open');
         }
     });
 
-    // Prevent closing side navigation when clicking inside of it
-    sideNav.addEventListener('click', function (event) {
+    // Prevent closing navigation section when clicking inside of it
+    navigationSection.addEventListener('click', function (event) {
         event.stopPropagation();
     });
 });
