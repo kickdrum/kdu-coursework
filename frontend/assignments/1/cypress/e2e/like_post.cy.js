@@ -56,7 +56,7 @@ describe("Like Post", () => {
     cy.get(".posts")
       .children()
       .first()
-      .compareSnapshot("provided-liked-post", 0.2);
+      .compareSnapshot("provided-liked-post", Cypress.env("TEST_THRESHOLD"));
 
     // Get the final count of likes on the first post after unliking
     cy.get(".posts")
@@ -86,7 +86,7 @@ describe("Like Post", () => {
     cy.get(".posts")
       .children()
       .first()
-      .compareSnapshot("provided-unliked-post", 0.2);
+      .compareSnapshot("provided-unliked-post", Cypress.env("TEST_THRESHOLD"));
 
     // Get the final count of likes on the first post after unliking
     cy.get(".posts")
@@ -107,13 +107,15 @@ describe("Like Post", () => {
    */
   it("should compare screenshot after liking a post", () => {
     // Visit the specified page
-    cy.visit(Cypress.env('HOME_PAGE_URL'));
+    cy.visit(Cypress.env("HOME_PAGE_URL"));
 
     // Go with the size - Laptop (1079 x 726)
     cy.viewport(1079, 726);
 
     // Post a tweet
-    postTweet("Coffee in hand, bugs beware. Time to crush some code. #DeveloperLife #Coding");
+    postTweet(
+      "Coffee in hand, bugs beware. Time to crush some code. #DeveloperLife #Coding"
+    );
 
     // Like the post
     likePost();

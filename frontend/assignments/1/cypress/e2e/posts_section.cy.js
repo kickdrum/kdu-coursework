@@ -20,7 +20,7 @@ describe("Posts Section", () => {
     snapshotName
   ) => {
     // Visit the specified page
-    cy.visit(Cypress.env('HOME_PAGE_URL'));
+    cy.visit(Cypress.env("HOME_PAGE_URL"));
 
     // Set the viewport size
     cy.viewport(viewportWidth, viewportHeight);
@@ -41,7 +41,10 @@ describe("Posts Section", () => {
     cy.wait(2000);
 
     // Compare the screenshot of the first element with class 'posts'
-    cy.get(".posts").children().first().compareSnapshot(snapshotName, 0.2);
+    cy.get(".posts")
+      .children()
+      .first()
+      .compareSnapshot(snapshotName, Cypress.env("TEST_THRESHOLD"));
   };
 
   /**
