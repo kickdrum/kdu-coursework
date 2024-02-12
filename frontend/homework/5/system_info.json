@@ -1,0 +1,11 @@
+{
+  "HostName": "lenovo-ThinkPad-T14-Gen-1",
+  "OperatingSystem": "linux",
+  "Architecture": "x64",
+  "OSRelease": "6.5.0-17-generic",
+  "Uptime": 23885.28,
+  "NumberOfCPUCores": 8,
+  "TotalMemory": 16369684480,
+  "FreeMemory": 10586075136,
+  "CurrentWorkingDirectory": "/home/lenovo/kdu-coursework/frontend/homework/5"
+}
