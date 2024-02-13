@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Prashant's Page</title>
+    </head>
+    <body>
+        <button id="get-data">Get Post Data</button>
+        <div id="posts"></div>
+        <script>
+
+            function displayPost(data){
+                const h1=document.createElement("h1");
+                h1.innerText=data.name;
+                document.getElementById("posts").appendChild(h1);
+            }
+
+            document.getElementById("get-data").addEventListener("click", () =>{
+                fetch("http://localhost:5000/api/posts")
+                .then((res)=>res.json())
+                .then((postDataResponse)=>{
+                    postDataResponse.data.forEach(post => {
+                        console.log(post)
+                        displayPost(post);                        
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>
