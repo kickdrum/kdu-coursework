@@ -1,0 +1,11 @@
+{
+  "name": "handson-5",
+  "version": "1.0.0",
+  "description": "handson 5 frontend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kunal",
+  "license": "ISC"
+}

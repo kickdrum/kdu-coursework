@@ -1,0 +1,11 @@
+{
+  "HostName": "hp-HP-EliteBook-840-G7-Notebook-PC",
+  "OperatingSystem": "linux",
+  "Architecture": "x64",
+  "OSRelease": "6.5.0-15-generic",
+  "Uptime": "297 hours, 35 minutes, 14 seconds",
+  "NumberofCPUCores": 8,
+  "TotalMemory": "15759.18 MB",
+  "FreeMemory": "7086.96 MB",
+  "CurrentWorkingDirectory": "/home/hp/kdu-frontend/handson-5"
+}
