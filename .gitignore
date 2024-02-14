@@ -25,3 +25,10 @@ replay_pid*
 
 .idea
 .vscode
+
+node_modules
+package-lock.json
+style.css
+style.css.map
+
+
