@@ -28,10 +28,26 @@ body {
 }
 
 .input {
-  background-color: rgb(153, 255, 238);
+  background-color: rgb(200, 152, 255);
   color: black;
   padding: 10px;
   padding-left: 200px;
   padding-right: 200px;
   border-radius: 10px;
+}
+
+.divOne {
+  display: flex;
+  align-items: center;
+}
+
+.divTwo {
+  padding: 20px;
+}
+
+.divThree {
+  background-color: greenyellow;
+  border-radius: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
 }/*# sourceMappingURL=style.css.map */

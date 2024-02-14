@@ -37,18 +37,41 @@
 
             function addMessage(from, message){
                 const divOne=document.createElement('div');
+                divOne.classList.add('divOne');
                 const divTwo=document.createElement('div');
-                constdivThree=document.createElement('div');
-                divTwo.innerHTML = `<img class="img" src="./u1.png" alt="profile picture">`;
+                divTwo.classList.add('divTwo');
+                const divThree=document.createElement('div');
+                divThree.classList.add('divThree');
+                if(from==="You"){
+                    divTwo.innerHTML = `<img class="img" src="./y1.png" alt="profile picture">`;
+
+                }
+                else{
+                    divTwo.innerHTML = `<img class="img" src="./u1.png" alt="profile picture">`;
+
+                }
                 const element=document.createElement('p');
-                element.innerText= from + ":" + message;
-                messageOutput.appendChild(element);
+                element.innerText= from + " : " + message;
+                divThree.appendChild(element);
+
+                divOne.appendChild(divTwo);
+                divOne.appendChild(divThree);
+
+                messageOutput.appendChild(divOne);
             }
 
             function roomMessage(text){
+                const divOne=document.createElement('div');
+                divOne.classList.add('divOne');
+                const divThree=document.createElement('div');
+                divThree.classList.add('divThree');
                 const element=document.createElement('p');
                 element.innerText= "Added another user to room: "+ text;
-                roomOutput.appendChild(element);
+                divThree.appendChild(element);
+                divOne.appendChild(divThree);
+
+
+                roomOutput.appendChild(divOne);
             }
 
             sendButton.addEventListener("click", ()=>{
