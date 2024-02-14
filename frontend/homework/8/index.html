@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KDU Chat App</title>
+    <link rel="stylesheet" href="./styles/index.css">
+</head>
+
+<body>
+
+    <div class="main_container">
+
+        <div class="nav">
+            <p>KDU CHAT APP</p>
+            <div class="roomChoice">
+                
+                <label for="cars">Choose room</label>
+
+                <select name="room" id="room">
+                    <option value="backend">Backend</option>
+                    <option value="frontend">Frontend</option>
+                    <option value="azure">Azure</option>
+                    <option value="aws">Aws</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="chats">
+
+            <div id="chatsDiv">
+
+                <div class="chat">
+                    <span class="profile">U</span>
+                    <p>My chat 1</p>
+                </div>
+
+
+            </div>
+
+            <div class="inputDiv">
+                <input id="inputField" type="text" placeholder="Write a message here">
+                <img id="sendBtn" src="./assets/send-button.png" alt="upload" onclick="sendMessage()">
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
+    <script src="./scripts/client.js"></script>
+
+
+</body>
+
+</html>
