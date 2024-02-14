@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Prashant's Page</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="header">
+            <h1 class="heading">KDU Chat App</h1>
+        </div>
+
+        <div class="footer">
+            <div class="sub-footer">
+                <input class="input" type="text" id="msgInput" placeholder="Enter something message">
+                <button id="sendMessage"><img src="sendd.png"></button>
+            </div>
+            <div class="sub-footer"> 
+                <input class="input" type="text" id="roomInput" placeholder="Enter room number">
+                <button id="sendRoom"><img src="add-userr.png"></button>
+            </div>
+        </div>
+
+        <div id="messages"></div>
+
+        <script src="https://cdn.socket.io/4.7.4/socket.io.min.js" integrity="sha384-Gr6Lu2Ajx28mzwyVR8CFkULdCU7kMlZ9UthllibdOSo6qAiN+yXNHqtgdTvFXMT4" crossorigin="anonymous"></script>
+        <script>
+            const socket = io("http://localhost:5000");
+
+            const messageInput=document.getElementById("msgInput");
+            const sendButton= document.getElementById("sendMessage");
+            const messageOutput=document.getElementById("messages");
+
+            const roomInput=document.getElementById("roomInput");
+            const roomButton=document.getElementById("sendRoom");
+            const roomOutput=document.getElementById("messages");
+
+            function addMessage(from, message){
+                const divOne=document.createElement('div');
+                const divTwo=document.createElement('div');
+                constdivThree=document.createElement('div');
+                divTwo.innerHTML = `<img class="img" src="./u1.png" alt="profile picture">`;
+                const element=document.createElement('p');
+                element.innerText= from + ":" + message;
+                messageOutput.appendChild(element);
+            }
+
+            function roomMessage(text){
+                const element=document.createElement('p');
+                element.innerText= "Added another user to room: "+ text;
+                roomOutput.appendChild(element);
+            }
+
+            sendButton.addEventListener("click", ()=>{
+                const message=messageInput.value;
+                addMessage("You", message);
+                socket.emit("message",{
+                    room: roomInput.value,
+                    message: message
+                });
+                
+            })
+
+            roomButton.addEventListener("click", ()=>{
+                const text=roomInput.value;
+                roomMessage(text);
+                socket.emit("roomNo",text);
+            })
+
+            socket.on("new-message",(message)=>{
+                addMessage("User", message)
+            })
+        
+        </script>
+    </body>
+</html>
