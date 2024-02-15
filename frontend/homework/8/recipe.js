@@ -60,7 +60,6 @@ var RecipeSearchApp = /** @class */ (function () {
                                 case 2:
                                     data = _a.sent();
                                     this.recipes = data.recipes;
-                                    // console.log(this.recipes);
                                     resolve("success");
                                     return [3 /*break*/, 4];
                                 case 3:
@@ -132,7 +131,7 @@ var recipeSearchApp = new RecipeSearchApp("https://dummyjson.com/recipes");
                 return [4 /*yield*/, recipeSearchApp.searchRecipes("Pizza")];
             case 3:
                 testRecipe = _a.sent();
-                console.log("Pasta recipes:", testRecipe);
+                console.log(" recipes:", testRecipe);
                 return [3 /*break*/, 5];
             case 4:
                 error_3 = _a.sent();

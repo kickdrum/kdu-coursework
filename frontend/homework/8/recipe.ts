@@ -28,7 +28,6 @@ class RecipeSearchApp {
         }
         const data = await response.json();
         this.recipes = data.recipes as Recipe[];
-        // console.log(this.recipes);
         resolve("success");
       } catch (error) {
         console.error("Error fetching recipes:", error);
@@ -70,11 +69,11 @@ class RecipeSearchApp {
 const recipeSearchApp = new RecipeSearchApp("https://dummyjson.com/recipes");
 (async () => {
   await recipeSearchApp.fetchRecipesFromAPI();
-//   recipeSearchApp.printAllRecipes();
+  recipeSearchApp.printAllRecipes();
 
   try {
     const testRecipe = await recipeSearchApp.searchRecipes("Pizza");
-    console.log("Pasta recipes:", testRecipe);
+    console.log(" recipes:", testRecipe);
   } catch (error) {
     console.error("Error searching for pasta recipes:", error);
   }
