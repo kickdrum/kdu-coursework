@@ -1,0 +1,19 @@
+{
+  "name": "8",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "prithvi",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@types/es6-promise": "^3.3.0",
+    "babe": "^0.0.1",
+    "babel": "^6.23.0"
+  }
+}
