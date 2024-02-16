@@ -1,0 +1,23 @@
+{
+  "name": "frontend-assessment-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon ./app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Arunain",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "moment": "^2.30.1",
+    "uuid": "^9.0.1",
+    "socket.io": "^4.7.4"
+
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}
