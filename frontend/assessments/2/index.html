@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>
+            Stock market app
+        </title>
+       
+        <link href="./style.css" rel="stylesheet">
+    </head>
+    <body>
+        <header class="heading-div">
+            <p class="heading-text">KDU Stock Market Dashboard</p>
+        </header>
+        <div class="main-dashboard">
+            <div class="graph-side">
+                    <div class="data-bar">
+                        <div class="brand-info">
+                            <img src="./assets/logo.jpg" alt="zomato logo" id="brandimg"/>
+                            <p class="brandName">Zomato</p>
+                        </div>
+                        <div class="prices">
+                            <p id="price-txt"> Price </p>
+                            <p id="price"> </p>
+                            <svg class="my-svg"  width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M11 2.206l-6.235 7.528-.765-.645 7.521-9 7.479 9-.764.646-6.236-7.53v21.884h-1v-21.883z"/></svg>
+                            <p id="rating"> 3.00</p>
+                            <p>%</p>
+                        </div>
+                        <div class="activity">
+                            <form id="buy-form">
+                            <input type="text" id="textArea" placeholder="ENTER QTY">
+                            <button type="submit" id="buy" onclick="updateBuy()">Buy</button>
+                            <button type="submit" id="sell" onclick="updateSell()"> sell</button>
+                        </form>
+                        </div>
+                    </div>
+                    <div class="chart">
+                        <div class="grid-container">
+                            <div class="grid-item"></div>
+                            <div class="grid-item"></div>
+                            <div class="grid-item"></div>
+                            <div class="grid-item"></div>
+                            <div class="grid-item"></div>
+                            <div class="grid-item"></div>
+                            <div class="grid-item"></div>
+                            <div class="grid-item"></div>
+                            <div class="grid-item"></div>
+                            <div class="grid-item"></div>
+                            <div class="grid-item"></div>
+                            <div class="grid-item"></div>
+                            <div class="grid-item"></div>
+                            <div class="grid-item"></div>
+                            <div class="grid-item"></div>
+                            <div class="grid-item"></div>
+                            <div class="grid-item"></div>
+                            <div class="grid-item"></div>
+                            <div class="grid-item"></div>
+                            <div class="grid-item"></div>
+                            <div class="grid-item"></div>
+                            <div class="grid-item"></div>
+                            <div class="grid-item"></div>
+                            <div class="grid-item"></div>                        
+                        </div>
+                        <div class="bars">
+                            
+                        </div>
+                        
+
+                    </div>
+            </div>
+            <div class="history-div">
+                <p class="history-txt">History</p>
+                <div class="updates">
+                    <div class="parent-div">
+                        <div class="stock info">
+                            <p id="quantity-txt"> 100 stocks</p>
+                            <p id="time-txt"> Date</p>
+                        </div>
+                        <div class="action">
+                            <p> 143.22</p>
+                            <p id="action-txt">Buy</p>
+                        </div>
+                    </div>
+                    <div>
+                    
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script src="https://cdn.socket.io/4.7.4/socket.io.min.js" integrity="sha384-Gr6Lu2Ajx28mzwyVR8CFkULdCU7kMlZ9UthllibdOSo6qAiN+yXNHqtgdTvFXMT4" crossorigin="anonymous"></script>
+        <script> 
+            const socket = io("http://localhost:3003");
+
+
+            var currentcost ="";
+            socket.on('ping', cost =>{
+                changePrice(cost);
+                changePercent(cost);
+                changeBar(cost);
+                currentcost=cost;
+            })
+
+
+
+            function changePrice(cost){
+                const p= document.getElementById('price');
+                if(cost<=100){
+                    p.style.color='red';
+                }
+                else{
+                    p.style.color='green';
+                }
+                p.innerHTML=`${cost}`;
+            }
+
+            function changePercent(cost){
+                var prev = document.getElementById('price').innerHTML;
+                var diff = (prev-cost)%prev;
+            }
+
+            function changeBar(cost){
+                const div = document.getElementsByClassName('bars');
+                const newdiv =document.createElement('div');
+                newdiv.classList.add('bar');
+
+                newdiv.style.height=`${cost}px`;
+                newdiv.style.width="40px";
+                newdiv.style.marginRight="3.2px";
+                if(cost<140){
+                    newdiv.style.backgroundColor="rgb(255,201,201)";
+                    newdiv.style.border ="1px solid #e03131";
+                }else{
+                    newdiv.style.backgroundColor="#b1f2ba";
+                    newdiv.style.border ="1px solid #2f9e44";
+                }
+                document.querySelector('.bars').appendChild(newdiv);
+            }
+
+
+            setInterval(function (){
+        let x =Math.floor((Math.random() * 500) +1);
+        console.log(x);
+        socket.emit('ping',x);
+        }, 3000);
+
+
+var buyClicked=false;
+var sellClicked=false;
+
+        const buyForm = document.getElementById('buy-form');
+        buyForm.addEventListener('submit', e =>{
+        e.preventDefault();
+        const qty= e.target.elements.textArea.value;
+        e.target.elements.textArea.value="";
+        socket.emit('activity', qty);
+        console.log("aaa" + qty);
+        document.getElementById('buy').addEventListener("click", function(){
+            buyClicked=true;
+        });
+        document.getElementById('sell').addEventListener("click", function(){
+            sellClicked=true;
+        });
+    });
+
+
+    function updateQty(qty){
+        const div = document.createElement('div');
+        div.classList.add('parent-div');
+        div.innerHTML=`
+        <div class="stock info">
+                            <p id="quantity-txt"> ${qty} stocks</p>
+                            <p id="time-txt"> Date</p>
+                        </div>
+                        <div class="action">
+                            <p> ${currentcost}</p>
+                            <p id="action-txt"></p>
+                        </div>`;
+
+            document.querySelector('.updates').appendChild(div);
+    }
+
+
+    socket.on('activity', qty =>{
+        updateQty(qty);
+      
+    })
+
+    
+
+
+   
+
+        </script>
+    </body>
+</html>
