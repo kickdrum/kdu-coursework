@@ -27,7 +27,7 @@ io.on("connection", (socket) =>{
     console.log("test going")
     socket.emit("receive-zomato-text",text);
 
-    const price="255.79";
+    const price=Math.floor(Math.random() * 501);
     socket.emit("receieve-prices", price);
     
     socket.on("message",(payload)=>{
