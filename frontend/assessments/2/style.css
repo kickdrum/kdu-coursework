@@ -28,6 +28,7 @@
   flex-direction: column;
   width: 25%;
   padding-left: 15px;
+  padding-right: 15px;
   border: 1px solid #000;
 }
 
@@ -121,4 +122,18 @@ hr {
 
 .input {
   align-items: center;
+}
+
+.buy {
+  padding-top: 15px;
+}
+
+.sell {
+  padding-top: 15px;
+}
+
+.divMessage {
+  border: 1px solid #000;
+  border-radius: 10px;
+  padding-left: 20px;
 }/*# sourceMappingURL=style.css.map */
