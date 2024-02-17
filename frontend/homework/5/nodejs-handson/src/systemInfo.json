@@ -1,0 +1,11 @@
+{
+  "HostName": "hp-HP-EliteBook-840-G7-Notebook-PC",
+  "OperatingSystem": "Linux",
+  "Architecture": "x64",
+  "OSRelease": "6.5.0-17-generic",
+  "Uptime": 27631.5,
+  "NumberOfCPUCores": 8,
+  "TotalMemory": 16524697600,
+  "FreeMemory": 3667582976,
+  "CurrentWorkingDirectory": "/home/hp/Documents/KDU/kdu-coursework/frontend/homework/5/nodejs-handson/src"
+}
