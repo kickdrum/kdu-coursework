@@ -1,0 +1,87 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0F9B8E;
+    color: #343837;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header, footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #343837;
+    color: #FFFFFF;
+}
+
+main {
+    padding: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+input[type="text"], input[type="password"] {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #343837;
+}
+
+button {
+    padding: 10px;
+    background-color: #343837;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #292A2B;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+/* Additional styles for the posts section */
+#posts-section {
+    display: none; /* Initially hidden; shown after successful login/registration */
+}
+
+.post {
+    background-color: #FFF;
+    color: #343837;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#posts-container {
+    margin-top: 20px;
+}
+
+
+#find-post-section {
+    display: none; /* Initially hidden, shown after login */
+}
+
+#found-post-container {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 20px;
+    color: #343837;
+}
+
+#found-post-container h3, #found-post-container p {
+    margin: 10px 0;
+}

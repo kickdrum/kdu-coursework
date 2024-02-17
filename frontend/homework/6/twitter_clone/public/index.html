@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Twitter Clone</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Twitter Clone</h1>
+      <p>Created by Harsh Mishra</p>
+    </header>
+    <main>
+      <section id="login-section">
+        <h2>Login</h2>
+        <form id="login-form">
+          <input
+            type="text"
+            id="login-username"
+            placeholder="Username"
+            required
+          />
+          <input
+            type="password"
+            id="login-password"
+            placeholder="Password"
+            required
+          />
+          <button type="submit">Login</button>
+        </form>
+      </section>
+      <section id="register-section">
+        <h2>Register</h2>
+        <form id="register-form">
+          <input
+            type="text"
+            id="register-username"
+            placeholder="Username"
+            required
+          />
+          <input
+            type="password"
+            id="register-password"
+            placeholder="Password"
+            required
+          />
+          <button type="submit">Register</button>
+        </form>
+      </section>
+      <section id="post-section">
+        <h2>Add a Post</h2>
+        <form id="post-form">
+          <input
+            type="text"
+            id="post-content"
+            placeholder="What's happening?"
+            required
+          />
+          <button type="submit">Post</button>
+        </form>
+      </section>
+      <section id="posts-display-section">
+        <h2>Posts</h2>
+        <div id="posts-container">
+          <!-- Posts will be dynamically added here -->
+        </div>
+      </section>
+
+      <section id="find-post-section" style="display: none">
+        <h2>Find Post by ID</h2>
+        <form id="find-post-form">
+          <input
+            type="text"
+            id="find-post-id"
+            placeholder="Enter Post ID"
+            required
+          />
+          <button type="submit">Find Post</button>
+        </form>
+        <div id="found-post-container">
+          <!-- Found post will be displayed here -->
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>Created by Harsh Mishra</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>
