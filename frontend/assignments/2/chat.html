@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat Page</title>
+  </head>
+  <body>
+    <h1>Chat Page</h1>
+
+    <div id="after-login">
+      <h1 id="me"></h1>
+      <div id="user-list" class="user-list">
+        <h4>Users:</h4>
+        <ul id="buttonList">
+            <!-- List items will be dynamically added here -->
+        </ul>
+      </div>
+    </div>
+
+    <!-- Chat area -->
+    <div id="chatArea">
+      <div id="messagesContainer"></div>
+      <form id="sendMessageForm">
+        <label for="messageContent">Message:</label>
+        <textarea id="messageContent" name="messageContent" required></textarea>
+        <br />
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+
+    <script
+      src="https://cdn.socket.io/4.7.4/socket.io.min.js"
+      integrity="sha384-Gr6Lu2Ajx28mzwyVR8CFkULdCU7kMlZ9UthllibdOSo6qAiN+yXNHqtgdTvFXMT4"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      const socket = io("http://localhost:5000");
+      console.log("check for chat connect");
+
+      const sendMyMessage = (chatWidowId, fromUser, message) => {
+        let loggedInUser = JSON.parse(sessionStorage.getItem("user"));
+        let meClass = loggedInUser.id == fromUser.id ? "me" : "";
+
+        $("#after-login").find(`#${chatWidowId} .body`).append(`
+        <div class="chat-text ${meClass}">
+            <div class="userPhoto">
+                <img src="images/${fromUser.user_image}" />
+            </div>
+            <div>
+                <span class="message">${message}<span>
+            </div>
+        </div>
+    `);
+      };
+
+      const sendMessage = (room) => {
+        let loggedInUser = JSON.parse(sessionStorage.getItem("user"));
+        let message = $("#" + room)
+          .find(".messageText")
+          .val();
+        $("#" + room)
+          .find(".messageText")
+          .val("");
+        socket.emit("message", {
+          room: room,
+          message: message,
+          from: loggedInUser,
+        });
+        sendMyMessage(room, loggedInUser, message);
+      };
+      const openChatWindow = (room) => {
+        if((`${room}`).length === 0) {
+            console.log("room found:",`${room}`);
+        //   $("#after-login").append(`
+        // <div class="chat-window" id="${room}">
+        //     <div class="body"></div>
+        //     <div class="footer">
+        //         <input type="text" class="messageText"/><button onclick="sendMessage('${room}')">GO</button>
+        //     </div>
+        // </div>
+        // `);
+        }
+      };
+      const createRoom = (id) => {
+        console.log("create room testing!!", id);
+        let loggedInUser = JSON.parse(sessionStorage.getItem("user"));
+        let room = Date.now() + Math.random();
+        room = room.toString().replace(".", "_");
+
+        console.log(room, loggedInUser.id, id);
+        socket.emit("create", {
+          room: room,
+          userId: loggedInUser.id,
+          withUserId: id,
+        });
+        openChatWindow(room);
+      };
+
+      const userPrint=document.getElementById("buttonList");
+
+      function addUsers(loggedInUser, userList){
+        console.log("called");
+        console.log(loggedInUser);
+        console.log(userList);
+        userList.forEach((item)=>{
+            if(loggedInUser.id!=item.id){
+                console.log("logged:", loggedInUser.id);
+                console.log("user:", item.id);
+                const li= document.createElement('li');
+                const button=document.createElement('button');
+                button.textContent=`${item.user_name}`;
+                button.onclick=function(){
+                    createRoom(`'${item.id}'`)
+                }
+
+                li.appendChild(button);
+                userPrint.appendChild(li);
+            }
+        })
+        
+
+      }
+
+      socket.on("updateUserList", function (userList) {
+        console.log("updateUserList check in chat");
+        console.log(userList);
+        let loggedInUser = JSON.parse(sessionStorage.getItem("user"));
+        // console.log(loggedInUser);
+        // console.log(userList);
+
+        addUsers(loggedInUser, userList);
+        // $("#user-list").html("<ul></ul>");
+        // userList.forEach((item) => {
+        //   if (loggedInUser.id != item.id) {
+        //     // console.log("logged:", loggedInUser.id);
+        //     // console.log("user:", item.id);
+
+        //     // $("#user-list ul").append(
+        //     //   `<li data-id="${item.id}" onclick="createRoom('${item.id}')">${item.user_name}</li>`
+        //     // );
+        //   }
+        // });
+      });
+
+      socket.on("invite", function (data) {
+        console.log("at the invite stage!!");
+        socket.emit("joinRoom", data);
+      });
+      socket.on("message", function (msg) {
+        //If chat window not opened with this roomId, open it
+        if (!$("#after-login").find(`#${msg.room}`).length) {
+          openChatWindow(msg.room);
+        }
+        sendMyMessage(msg.room, msg.from, msg.message);
+      });
+    </script>
+  </body>
+</html>

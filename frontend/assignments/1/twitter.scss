@@ -533,7 +533,7 @@ ul {
     .navigation-section {
         position: fixed;
         top: 0;
-        left: 0; /* Initially hide the navigation section off-screen */
+        left: -300; /* Initially hide the navigation section off-screen */
         height: 100%;
         width: 280px;
         background-color: #000;

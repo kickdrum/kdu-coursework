@@ -1,0 +1,243 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+    <h1>Landing Page</h1> 
+
+    <a href="chat.html" class="chat-btn">Go to Chat Page</a>
+
+
+
+    <form id="createPostForm">
+        <label for="postContent">Post Content:</label>
+        <textarea id="postContent" name="postContent" required></textarea>
+        <br>
+        <input type="file" id="postMedia" name="postMedia" accept="image/*, video/*">
+        <br>
+        <button type="button" id="createPostButton">Create Post</button>
+    </form>
+
+    <div id="postsContainer"></div> -->
+
+<!--     
+    <script>
+    // JavaScript code for fetching and creating posts
+    document.addEventListener('DOMContentLoaded', async () => {
+        const postsContainer = document.getElementById('postsContainer');
+        const createPostForm = document.getElementById('createPostForm');
+        const createPostButton = document.getElementById('createPostButton');
+
+        let pageNumber = 1;
+        let isLoading = false;
+        const displayedPostIds = new Set();
+
+        // Function to fetch posts from the backend
+        const fetchPosts = async () => {
+            try {
+                isLoading = true;
+                const response = await fetch(`http://localhost:5000/api/posts?page=${pageNumber}&limit=5`);
+                const { posts } = await response.json(); -->
+
+                <!-- // Display posts in the UI
+                posts.forEach(post => {
+                    // Check if the post ID is already displayed
+                    if (!displayedPostIds.has(post.id)) {
+                        const postElement = document.createElement('div');
+                        postElement.innerHTML = `
+                            <h3>${post.title}</h3>
+                            <p>${post.content}</p> -->
+                            <!-- Display media here if available -->
+                        <!-- `;
+                        postsContainer.appendChild(postElement);
+
+                        // Add post ID to the displayed set
+                        displayedPostIds.add(post.id);
+                    }
+                });
+
+                // Increment page number for next pagination
+                pageNumber++;
+                isLoading = false;
+            } catch (error) {
+                console.error('Error fetching posts:', error.message);
+                isLoading = false;
+            }
+        };
+
+        // Function to handle form submission for creating a new post
+        const createPost = async () => {
+            const postContent = document.getElementById('postContent').value;
+            const postMedia = document.getElementById('postMedia').files[0]; // Assuming single file upload
+
+            // Create new post object
+            const newPostData = {
+                content: postContent,
+                media: postMedia ? postMedia.name : null // Store media filename or null if no media uploaded
+            };
+
+            try {
+                const response = await fetch('http://localhost:5000/api/posts', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(newPostData)
+                });
+
+                if (!response.ok) {
+                    const errorMessage = await response.json();
+                    throw new Error(errorMessage.message);
+                }
+
+                // Reset form after successful post creation
+                createPostForm.reset();
+                // Reload posts to display the newly created post at the top
+                pageNumber = 1; // Reset page number
+                fetchPosts(); // Fetch and display posts again
+            } catch (error) {
+                console.error('Error creating post:', error.message);
+                alert('Error creating post: ' + error.message);
+            }
+        };
+
+        // Fetch initial posts on page load
+        fetchPosts();
+
+        // Implement infinite scroll to load more posts
+        window.addEventListener('scroll', () => {
+            if (window.innerHeight + window.scrollY >= document.body.offsetHeight && !isLoading) {
+                fetchPosts();
+            }
+        });
+
+        // Add event listener for create post button click
+        createPostButton.addEventListener('click', createPost);
+    });
+
+    </script>
+</body>
+</html>
+
+ -->
+
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags, title, and styles -->
+</head>
+<body>
+    <h1>Landing Page</h1> 
+
+    <a href="chat.html" class="chat-btn">Go to Chat Page</a>
+
+    <!-- Form to create a new post -->
+    <form id="createPostForm">
+        <label for="postContent">Post Content:</label>
+        <textarea id="postContent" name="postContent" required></textarea>
+        <br>
+        <input type="file" id="postMedia" name="postMedia" accept="image/*, video/*">
+        <br>
+        <button type="button" id="createPostButton">Create Post</button>
+    </form>
+
+    <!-- Display area for posts -->
+    <div id="postsContainer"></div>
+
+    <script>
+        // JavaScript code for fetching and creating posts
+        document.addEventListener('DOMContentLoaded', async () => {
+            const postsContainer = document.getElementById('postsContainer');
+            const createPostForm = document.getElementById('createPostForm');
+            const createPostButton = document.getElementById('createPostButton');
+
+            let pageNumber = 1;
+            let isLoading = false;
+            const displayedPostIds = new Set();
+
+            // Function to fetch posts from the backend
+            const fetchPosts = async () => {
+                try {
+                    isLoading = true;
+                    const response = await fetch(`http://localhost:5000/api/posts?page=${pageNumber}&limit=5`);
+                    const { posts } = await response.json();
+
+                    // Display posts in the UI
+                    posts.forEach(post => {
+                        // Check if the post ID is already displayed
+                        if (!displayedPostIds.has(post.id)) {
+                            const postElement = document.createElement('div');
+                            postElement.innerHTML = `
+                                <h3>${post.title}</h3>
+                                <p>${post.content}</p>
+                                <!-- Display media here if available -->
+                            `;
+                            postsContainer.appendChild(postElement);
+
+                            // Add post ID to the displayed set
+                            displayedPostIds.add(post.id);
+                        }
+                    });
+
+                    // Increment page number for next pagination
+                    pageNumber++;
+                    isLoading = false;
+                } catch (error) {
+                    console.error('Error fetching posts:', error.message);
+                    isLoading = false;
+                }
+            };
+
+            // Function to handle form submission for creating a new post
+            const createPost = async () => {
+                const postContent = document.getElementById('postContent').value;
+                const postMedia = document.getElementById('postMedia').files[0]; // Assuming single file upload
+
+                // Create new post object
+                const newPostData = {
+                    content: postContent,
+                    media: postMedia ? postMedia.name : null // Store media filename or null if no media uploaded
+                };
+
+                try {
+                    const response = await fetch('http://localhost:5000/api/posts', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(newPostData)
+                    });
+
+                    if (!response.ok) {
+                        const errorMessage = await response.json();
+                        throw new Error(errorMessage.message);
+                    }
+
+                    // Reset form after successful post creation
+                    createPostForm.reset();
+                    // Reload posts to display the newly created post at the top
+                    pageNumber = 1; // Reset page number
+                    fetchPosts(); // Fetch and display posts again
+                } catch (error) {
+                    console.error('Error creating post:', error.message);
+                    alert('Error creating post: ' + error.message);
+                }
+            };
+
+            // Fetch initial posts on page load
+            fetchPosts();
+
+            // Implement infinite scroll to load more posts
+            window.addEventListener('scroll', () => {
+                if (window.innerHeight + window.scrollY >= document.body.offsetHeight && !isLoading) {
+                    fetchPosts();
+                }
+            });
+
+            // Add event listener for create post button click
+            createPostButton.addEventListener('click', createPost);
+        });
+    </script>
+</body>
+</html>
