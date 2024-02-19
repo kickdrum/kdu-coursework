@@ -1,0 +1,10 @@
+.hobbiesBox{
+    height: 100%;
+    width: 40%;
+    background-color: #97cf7f;
+
+    h4{
+        text-align: center;
+    }
+
+}

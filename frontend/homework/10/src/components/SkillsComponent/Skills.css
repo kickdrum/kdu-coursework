@@ -1,0 +1,9 @@
+.skillsBox{
+    height: 100%;
+    width: 40%;
+    background-color: rgb(77, 124, 213);
+
+    h4{
+        text-align: center;
+    }
+}

@@ -1,0 +1,13 @@
+.headerBox{
+    height: 20%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    box-sizing: border-box;
+}
+
+p{
+    margin: 0;
+}
