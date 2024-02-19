@@ -1,160 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat Page</title>
-  </head>
-  <body>
-    <h1>Chat Page</h1>
+    <link rel="stylesheet" href="./chatStyling/chat.css">
 
-    <div id="after-login">
-      <h1 id="me"></h1>
-      <div id="user-list" class="user-list">
-        <h4>Users:</h4>
-        <ul id="buttonList">
-            <!-- List items will be dynamically added here -->
-        </ul>
+</head>
+<body>
+    <!-- Navigation Section -->
+<header class="head">
+  <nav class="navigation-section">
+      <div class="nav-top">
+          <div class="logo">
+              <img src="./logo/xlogo.svg" alt="X logo">
+          </div>
+          <div class="nav-content">
+              <div class="nav-items">
+                  <div class="nav-item">
+                      <a class="a-text" href="#">
+                          <div class="anchor">
+                              <img src="./logo/home.svg">
+                              <p class="nav-font">Home</p>
+                          </div>
+                      </a>
+                  </div>
+                  <div class="nav-item">
+                      <a class="a-text" href="#">
+                          <div class="anchor">
+                              <img src="./logo/explore.svg">
+                              <p class="nav-font">Explore</p>
+                          </div>
+                      </a>
+                  </div>
+                  <div class="nav-item">
+                      <a class="a-text" href="#">
+                          <div class="anchor">
+                              <img src="./logo/notif.svg">
+                              <p class="nav-font">Notifications</p>
+                          </div>
+                      </a>
+                  </div>
+                  <div class="nav-item">
+                      <a class="a-text" href="chat.html" class="chat-btn">
+                          <div class="anchor">
+                              <img src="./logo/messages.svg">
+                              <p class="nav-font">Messages</p>
+                          </div>
+                      </a>
+                  </div>
+                  <div class="nav-item">
+                      <a class="a-text" href="#">
+                          <div class="anchor">
+                              <img src="./logo/grok.svg">
+                              <p class="nav-font">Grok</p>
+                          </div>
+                      </a>
+                  </div>
+                  <div class="nav-item">
+                      <a class="a-text" href="#">
+                          <div class="anchor">
+                              <img src="./logo/lists.svg">
+                              <p class="nav-font">Lists</p>
+                          </div>
+                      </a>
+                  </div>
+                  <div class="nav-item">
+                      <a class="a-text" href="#">
+                          <div class="anchor">
+                              <img src="./logo/bookmark.svg">
+                              <p class="nav-font">Bookmarks</p>
+                          </div>
+                      </a>
+                  </div>
+                  <div class="nav-item">
+                      <a class="a-text" href="#">
+                          <div class="anchor">
+                              <img src="./logo/comm.svg">
+                              <p class="nav-font">Communities</p>
+                          </div>
+                      </a>
+                  </div>
+                  <div class="nav-item">
+                      <a class="a-text" href="#">
+                          <div class="anchor">
+                              <img src="./logo/premium.svg">
+                              <p class="nav-font">Premium</p>
+                          </div>
+                      </a>
+                  </div>
+                  <div class="nav-item">
+                      <a class="a-text" href="#">
+                          <div class="anchor">
+                              <img src="./logo/profile.svg">
+                              <p class="nav-font">Profile</p>
+                          </div>
+                      </a>
+                  </div>
+                  <div class="nav-item">
+                      <a class="a-text" href="#">
+                          <div class="anchor">
+                              <img src="./logo/more.svg">
+                              <p class="nav-font">More</p>
+                          </div>
+                      </a>
+                  </div>
+
+              </div>
+          </div>
+          <div class="nav-post">
+              <a class="btn-a" href="#">
+                  <div class="btn-div">
+                      <span class="btn-span">
+                          Post
+                      </span>
+                  </div>
+              </a>
+
+          </div>
       </div>
+
+      <div class="nav-bottom">
+          <div>
+              <div class="profile">
+                  <div class="profile-pic">
+                      <img class="img" src="./logo/propic.jpg" >
+                  </div>
+                  <div class="profile-details">
+                      <div class="details">
+                          <div class="name">
+                              <p class="p-name">Nitesh Gupta</p>
+                          </div>
+                          <div class="username">
+                              <p class="p-username">@nit_hck</p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="more">
+                      <div>
+                          <img src="./logo/dots.svg">
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+   
+  </nav>
+</header>
+
+
+    <div class="main-content">
+    <div id="after-login">
+        <h1>Messages</h1>
+        <h1 id="me"></h1>
+        <div id="user-list" class="user-list">
+            <h4>Users:</h4>
+            <ul id="buttonList">
+                <!-- List items will be dynamically added here -->
+            </ul>
+        </div>
     </div>
 
     <!-- Chat area -->
-    <div id="chatArea">
-      <div id="messagesContainer"></div>
-      <form id="sendMessageForm">
-        <label for="messageContent">Message:</label>
-        <textarea id="messageContent" name="messageContent" required></textarea>
-        <br />
-        <button type="submit">Send Message</button>
-      </form>
+    <div id="chat-area" style="display: none;">
+        <h2>Chat Area</h2>
+        <div id="chat-messages"></div>
+        <input type="text" id="message-input" placeholder="Type a message...">
+        <button onclick="sendMessage()">Send</button>
     </div>
 
-    <script
-      src="https://cdn.socket.io/4.7.4/socket.io.min.js"
-      integrity="sha384-Gr6Lu2Ajx28mzwyVR8CFkULdCU7kMlZ9UthllibdOSo6qAiN+yXNHqtgdTvFXMT4"
-      crossorigin="anonymous"
-    ></script>
+  </div>
+
+    <script src="https://cdn.socket.io/4.7.4/socket.io.min.js" integrity="sha384-Gr6Lu2Ajx28mzwyVR8CFkULdCU7kMlZ9UthllibdOSo6qAiN+yXNHqtgdTvFXMT4" crossorigin="anonymous"></script>
 
     <script>
-      const socket = io("http://localhost:5000");
-      console.log("check for chat connect");
+        const socket = io("http://localhost:5000");
 
-      const sendMyMessage = (chatWidowId, fromUser, message) => {
-        let loggedInUser = JSON.parse(sessionStorage.getItem("user"));
-        let meClass = loggedInUser.id == fromUser.id ? "me" : "";
-
-        $("#after-login").find(`#${chatWidowId} .body`).append(`
-        <div class="chat-text ${meClass}">
-            <div class="userPhoto">
-                <img src="images/${fromUser.user_image}" />
-            </div>
-            <div>
-                <span class="message">${message}<span>
-            </div>
-        </div>
-    `);
-      };
-
-      const sendMessage = (room) => {
-        let loggedInUser = JSON.parse(sessionStorage.getItem("user"));
-        let message = $("#" + room)
-          .find(".messageText")
-          .val();
-        $("#" + room)
-          .find(".messageText")
-          .val("");
-        socket.emit("message", {
-          room: room,
-          message: message,
-          from: loggedInUser,
-        });
-        sendMyMessage(room, loggedInUser, message);
-      };
-      const openChatWindow = (room) => {
-        if((`${room}`).length === 0) {
-            console.log("room found:",`${room}`);
-        //   $("#after-login").append(`
-        // <div class="chat-window" id="${room}">
-        //     <div class="body"></div>
-        //     <div class="footer">
-        //         <input type="text" class="messageText"/><button onclick="sendMessage('${room}')">GO</button>
-        //     </div>
-        // </div>
-        // `);
-        }
-      };
-      const createRoom = (id) => {
-        console.log("create room testing!!", id);
-        let loggedInUser = JSON.parse(sessionStorage.getItem("user"));
-        let room = Date.now() + Math.random();
-        room = room.toString().replace(".", "_");
-
-        console.log(room, loggedInUser.id, id);
-        socket.emit("create", {
-          room: room,
-          userId: loggedInUser.id,
-          withUserId: id,
-        });
-        openChatWindow(room);
-      };
-
-      const userPrint=document.getElementById("buttonList");
-
-      function addUsers(loggedInUser, userList){
-        console.log("called");
-        console.log(loggedInUser);
-        console.log(userList);
-        userList.forEach((item)=>{
-            if(loggedInUser.id!=item.id){
-                console.log("logged:", loggedInUser.id);
-                console.log("user:", item.id);
-                const li= document.createElement('li');
-                const button=document.createElement('button');
-                button.textContent=`${item.user_name}`;
-                button.onclick=function(){
-                    createRoom(`'${item.id}'`)
-                }
-
-                li.appendChild(button);
-                userPrint.appendChild(li);
+        socket.on('connect', () => {
+            const userData = JSON.parse(sessionStorage.getItem("user"));
+            if (userData) {
+              console.log(userData.user_name);
+                // document.getElementById('me').textContent = `Logged in as: ${userData.user_name}`;
+                socket.emit('loggedin', userData);
             }
-        })
-        
+        });
 
-      }
+        socket.on('userList', (users) => {
+            const buttonList = document.getElementById('buttonList');
+            buttonList.innerHTML = '';
+            users.forEach(user => {
+                const listItem = document.createElement('li');
+                listItem.textContent = user.user_name;
+                listItem.addEventListener('click', () => openChat(user.id));
+                buttonList.appendChild(listItem);
+            });
+        });
 
-      socket.on("updateUserList", function (userList) {
-        console.log("updateUserList check in chat");
-        console.log(userList);
-        let loggedInUser = JSON.parse(sessionStorage.getItem("user"));
-        // console.log(loggedInUser);
-        // console.log(userList);
+        socket.on('privateMessage', (message) => {
+            const chatMessages = document.getElementById('chat-messages');
+            const newMessage = document.createElement('p');
+            newMessage.textContent = `${message.sender}: ${message.text}`;
+            chatMessages.appendChild(newMessage);
+        });
 
-        addUsers(loggedInUser, userList);
-        // $("#user-list").html("<ul></ul>");
-        // userList.forEach((item) => {
-        //   if (loggedInUser.id != item.id) {
-        //     // console.log("logged:", loggedInUser.id);
-        //     // console.log("user:", item.id);
-
-        //     // $("#user-list ul").append(
-        //     //   `<li data-id="${item.id}" onclick="createRoom('${item.id}')">${item.user_name}</li>`
-        //     // );
-        //   }
-        // });
-      });
-
-      socket.on("invite", function (data) {
-        console.log("at the invite stage!!");
-        socket.emit("joinRoom", data);
-      });
-      socket.on("message", function (msg) {
-        //If chat window not opened with this roomId, open it
-        if (!$("#after-login").find(`#${msg.room}`).length) {
-          openChatWindow(msg.room);
+        function openChat(socketId) {
+            document.getElementById('chat-area').style.display = 'block';
+            sessionStorage.setItem('receiverSocketId', socketId);
         }
-        sendMyMessage(msg.room, msg.from, msg.message);
-      });
+
+
+        function sendMessage() {
+        const receiverSocketId = sessionStorage.getItem('receiverSocketId');
+        const messageInput = document.getElementById('message-input');
+        const messageText = messageInput.value.trim();
+        if (messageText !== '') {
+        socket.emit('privateMessage', { receiverSocketId, text: messageText });
+              console.log("Sending message:", messageText); // Log the message being sent
+              socket.emit('privateMessage', { receiverSocketId, text: messageText });
+              messageInput.value = '';
+              const chatMessages = document.getElementById('chat-messages');
+              const newMessage = document.createElement('p');
+              newMessage.textContent = `You: ${messageText}`;
+              chatMessages.appendChild(newMessage);
+          }
+      }
     </script>
-  </body>
+</body>
 </html>

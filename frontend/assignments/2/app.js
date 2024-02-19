@@ -2,14 +2,10 @@ const express = require("express");
 const http = require("http");
 const cors = require("cors");
 const socketIo = require("socket.io");
-let bodyparser  = require('body-parser');
-const path      = require('path');
-
-
+const path = require('path');
 
 const users = require("./data/Users");
 const twitterApi = require("./routes/api/twitter");
-
 
 const app = express();
 const server = http.createServer(app);
@@ -22,66 +18,53 @@ const io = new socketIo.Server(server, {
 app.use(cors());
 app.use(express.json());
 app.use("", twitterApi);
-app.use(bodyparser.json())
-app.use('/node_modules', express.static(path.join(__dirname, 'node_modules', )));
+app.use('/node_modules', express.static(path.join(__dirname, 'node_modules')));
 app.use(express.static('public'));
 
-const userSockets = new Map();
-
-let clientSocketIds = [];
-let connectedUsers= [];
-
-const getSocketByUserId = (userId) =>{
-    let socket = clientSocketIds[1].socket; //hardcoded default value
-    // console.log("clientSocketIds here:->",clientSocketIds, clientSocketIds.length, userId);
-    for(let i = 0; i<clientSocketIds.length; i++) {
-        console.log("till finding:",clientSocketIds[i].userId, userId);
-        if(clientSocketIds[i].userId == userId) { //idk why if statement is not working
-            console.log('ayyo ith id:',clientSocketIds[i]);
-            socket = clientSocketIds[i].socket;
-            break;
-        }
-    }
-    return socket;
-}
+const connectedUsers = new Map();
 
 io.on("connection", (socket) => {
     console.log("Connection created");
 
     socket.on('loggedin', function(user) {
-        console.log("login check");
-        clientSocketIds.push({socket: socket, userId:  user.id});
-        // console.log(clientSocketIds);
-        connectedUsers = connectedUsers.filter(item => item.id != user.id);
-        connectedUsers.push({...user, socketId: socket.id})
-        console.log(connectedUsers);
-
-        // io.emit('updateUserList', connectedUsers);
-        socket.broadcast.emit('updateUserList', connectedUsers);
-        console.log("pata nhi test2");
-
+        console.log("User logged in:", user.user_name);
+        connectedUsers.set(socket.id, { id: user.id, user_name: user.user_name });
+        updateUserList();
     });
 
-   
+    socket.on('privateMessage', (message) => {
+        console.log("Received private message:", message); // Log the received message
 
-    socket.on('create', function(data) {
-        console.log("create room", data.room, data.withUserId)
-        
-        socket.join(data.room);
-        let withSocket = getSocketByUserId(data.withUserId);
-        console.log(withSocket.id,);
-        socket.broadcast.to(withSocket.id).emit("invite",{room:data})
-    });
-    
-    socket.on('joinRoom', function(data) {
-        socket.join(data.room.room);
+        const { receiverUserId, text } = message;
+        const receiverSocketId = Array.from(connectedUsers.entries())
+            .find(([socketId, user]) => user.id === receiverUserId)?.[0];
+
+        if (receiverSocketId) {
+            // Emit the message only to the receiver
+            io.to(receiverSocketId).emit('privateMessage', { sender: socket.id, text });
+            // Optionally, you may also emit the message back to the sender
+            io.to(socket.id).emit('privateMessage', { sender: socket.id, text });
+        } else {
+            // Handle error: Receiver not found
+            console.log('Error: Receiver not found');
+        }
     });
 
-    socket.on('message', function(data) {
-        socket.broadcast.to(data.room).emit('message', data);
-    })
+    socket.on('disconnect', () => {
+        connectedUsers.delete(socket.id);
+        updateUserList();
+    });
+
+    function updateUserList() {
+        const users = Array.from(connectedUsers.values()).map(user => ({ id: user.id, user_name: user.user_name }));
+        io.emit('userList', users);
+    }
 });
 
-server.listen(5000, () => {
-    console.log("Application started on port 5000");
+const PORT = process.env.PORT || 5000;
+server.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });
+
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors());

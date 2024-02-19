@@ -1,150 +1,197 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="./landingStyle/twitter.css">
 </head>
 <body>
-    <h1>Landing Page</h1> 
+    <!-- Navigation Section -->
+<header class="head">
+    <nav class="navigation-section">
+        <div class="nav-top">
+            <div class="logo">
+                <img src="./logo/xlogo.svg" alt="X logo">
+            </div>
+            <div class="nav-content">
+                <div class="nav-items">
+                    <div class="nav-item">
+                        <a class="a-text" href="#">
+                            <div class="anchor">
+                                <img src="./logo/home.svg">
+                                <p class="nav-font">Home</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a class="a-text" href="#">
+                            <div class="anchor">
+                                <img src="./logo/explore.svg">
+                                <p class="nav-font">Explore</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a class="a-text" href="#">
+                            <div class="anchor">
+                                <img src="./logo/notif.svg">
+                                <p class="nav-font">Notifications</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a class="a-text" href="chat.html" class="chat-btn">
+                            <div class="anchor">
+                                <img src="./logo/messages.svg">
+                                <p class="nav-font">Messages</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a class="a-text" href="#">
+                            <div class="anchor">
+                                <img src="./logo/grok.svg">
+                                <p class="nav-font">Grok</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a class="a-text" href="#">
+                            <div class="anchor">
+                                <img src="./logo/lists.svg">
+                                <p class="nav-font">Lists</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a class="a-text" href="#">
+                            <div class="anchor">
+                                <img src="./logo/bookmark.svg">
+                                <p class="nav-font">Bookmarks</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a class="a-text" href="#">
+                            <div class="anchor">
+                                <img src="./logo/comm.svg">
+                                <p class="nav-font">Communities</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a class="a-text" href="#">
+                            <div class="anchor">
+                                <img src="./logo/premium.svg">
+                                <p class="nav-font">Premium</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a class="a-text" href="#">
+                            <div class="anchor">
+                                <img src="./logo/profile.svg">
+                                <p class="nav-font">Profile</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a class="a-text" href="#">
+                            <div class="anchor">
+                                <img src="./logo/more.svg">
+                                <p class="nav-font">More</p>
+                            </div>
+                        </a>
+                    </div>
 
-    <a href="chat.html" class="chat-btn">Go to Chat Page</a>
+                </div>
+            </div>
+            <div class="nav-post">
+                <a class="btn-a" href="#">
+                    <div class="btn-div">
+                        <span class="btn-span">
+                            Post
+                        </span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+
+        <div class="nav-bottom">
+            <div>
+                <div class="profile">
+                    <div class="profile-pic">
+                        <img class="img" src="./logo/propic.jpg" >
+                    </div>
+                    <div class="profile-details">
+                        <div class="details">
+                            <div class="name">
+                                <p class="p-name">Nitesh Gupta</p>
+                            </div>
+                            <div class="username">
+                                <p class="p-username">@nit_hck</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="more">
+                        <div>
+                            <img src="./logo/dots.svg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+     
+    </nav>
+</header>
+<div class="main-content">
+    <div class="tweet-box">
+        <div>
+            <div class="post-image">
+                <img class="img" src="./logo/propic.jpg" alt="profile picture">
+            </div>
+            <div class="post-input">
+                <form>
+                    <textarea id="postContent" placeholder="What is happening?!"></textarea>
+                    <div class="post-buttons">
+                        <div class="public-access">
+
+                        </div>
+                        <div class="action-buttons">
+                            <div class="left-btns">
+                                <div class="icons"><img src="./logo/image.svg" alt="Image"></div>
+                                <div class="icons"><img src="./logo/gif.svg" alt="Image"></div>
+                                <div class="icons"><img src="./logo/image.svg" alt="Image"></div>
+                                <div class="icons"><img src="./logo/smile.jpg" alt="Image"></div>
+                                <div class="icons"><img src="./logo/calender.svg" alt="Image"></div>
+                                <div class="icons"><img src="./logo/maps.svg" alt="Image"></div>
+                            </div>
+                            <div class="right-btns">
+                                <button id="createPostButton" class="tweet-btn">Post</button> 
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
 
 
+            <!-- Form to create a new post -->
+            <form id="createPostForm">
+                <!-- <label for="postContent">Post Content:</label> -->
+                <!-- <textarea id="postContent" required></textarea> -->
+                <br>
+                <input style="color:white"type="file" id="postMedia" accept="image/*, video/*">
+                <br>
+                <!-- <button type="button" id="createPostButton">Create Post</button> -->
+            </form>
 
-    <form id="createPostForm">
-        <label for="postContent">Post Content:</label>
-        <textarea id="postContent" name="postContent" required></textarea>
-        <br>
-        <input type="file" id="postMedia" name="postMedia" accept="image/*, video/*">
-        <br>
-        <button type="button" id="createPostButton">Create Post</button>
-    </form>
-
-    <div id="postsContainer"></div> -->
-
-<!--     
-    <script>
-    // JavaScript code for fetching and creating posts
-    document.addEventListener('DOMContentLoaded', async () => {
-        const postsContainer = document.getElementById('postsContainer');
-        const createPostForm = document.getElementById('createPostForm');
-        const createPostButton = document.getElementById('createPostButton');
-
-        let pageNumber = 1;
-        let isLoading = false;
-        const displayedPostIds = new Set();
-
-        // Function to fetch posts from the backend
-        const fetchPosts = async () => {
-            try {
-                isLoading = true;
-                const response = await fetch(`http://localhost:5000/api/posts?page=${pageNumber}&limit=5`);
-                const { posts } = await response.json(); -->
-
-                <!-- // Display posts in the UI
-                posts.forEach(post => {
-                    // Check if the post ID is already displayed
-                    if (!displayedPostIds.has(post.id)) {
-                        const postElement = document.createElement('div');
-                        postElement.innerHTML = `
-                            <h3>${post.title}</h3>
-                            <p>${post.content}</p> -->
-                            <!-- Display media here if available -->
-                        <!-- `;
-                        postsContainer.appendChild(postElement);
-
-                        // Add post ID to the displayed set
-                        displayedPostIds.add(post.id);
-                    }
-                });
-
-                // Increment page number for next pagination
-                pageNumber++;
-                isLoading = false;
-            } catch (error) {
-                console.error('Error fetching posts:', error.message);
-                isLoading = false;
-            }
-        };
-
-        // Function to handle form submission for creating a new post
-        const createPost = async () => {
-            const postContent = document.getElementById('postContent').value;
-            const postMedia = document.getElementById('postMedia').files[0]; // Assuming single file upload
-
-            // Create new post object
-            const newPostData = {
-                content: postContent,
-                media: postMedia ? postMedia.name : null // Store media filename or null if no media uploaded
-            };
-
-            try {
-                const response = await fetch('http://localhost:5000/api/posts', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(newPostData)
-                });
-
-                if (!response.ok) {
-                    const errorMessage = await response.json();
-                    throw new Error(errorMessage.message);
-                }
-
-                // Reset form after successful post creation
-                createPostForm.reset();
-                // Reload posts to display the newly created post at the top
-                pageNumber = 1; // Reset page number
-                fetchPosts(); // Fetch and display posts again
-            } catch (error) {
-                console.error('Error creating post:', error.message);
-                alert('Error creating post: ' + error.message);
-            }
-        };
-
-        // Fetch initial posts on page load
-        fetchPosts();
-
-        // Implement infinite scroll to load more posts
-        window.addEventListener('scroll', () => {
-            if (window.innerHeight + window.scrollY >= document.body.offsetHeight && !isLoading) {
-                fetchPosts();
-            }
-        });
-
-        // Add event listener for create post button click
-        createPostButton.addEventListener('click', createPost);
-    });
-
-    </script>
-</body>
-</html>
-
- -->
-
-
- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- Meta tags, title, and styles -->
-</head>
-<body>
-    <h1>Landing Page</h1> 
-
-    <a href="chat.html" class="chat-btn">Go to Chat Page</a>
-
-    <!-- Form to create a new post -->
-    <form id="createPostForm">
-        <label for="postContent">Post Content:</label>
-        <textarea id="postContent" name="postContent" required></textarea>
-        <br>
-        <input type="file" id="postMedia" name="postMedia" accept="image/*, video/*">
-        <br>
-        <button type="button" id="createPostButton">Create Post</button>
-    </form>
-
+            
+        </div>
+    </div>
     <!-- Display area for posts -->
     <div id="postsContainer"></div>
 
+</div>
     <script>
         // JavaScript code for fetching and creating posts
         document.addEventListener('DOMContentLoaded', async () => {
@@ -163,24 +210,18 @@
                     const response = await fetch(`http://localhost:5000/api/posts?page=${pageNumber}&limit=5`);
                     const { posts } = await response.json();
 
-                    // Display posts in the UI
                     posts.forEach(post => {
-                        // Check if the post ID is already displayed
                         if (!displayedPostIds.has(post.id)) {
                             const postElement = document.createElement('div');
-                            postElement.innerHTML = `
-                                <h3>${post.title}</h3>
-                                <p>${post.content}</p>
-                                <!-- Display media here if available -->
-                            `;
+                            createPostNew(post.content, postElement);
+
+                            
                             postsContainer.appendChild(postElement);
 
-                            // Add post ID to the displayed set
                             displayedPostIds.add(post.id);
                         }
                     });
 
-                    // Increment page number for next pagination
                     pageNumber++;
                     isLoading = false;
                 } catch (error) {
@@ -189,12 +230,10 @@
                 }
             };
 
-            // Function to handle form submission for creating a new post
             const createPost = async () => {
                 const postContent = document.getElementById('postContent').value;
                 const postMedia = document.getElementById('postMedia').files[0]; // Assuming single file upload
 
-                // Create new post object
                 const newPostData = {
                     content: postContent,
                     media: postMedia ? postMedia.name : null // Store media filename or null if no media uploaded
@@ -214,9 +253,7 @@
                         throw new Error(errorMessage.message);
                     }
 
-                    // Reset form after successful post creation
                     createPostForm.reset();
-                    // Reload posts to display the newly created post at the top
                     pageNumber = 1; // Reset page number
                     fetchPosts(); // Fetch and display posts again
                 } catch (error) {
@@ -225,19 +262,119 @@
                 }
             };
 
-            // Fetch initial posts on page load
             fetchPosts();
 
-            // Implement infinite scroll to load more posts
             window.addEventListener('scroll', () => {
                 if (window.innerHeight + window.scrollY >= document.body.offsetHeight && !isLoading) {
                     fetchPosts();
                 }
             });
 
-            // Add event listener for create post button click
             createPostButton.addEventListener('click', createPost);
         });
+
+
+
+
+
+        //new posts as per twitter
+        function createPostNew(content, postsSection) {
+    const post = document.createElement('div');
+    post.classList.add('post');
+
+    // Create post image div
+    const postImage = document.createElement('div');
+    postImage.classList.add('post-image');
+    postImage.innerHTML = `
+        <img class="img" src="./logo/propic.jpg" alt="profile picture">
+    `;
+
+    const postContentActions = document.createElement('div');
+    postContentActions.classList.add('post-content-actions');
+
+    const postTop = document.createElement('div');
+    postTop.classList.add('post-top');
+
+    const postMeta = document.createElement('div');
+    postMeta.classList.add('post-meta');
+    // postMeta.textContent = 'Nitesh Gupta @nit_hck · 1s';
+
+
+    const postMetaOne = document.createElement('div');
+    postMetaOne.classList.add('post-meta-one');
+    postMetaOne.textContent = 'Nitesh Gupta';
+
+    const postMetaTwo = document.createElement('div');
+    postMetaTwo.classList.add('post-meta-two');
+    postMetaTwo.textContent = '@nit_hck  · 1s';
+
+    const postRight = document.createElement('div');
+    postRight.classList.add('post-right');
+    postRight.innerHTML = `
+        <img class="img" src="./logo/postlogo/more.svg" alt="profile picture">
+    `;
+    
+    const postContent = document.createElement('div');
+    postContent.classList.add('post-content');
+    postContent.innerHTML = `<p>${content}</p>`;
+
+    const postActions3 = document.createElement('div');
+    postActions3.classList.add('post-actions');
+    postActions3.innerHTML = `<img class="img" src="./logo/postlogo/comment.svg" alt="profile picture">`;
+
+    const postActions2 = document.createElement('div');
+    postActions2.classList.add('post-actions');
+    postActions2.innerHTML = `<img class="img" src="./logo/postlogo/retweet.svg" alt="profile picture">`;
+
+    const postActions = document.createElement('div');
+    postActions.classList.add('post-actions');
+    postActions.innerHTML = `<button class="like-post"><img class="img" src="./logo/postlogo/like.svg" alt="profile picture"></button><span class="likes-count">0</span>`;
+    
+
+
+    const postActions4 = document.createElement('div');
+    postActions4.classList.add('post-actions');
+    postActions4.innerHTML = `<img class="img" src="./logo/postlogo/stats.svg" alt="profile picture">`;
+
+    const postRightAction = document.createElement('div');
+    postRightAction.classList.add('post-right-action');
+
+    const postActions5 = document.createElement('div');
+    postActions5.classList.add('post-actions');
+    postActions5.innerHTML = `<img class="img" src="./logo/postlogo/save.svg" alt="profile picture">`;
+    
+    const postActions6 = document.createElement('div');
+    postActions6.classList.add('post-actions');
+    postActions6.innerHTML = `<img class="img" src="./logo/postlogo/upload.svg" alt="profile picture">`;
+    
+
+    const postActionsDiv = document.createElement('div');
+    postActionsDiv.classList.add('post-actions-div');
+
+    postMeta.appendChild(postMetaOne);
+    postMeta.appendChild(postMetaTwo);
+
+    postTop.appendChild(postMeta);
+    postTop.appendChild(postRight);
+
+    postRightAction.appendChild(postActions5);
+    postRightAction.appendChild(postActions6);
+
+    postActionsDiv.appendChild(postActions3);
+    postActionsDiv.appendChild(postActions2);
+    postActionsDiv.appendChild(postActions);
+    postActionsDiv.appendChild(postActions4);
+    postActionsDiv.appendChild(postRightAction);
+
+    postContentActions.appendChild(postTop);
+    postContentActions.appendChild(postContent);
+    postContentActions.appendChild(postActionsDiv);
+
+    post.appendChild(postImage);
+    post.appendChild(postContentActions);
+    postsSection.prepend(post);
+        
+}
     </script>
 </body>
 </html>

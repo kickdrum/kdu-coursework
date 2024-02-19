@@ -4,18 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
+    <link rel="stylesheet" href="styling/index.css">
 </head>
 <body>
-    <h1>Login</h1>
-    <form id="loginForm">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-        <br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-        <br>
-        <button type="submit">Login</button>
-    </form>
+    <div class="main">
+        <div class="heading">
+            <h1>Login to </h1>
+            <img class="logoX" src="./images/x.svg" alt="logo of twitter">
+        </div>
+        <div class="details">
+            <form id="loginForm">
+                <div class="input-box">
+                <input type="text" id="username" name="username"  placeholder="Username" required>
+            </div>
+                <br>
+                <div class="input-box">
+                <input type="password" id="password" name="password" placeholder="Password" required>
+                </div>
+                <br>
+            <div class="submitLogin">
+                <button type="submit" class="submit-btn">
+                    <div class="submit-btn-main">
+                        <p>Login</p>
+                    </div>    
+                </button>
+            </div>
+            </form>
+        </div>
+    </div>
   
       <script
         src="https://cdn.socket.io/4.7.4/socket.io.min.js"
@@ -54,7 +70,6 @@
                 socket.emit('loggedin', userData);
 
 
-                // Redirect to landing page with username as query parameter
                 // window.location.href = `/landing.html`;
             } catch (error) {
                 alert(error.message);
