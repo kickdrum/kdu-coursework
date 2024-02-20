@@ -1,0 +1,21 @@
+.list-item{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    width: 42rem;
+    padding-left: 14px;
+    padding-right: 14px;
+    border:1px solid rgb(202, 202, 202);
+    margin-bottom: 12px;
+}
+
+
+.x{
+    background-color: red;
+    color: white;
+    font-size: 1.2rem;
+    height:1.8rem;
+    width: 1.5rem;
+    border-radius: 4px;
+    margin-top: 10px;
+}
