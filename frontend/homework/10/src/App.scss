@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Neucha&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Protest+Riot&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Lato", sans-serif;
+}
+
+.app-header{
+    border:1px solid lightgray;
+    width: 83.33%;
+    margin: auto;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.add-todo{
+    display: flex;
+    flex-direction: row;
+    justify-items: start;
+    
+    margin-bottom: 1rem;
+
+}
+
+.submit {
+    background-color: black;
+    color: white;
+    padding: 0.5rem 0.7rem;
+    border-radius: 0.3rem;
+    margin-left: 1rem;
+}
+
+.items{
+    list-style-type: none;
+    margin-top: 0.5rem;
+    font-size: 
+    large;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.delete-btn{
+    background-color: red;
+    color: white;
+    padding: 0.3rem 0.5rem;
+    border-radius: 0.3rem;
+    margin-left: 1rem;
+    cursor: pointer;
+}
+
+
+.search{
+    position: absolute;
+   width: 35%;
+   height: 2rem;
+   padding: 0.5rem;
+   right: 10%;
+    top: 1.5rem;
+}
+
+.todo-list{
+    border: 1px solid lightgray;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-top: 0.5rem;   
+}
