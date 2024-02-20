@@ -1,0 +1,16 @@
+.header {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: rgb(40, 167, 69);
+}
+
+#textArea {
+  margin-top: 30px;
+  padding: 12px;
+  width: 24rem;
+}
+
+.header-txt {
+  font-size: 2rem;
+  color: white;
+}/*# sourceMappingURL=Header.css.map */

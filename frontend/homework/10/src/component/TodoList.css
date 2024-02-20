@@ -1,0 +1,42 @@
+.todo-heading {
+  font-size: 2rem;
+  color: black;
+  padding-left: 48-px;
+}
+
+.search-div {
+  padding-left: 48px;
+}
+
+.parent-div {
+  display: flex;
+  justify-content: start;
+  margin-left: 115px;
+  border: 1px;
+}
+
+.todo-list {
+  border: 1px solid rgb(217, 217, 217);
+  margin-top: 20px;
+  width: 50rem;
+  display: flex;
+  flex-flow: column;
+  justify-content: start;
+  align-items: start;
+}
+
+#add-input {
+  width: 20rem;
+  padding: 10px;
+}
+
+#submit-btn {
+  background-color: black;
+  color: white;
+  padding: 10px;
+}
+
+.items {
+  font-size: 32px;
+  padding-left: 48px;
+}/*# sourceMappingURL=TodoList.css.map */
