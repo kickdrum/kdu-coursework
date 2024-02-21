@@ -1,0 +1,85 @@
+@import '../../styles/variables.scss';
+
+
+.quoteItem{
+
+    min-height: 20vh;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    background-color: $BACKGROUND_BLUE;
+    padding: 1rem 2rem;
+    box-sizing: border-box;
+    border-radius: 20px;
+    border: 0;
+
+    .content_box{
+        min-height: 30%;
+        height: fit-content;
+        width: 100%;
+        box-sizing: border-box;
+        margin-left: auto;
+        margin-right: auto;
+
+        .content_para{
+            margin: 0;
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+    }
+
+    .details_box{
+        min-height: 8vh;
+        height: 30%;
+        width: 100%;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+
+        .details_para{
+            margin: 0;
+            padding: 0;
+        }
+
+        .date_para{
+            font-weight: 100;
+        }
+    }
+
+    .tags_box{
+        min-height: 8vh;
+        height: 30%;
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        box-sizing: border-box;
+        flex-wrap: wrap;
+
+
+        .tagButton{
+            min-height: 5vh;
+            height: 60%;
+            border: 0;
+            outline: none;
+            margin-right: 1rem;
+            width: fit-content;
+            padding: 0 1rem;
+            border-radius: 999px;
+            font-weight: 600;
+            box-sizing: border-box;
+
+            &:hover{
+                cursor: pointer;
+            }
+        }
+
+    }
+}

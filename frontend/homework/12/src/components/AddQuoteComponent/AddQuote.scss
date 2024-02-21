@@ -1,0 +1,29 @@
+@import '../../styles/variables.scss';
+
+.addQuoteBox{
+    height: 10vh;
+    width: 50%;
+    margin: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    .addQUoteButton{
+        border: 0;
+        outline: none;
+        height: 80%;
+        min-width: 10vw;
+        width: fit-content;
+        border-radius: 2px;
+        color: $BLUE_TEXT;
+        font-size: 1rem;
+        font-weight: 600;
+        font-family: "Roboto", sans-serif;
+        letter-spacing: 1px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 1rem 0 1rem;
+    }
+}

@@ -1,0 +1,44 @@
+.filterBox{
+    min-height: 10vh;
+    height: fit-content;
+    width: 50%;
+    margin: auto;
+    margin-top: 1rem;
+    border-bottom: 1.5px solid rgb(192, 192, 192);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 1rem;
+    font-weight: 450;
+
+    ul{
+        li{
+            list-style: none;
+            .tagButton{
+                min-height: 5vh;
+                height: 60%;
+                border: 0;
+                outline: none;
+                width: fit-content;
+                padding: 0 1rem;
+                border-radius: 999px;
+                font-weight: 600;
+                box-sizing: border-box;
+                margin: 1rem 1rem .5rem 0;
+    
+                &:hover{
+                    cursor: pointer;
+                }
+
+                .tagSpan{
+                    margin-right: .5rem;
+                }
+
+                .deleteIcon{
+                    color: rgb(117, 0, 0);
+                }
+            }
+        }
+    }
+}
