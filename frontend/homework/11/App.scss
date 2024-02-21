@@ -1,0 +1,112 @@
+
+#main-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: left;
+  }
+  
+  #New-Quote-btn {
+    background-color: #FFE3CA;
+    color: #0C359E;
+    padding: 8px 15px;
+    font-size: 16px;
+    font-style: oblique;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+  
+  #tags {
+    margin-bottom: 15px;
+  }
+  
+  #tags button {
+    margin: 5px;
+    padding: 6px;
+    background-color: #EE99C2;
+    color: black;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    
+  }
+  
+  #tags button span {
+    margin-left: 4px;
+    color: red;
+  }
+  #separtor {
+    height: 1px;
+    width: 100%;
+    background-color: black;
+    margin: 8px 0; 
+  }
+  
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: #0C359E;
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+  }
+  
+  #content {
+    width: 100%;
+    margin-left:10px ;
+    margin-right: 10px;
+    font-size: 12px;
+  }
+  
+  h1 {
+    margin-bottom: 10px;
+  }
+  
+  #info-Auth {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    height: 18px;
+    margin-right: 30px;
+    font-weight: bold;
+    
+  }
+  #info-date {
+    margin-right: 30px;
+    display: flex;
+    justify-content: flex-end;
+    
+   width: 100%;
+   color: #9b9999;
+ }
+  
+  #allbtn {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    margin-top: 10px; 
+  }
+  
+  .container button {
+    margin: 8px; 
+    padding: 6px;
+    background-color: #EE99C2;
+    color: black;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+      
+  }
+  
+  
+  
+
+  
+  
+  
