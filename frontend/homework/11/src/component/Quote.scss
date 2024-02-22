@@ -1,0 +1,50 @@
+.main-div{
+    background-color: rgb(13,54,158);margin-bottom: 24px;
+    padding-left: 55px;
+    padding-right: 55px;
+    padding-top: 50px;
+    padding-bottom: 30px;
+    border-radius: 24px;
+}
+
+.quote{
+color: white;
+font-size: 2.5rem;
+font-weight: bolder;
+}
+
+.author{
+    margin-top:2rem;
+    display: flex;
+    justify-content: end;
+    color: rgb(232, 232, 232);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.date{
+    display: flex;
+    justify-content: end;
+    color:rgb(154, 154, 154);
+    margin-top: 0.7rem;
+    font-size:1.5rem;
+
+}
+.tag-div{
+    display: flex;
+}
+
+.span-div{
+    display: flex;
+    justify-content: start;
+}
+
+.tag{
+    width: fit-content;
+  padding: 14px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 999px;
+  background-color: rgb(238,153,194);
+  margin-right: 12px;
+}
