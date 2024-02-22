@@ -1,0 +1,38 @@
+.listItem{
+    border-left: .1px solid rgb(78, 78, 78);
+    border-top: .1px solid rgb(78, 78, 78);
+    border-right: .1px solid rgb(78, 78, 78);
+    height: 5vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    box-sizing: border-box;
+
+    .content{
+        width: 95%;
+    }
+
+    .deleteButton{
+        width: 2%;
+        background: red;
+        border: 0;
+        border-radius: 2px;
+        height: 30px;
+        color: white;
+        font-size: 1rem;
+        font-weight: 800;
+        text-align: center;
+        box-sizing: border-box;
+
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}
+
+.listItem:last-child {
+    border-bottom: .1px solid rgb(78, 78, 78);
+    box-sizing: border-box;
+}

@@ -1,0 +1,55 @@
+.mainBox{
+    min-height: 30%;
+    height: fit-content;
+    width: 70%;
+    border: .1px solid rgb(204, 204, 204);
+    margin: auto;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+
+
+
+    .todoInputBox{
+        padding: 20px 15px;
+        min-height: 6vh;
+        height: fit-content;
+        box-sizing: border-box;
+
+        
+        #addTodoInputBox{
+            outline: none;
+            height: 3vh;
+            width: 20vw;
+            margin: 10px 10px 0 0;
+            box-sizing: border-box;
+        }
+
+        #addTodoSubmitButton{
+            height: 3.5vh;
+            width: 5vw;
+            margin: 0;
+            padding: 0;
+            background-color: #272727;
+            border: 0;
+            color: white;
+            border-radius: 5px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: all .3s ease-in-out;
+
+            &:hover{
+                cursor: pointer;
+                background-color: #5b5757;
+            }
+        }
+    }
+    
+    .todoDisplayBox{
+        min-height: 30vh;
+        height: fit-content;
+        padding: 20px 15px;
+        box-sizing: border-box;
+    }
+}

@@ -1,0 +1,11 @@
+.checkList {
+  width: 100%;
+  min-height: 20vh;
+  height: fit-content;
+  margin-top: 10px;
+  overflow-x: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  box-sizing: border-box;
+  overflow-y: scroll;
+}
