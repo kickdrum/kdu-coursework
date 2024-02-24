@@ -1,0 +1,46 @@
+.link-element{
+    .item-current{
+    display: flex;
+    flex-direction: column;
+    width: 18rem;
+    min-height: 25rem;
+    background-color: white;
+    margin: 1rem;
+    padding: 2rem;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+
+    .image-container{
+
+        img{
+            width: 150px;
+            height: 200px;
+        }
+    }
+
+    .down-container{
+        display: flex;
+        flex-direction: column;
+        
+
+
+        span{
+            padding: 1rem;
+            margin:1rem;
+            text-align: center;
+        }
+
+        div{
+            display: flex;
+            justify-content: space-evenly;
+            .price{
+                color: #2a2a72;
+                font-weight: 700;
+                text-decoration: none;
+            }
+        }
+    }
+}
+}
