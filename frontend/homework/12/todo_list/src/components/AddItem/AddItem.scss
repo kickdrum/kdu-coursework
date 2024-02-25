@@ -1,0 +1,24 @@
+.add-item-container {
+    .add-heading {
+        font-size: 2rem;
+    }
+
+    .add-item-input-container {
+        margin-top: 0.5rem;
+        input {
+            border: 2px solid rgba(0,0,0,0.1);
+            font-size: 1.3rem;
+            padding: 1rem;
+            width: 15rem;
+            height: 2.3rem;
+            margin-right: 1rem;
+        }
+        button {
+            background-color: #343A40;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 5px;
+            font-size: 1.1rem;
+        }
+    }
+}

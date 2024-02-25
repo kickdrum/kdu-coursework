@@ -1,0 +1,14 @@
+.search-input-container {
+    .search-input {
+        width: clamp(15rem,25vw,35rem);
+        height: 2.5rem;
+        padding: 1rem;
+        border: none;
+        border-radius: 5px;
+    }
+    .search-input:focus {
+        border: none;
+        outline: none;
+    }
+}
+

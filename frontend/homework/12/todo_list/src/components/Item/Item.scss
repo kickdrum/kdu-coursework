@@ -1,0 +1,8 @@
+.item-container {
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    .todo-content {
+        font-size: 1.2rem;
+    }
+}

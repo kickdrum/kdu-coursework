@@ -1,0 +1,21 @@
+.main-items-container {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .items-list-container {
+        margin-top: 0.5rem;
+        border: 2px solid rgba(0, 0, 0, 0.1);
+
+        .addn-info {
+            width:fit-content;
+            margin: 5px auto;
+            font-size: 20px;
+        }
+    }
+
+    .items-list-container .item-container:not(:last-child) {
+        border-bottom: 2px solid rgba(0,0,0,0.1);
+        
+    }
+}

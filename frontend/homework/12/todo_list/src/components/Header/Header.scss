@@ -1,0 +1,14 @@
+.main-header {
+    background-color: #28A745;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem 0;
+    border-top: 5px solid rgb(45, 45, 95);
+
+
+    .main-heading {
+        font-size: 3.5rem;
+        color: white;
+    }
+}
