@@ -1,26 +1,24 @@
-import './Search.scss'
-// interface IListItem {
-//   id: number;
-//   text: string;
-// }
-
-// interface ListProps {
-//   list: IListItem[];
-//   setList: React.Dispatch<React.SetStateAction<IListItem[]>>
-//   searchTerm: string;
-//   setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
-// }
+import React from 'react';
+import './Search.scss';
+import { useDispatch } from 'react-redux';
+import { setSearchTerm } from '../redux/todoSlice';
 
 export function SearchList() {
+  const dispatch = useDispatch();
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(setSearchTerm(e.target.value));
+  };
 
   return (
     <div>
-      <input className="search"
+      <input
+        className="search"
         type="text"
         placeholder="Search Items..."
-        // value={searchTerm}
-        // onChange={(e) => setSearchTerm(e.target.value)}
+        onChange={handleSearchChange}
       />
     </div>
   );
-} 
+}
+

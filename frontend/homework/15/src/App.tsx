@@ -1,14 +1,16 @@
-// import { useDispatch, useSelector } from 'react-redux';
-import './App.css'
-// import { RootState } from './redux/store';
-import { TodoList } from "./todo-list/TodoList";
-
+import './App.scss';
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
+import TodoList from './todo-list/TodoList';
 
 function App() {
-
   return (
-    <TodoList />
-  )
+    <Provider store={store}>
+      <div className="App">
+        <TodoList />
+      </div>
+    </Provider>
+  );
 }
 
-export default App
+export default App;

@@ -1,36 +1,29 @@
-import "./List.scss";
-// import { ListItem } from "./ListItem";
-
-export interface IListItem {
-    id: number;
-    text: string;
-}
-
-// interface ListProps {
-//     list: IListItem[];
-//     setList: React.Dispatch<React.SetStateAction<IListItem[]>>;
-//     searchTerm: string;
-//     setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
-// }
+import './List.scss';
+import { useSelector, useDispatch } from 'react-redux'; 
+import { RootState } from '../redux/store';
+import { ListItem } from './ListItem';
+import { removeTodo } from '../redux/todoSlice';
 
 export function List() {
-    // const filteredList = list.filter(item =>
-    //     item.text.toLowerCase().includes(searchTerm.toLowerCase())
-    // );
+    const todos = useSelector((state: RootState) => state.todo.list);
+    const searchTerm = useSelector((state: RootState) => state.todo.searchTerm);
+    const dispatch = useDispatch(); 
+    const filteredList = todos.filter((todo) =>
+        todo.text.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
-    // const handleDelete = (id: number) => {
-    //     setList(prevList => prevList.filter(item => item.id !== id));
-    // };
+    const handleDelete = (id: number) => {
+        dispatch(removeTodo(id)); };
 
     return (
         <ul id="list">
-            {/* {filteredList.length > 0 ? (
-                filteredList.map(item => (
+            {filteredList.length > 0 ? (
+                filteredList.map((item) => (
                     <ListItem key={item.id} text={item.text} onDelete={() => handleDelete(item.id)} />
                 ))
             ) : (
                 <li className="list-item">No result found</li>
-            )} */}
+            )}
         </ul>
     );
 }

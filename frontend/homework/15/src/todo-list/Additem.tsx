@@ -1,32 +1,28 @@
-import React, { useState } from 'react';
-import './AddItem.scss'
-
-export interface IListItem {
-    id: number;
-    text: string;
-}
-
-// interface ListProps {
-//     list: IListItem[];
-//     setList: React.Dispatch<React.SetStateAction<IListItem[]>>
-// }
+import { useState } from 'react';
+import './AddItem.scss';
+import { useDispatch } from 'react-redux';
+import { addTodo } from '../redux/todoSlice';
 
 export function AddItem() {
-    const [inputText, setInputText] = useState('');
+  const [inputText, setInputText] = useState('');
+  const dispatch = useDispatch();
 
-    const handleAddItem=()=>{
-        // const newItem: IListItem= {id: list.length+1,text:inputText};
-        // setList([...list, newItem]);
-    }
-    return (
-        <div className="add-item">
-            <input
-                type="text"
-                className='add-input'
-                value={inputText}
-                onChange={(e) => setInputText(e.target.value)}
-            />
-            <button id="add" className="add" onClick={handleAddItem}>Submit</button>
-        </div>
-    );
+  const handleAddItem = () => {
+    dispatch(addTodo(inputText));
+    setInputText('');
+  };
+
+  return (
+    <div className="add-item">
+      <input
+        type="text"
+        className="add-input"
+        value={inputText}
+        onChange={(e) => setInputText(e.target.value)}
+      />
+      <button id="add" className="add" onClick={handleAddItem}>
+        Submit
+      </button>
+    </div>
+  );
 }
