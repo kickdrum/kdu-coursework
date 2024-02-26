@@ -61,26 +61,28 @@ function App() {
   return (
     <>
     <div className="header">
-      <button onClick={()=> newQuote()}>Get Quote</button>
-      <div >
+      <button className="quote-btn" onClick={()=> newQuote()}>NEW QUOTE</button>
+      <div className="filter">
         Filters
-       </div>
+      </div>
 
-       <div >
+      <div className="tags">
         {filter.map((tag, index) => (
-          <div >
+          <div className="tag">
           <div >{tag}</div>
-          <div onClick={() => removeTag(tag)}>x</div>
+          <div className="cross" onClick={() => removeTag(tag)}>x</div>
           </div>
         ))}
       </div>
 
-      <input type="text" value={search} onChange={onSearchChangeHandler}/>
-      </div>
+      {/* <input type="text" value={search} onChange={onSearchChangeHandler}/> */}
+    </div>
 
-      {quotes.map((quote)=>{
-        return <Quote key={quote._id} quote={quote} filter={filter} setFilter = {setFilter}/>
-      })}
+    <div><hr className="line"/> </div>
+
+    {quotes.map((quote)=>{
+      return <Quote key={quote._id} quote={quote} filter={filter} setFilter = {setFilter}/>
+    })}
     </>
   );
 }

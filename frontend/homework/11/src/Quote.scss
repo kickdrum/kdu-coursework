@@ -1,0 +1,40 @@
+.quote{
+    border-radius: 15px;
+    background-color: #0D369E;
+    padding: 20px;
+    margin-top: 20px;
+    color:white;
+}
+.quote-content{
+    display: flex;
+    justify-content: center;
+    font-size: 12px;
+}
+.quote-author{
+    display: flex;
+    justify-content: flex-end;
+    color: rgb(221, 221, 221);
+    font-weight: 600
+
+}
+.p1{
+    margin:0
+}
+.quote-date{
+    display: flex;
+    justify-content: flex-end;
+}
+.quote-tag{
+    background-color: #EE99C2;
+    padding: 10px;
+    color:#000;
+    font-size: 12px;
+    font-weight: 800;
+    border-radius: 15px;
+    margin-right: 10px;
+}
+.quote-tags{
+    margin-top: 20px;
+    margin-bottom: 10px;
+
+}

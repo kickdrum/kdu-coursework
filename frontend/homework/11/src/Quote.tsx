@@ -1,5 +1,6 @@
 import React from 'react'
 import { ApiQuote } from './types/quotes.types'
+import './Quote.scss'
 
 interface QuoteProps{
     quote: ApiQuote
@@ -20,17 +21,24 @@ export function Quote({quote,filter, setFilter}:QuoteProps) {
         }
     }
   return (
-    <div>
-        <h1>
-            {quote.content}
-        </h1>
-        <p>{quote.author}</p>
-        <p>
-            {quote.dateAdded}
-        </p>
-        <div>
+
+    <div className="quote">
+        <div className='quote-content'>
+            <h1>
+                {quote.content}
+            </h1>
+        </div>
+        <div className='quote-author'>
+            <p className='p1'>{quote.author}</p>
+        </div>
+        <div className='quote-date'>
+            <p className='p1'>
+                {quote.dateAdded}
+            </p>
+        </div>
+        <div className='quote-tags'>
             {quote.tags.map((q)=>{
-                return <span key={q} onClick={onClickHandle}>{q}</span>;
+                return <span className="quote-tag" key={q} onClick={onClickHandle}>{q}</span>;
             })}
         </div>
     </div>
