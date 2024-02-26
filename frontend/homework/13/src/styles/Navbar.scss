@@ -1,0 +1,39 @@
+.navbar {
+  background-color: #2a2a72;
+  padding: 15px 20px;
+  height: 35px;
+  display: flex;
+  justify-content: space-between;
+}
+.search-bar-container {
+  display: flex;
+  align-items: flex-end;
+  width: 30%;
+  height: 70%;
+}
+.search-input {
+  height: 80%;
+  width: 50%;
+  font-size: 1rem;
+}
+.search-input:focus {
+  outline: none;
+}
+.search-button {
+  height: 101%;
+}
+.search-icon {
+  height: 1rem;
+  width: 15px;
+}
+
+.sort-box,
+.filter-box {
+  color: white;
+}
+
+.data-filters-options {
+  width: 30%;
+  display: flex;
+  justify-content: space-evenly;
+}
