@@ -1,0 +1,25 @@
+.content {
+    border: 2px solid lightgrey;
+    margin:3em;
+  list-style-type: none;
+  .todo-item {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    border: 2px solid lightgrey;
+    .itemName {
+      flex: 1;
+      color:#24272b;
+      padding: 1em;
+    }
+
+    .delete {
+      margin-left: 80em;
+    }
+
+    .delete img {
+      width: 45px;
+      height: 45px;
+      cursor: pointer;
+    }
+  }
+}

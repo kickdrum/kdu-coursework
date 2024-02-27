@@ -1,0 +1,42 @@
+.add-item {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1em;
+    margin-left: 4.5em;
+  
+    .add-header {
+      font-size: xx-large;
+      color: #24272b;
+    }
+  
+    .add-items {
+      display: flex;
+      align-items: center;
+  
+      .add-bar {
+        margin-right: 1em;
+      }
+  
+      .add-heading {
+        font-size: large;
+      }
+    }
+  
+    .input-field {
+      font-size: 16px;
+    }
+  
+    .submit-button {
+      background-color: #343a40;
+      color: white;
+      border: none;
+      padding: 0.5em 1em;
+      cursor: pointer;
+      border-radius: 4px;
+  
+      &:hover {
+        background-color: #555;
+      }
+    }
+  }
+  

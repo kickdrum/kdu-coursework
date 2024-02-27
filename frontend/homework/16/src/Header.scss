@@ -1,0 +1,29 @@
+.header {
+    background-color: #28a745;
+    height: 15vh;
+    display: flex;
+    flex-direction: row;
+  
+    .title {
+      flex-basis: 40%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 40px;
+    }
+  
+    .search-bar {
+      flex-basis: 40%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-right: 10em;
+  
+      input {
+        width: 80%;
+        font-size: 16px;
+      }
+    }
+  }
+  

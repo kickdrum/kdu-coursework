@@ -1,0 +1,28 @@
+.todo-app {
+  font-family: 'Lato', sans-serif;
+}
+  .content {
+    border: 2px solid lightgrey;
+    margin: 0.25em;
+  }
+  
+  .add-item {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .todo-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .todo-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .no-match {
+    color: red;
+  }
+  
