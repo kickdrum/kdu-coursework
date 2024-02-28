@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { Header } from '../todo-list/Header';
 import { Provider } from 'react-redux';
 import { store } from '../redux/store';
+import { expect } from 'vitest';
 
 describe('<Header />', () => {
   it('renders', () => {
@@ -10,6 +11,6 @@ describe('<Header />', () => {
         <Header />
     </Provider>);
     const headerElement = screen.getByText(/Item Lister/i);
-    expect(headerElement).to.exist;
+    expect(headerElement).not.toBeNull();
   });
 });

@@ -1,8 +1,10 @@
 import { render, screen } from '@testing-library/react';
-import { describe, expect, it } from 'vitest';
+import { describe, it } from 'vitest';
 import { List } from '../todo-list/List';
 import { Provider } from 'react-redux';
 import { store } from '../redux/store';
+import { expect } from 'vitest';
+
 
 describe('<List />', () => {
  
@@ -18,7 +20,7 @@ describe('<List />', () => {
 
     // Check if "No result found" message is rendered
     const noResultElement = screen.getByText(/No result found/i);
-    expect(noResultElement).to.exist;
+    expect(noResultElement).not.toBeNull();
   });
 
   it('removes item when delete button is clicked', () => {
