@@ -1,35 +1,3 @@
-// describe('Todo List Application', () => {
-//   beforeEach(() => {
-//     // Visit the application URL before each test
-//     cy.visit('http://localhost:5173');
-//   });
-  
-//   it('should display header and input fields', () => {
-//     cy.get('.header').should('be.visible');
-//     cy.get('.add-input').should('be.visible');
-//     cy.get('.search').should('be.visible');
-//   });
-
-//   it('should add a todo item', () => {
-//     cy.get('.add-input').type('Buy groceries');
-//     cy.get('.add').click();
-
-//     cy.contains('Buy groceries').should('be.visible');
-//   });
-
-//   it('should delete a todo item', () => {
-//     cy.get('.add-input').type('Finish homework');
-//     cy.get('.add').click();
-
-//     cy.get('.btn-dlt').click();
-
-//     cy.contains('Finish homework').should('not.exist');
-//   });
-
-//   // Add more test cases as needed
-// });
-
-
 describe('Todo List Application', () => {
   beforeEach(() => {
     // Visit the application URL before each test
