@@ -1,0 +1,23 @@
+.item-container {
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+
+    .todo-content-container {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+        input {
+            width: 1.2rem;
+            aspect-ratio: 1;
+        }
+        .todo-content {
+            font-size: 1.2rem;
+        }
+
+        .todo-complete {
+            text-decoration: line-through;
+        }
+    }
+}
