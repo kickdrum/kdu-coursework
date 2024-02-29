@@ -1,13 +1,15 @@
 import React from "react";
 import "./App.scss";
 import Header from "./components/Header/Header";
-import AddItem from "./components/AddItem/AddItem";
+import AddItem from "./components/ItemOperation/ItemOperation";
 import ItemContainer from "./components/ItemContainer/ItemContainer";
-import { ItemProvider } from "./context/ItemContext";
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
 
 const App:React.FC = () => {
     return (
-        <ItemProvider>
+        <Provider store={store}>
+
             <div className="app-container">
                 <Header />
                 <div className="todo-container">
@@ -15,7 +17,8 @@ const App:React.FC = () => {
                     <ItemContainer />
                 </div>
             </div>
-        </ItemProvider>
+
+        </Provider>
     );
 };
 

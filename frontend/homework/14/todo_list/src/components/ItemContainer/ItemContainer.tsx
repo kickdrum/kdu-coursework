@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
-import { useItemContext } from "../../context/ItemContext";
 import "./ItemContainer.scss";
-import { v4 as uuidv4 } from "uuid";
 import Item from "../Item/Item";
+import { useSelector } from "react-redux";
+import { StoreState } from "../../redux/store";
 
 const ItemContainer:React.FC = () => {
-    const { allTodoItems, searchText } = useItemContext();
+    const allTodoItems = useSelector((state: StoreState) => state.todos);
+    const searchText = useSelector((state: StoreState)=> state.search);
 
     useEffect(() => {
         //pass
@@ -14,7 +15,7 @@ const ItemContainer:React.FC = () => {
     const filteredItems =
         searchText.length === 0
             ? allTodoItems
-            : allTodoItems.filter((value) => value.includes(searchText));
+            : allTodoItems.filter((item) => item.content.includes(searchText));
 
     return (
         <div className="main-items-container">
@@ -28,8 +29,8 @@ const ItemContainer:React.FC = () => {
                 {filteredItems.length === 0 && searchText.length === 0 && (
                     <p className="addn-info">No Items Added</p>
                 )}
-                {filteredItems.map((todoContent) => (
-                    <Item key={uuidv4()} todoContent={todoContent} />
+                {filteredItems.map((item) => (
+                    <Item key={item.id} id={item.id} todoContent={item.content} />
                 ))}
             </div>
         </div>

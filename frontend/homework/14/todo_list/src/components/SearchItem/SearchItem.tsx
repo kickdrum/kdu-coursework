@@ -1,12 +1,14 @@
 import React from "react";
-import { useItemContext } from "../../context/ItemContext";
 import './SearchItem.scss'
+import { useDispatch } from "react-redux";
+import { setSearchText } from "../../redux/slice/searchSlice";
 
 const SearchItem:React.FC = () => {
-    const { setSearchText } = useItemContext();
+    const dispatch = useDispatch();
+
 
     const handleSearchInput = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setSearchText(event.target.value);
+        dispatch(setSearchText(event.target.value))
     };
 
     return (

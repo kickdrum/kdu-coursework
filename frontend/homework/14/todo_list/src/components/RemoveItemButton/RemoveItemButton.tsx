@@ -1,24 +1,21 @@
 import React from "react";
-import { useItemContext } from "../../context/ItemContext";
 import './RemoveItemButton.scss'
+import { useDispatch } from "react-redux";
+import { removeTodo } from "../../redux/slice/todoSlice";
 interface IButtonContent {
-    todoContent: string;
+    id: string
 }
 
 const RemoveItemButton:React.FC<IButtonContent> = (props: IButtonContent) => {
-    const { allTodoItems,setAllTodoItems } = useItemContext();
+    const dispatch = useDispatch();
 
     const handleRemoveItemButtonClick = (
         event: React.MouseEvent<HTMLButtonElement>
     ) => {
         const myButton = event.target as HTMLButtonElement;
-        const todoContent = myButton.getAttribute("data-todo-content");
-        if (todoContent != null) {
-            const updatedTodoItems = allTodoItems.filter(
-                (item) => item !== todoContent
-            );
-            setAllTodoItems(updatedTodoItems);
-        }
+        const todoId = myButton.getAttribute("data-todo-id");
+        dispatch(removeTodo(todoId!));
+        
     };
 
     return (
@@ -26,7 +23,7 @@ const RemoveItemButton:React.FC<IButtonContent> = (props: IButtonContent) => {
             className="remove-item-button"
             type="button"
             onClick={handleRemoveItemButtonClick}
-            data-todo-content={props.todoContent}
+            data-todo-id={props.id}
         >X</button>
     );
 };

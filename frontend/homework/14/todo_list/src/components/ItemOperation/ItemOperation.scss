@@ -5,13 +5,17 @@
 
     .add-item-input-container {
         margin-top: 0.5rem;
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+        justify-content: flex-start;
         input {
             border: 2px solid rgba(0,0,0,0.1);
             font-size: 1.3rem;
             padding: 1rem;
             width: 15rem;
             height: 2.3rem;
-            margin-right: 1rem;
+            
         }
         button {
             background-color: #343A40;
