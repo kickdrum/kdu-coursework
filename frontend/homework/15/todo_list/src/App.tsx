@@ -5,6 +5,7 @@ import AddItem from "./components/ItemOperation/ItemOperation";
 import ItemContainer from "./components/ItemContainer/ItemContainer";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
+import ScrollToTopButton from "./components/ScrollToTopButton/ScrollToTopButton";
 
 const App:React.FC = () => {
     return (
@@ -16,7 +17,9 @@ const App:React.FC = () => {
                     <AddItem />
                     <ItemContainer />
                 </div>
+                <ScrollToTopButton/>
             </div>
+            
 
         </Provider>
     );

@@ -1,9 +1,15 @@
-import React, { useState, KeyboardEvent } from "react";
+import React, { useState, KeyboardEvent, useEffect, useRef } from "react";
 import "./ItemOperation.scss";
 import { useDispatch } from "react-redux";
 import { addTodo, removeCompleted } from "../../redux/slice/todoSlice";
 
 const AddItem: React.FC = () => {
+
+    const inputRef = useRef<HTMLInputElement>(null);
+
+    useEffect(()=> {
+        inputRef.current!.focus();
+    })
     const dispatch = useDispatch();
 
     const [addInput, setAddInput] = useState<string>("");
@@ -32,8 +38,10 @@ const AddItem: React.FC = () => {
             <h2 className="add-heading">Add Items</h2>
             <div className="add-item-input-container">
                 <input
+                    ref={inputRef}
                     type="text"
                     value={addInput}
+                    placeholder="TODO Description..."
                     onChange={(event) => setAddInput(event.target.value)}
                     onKeyDown={handleKeyPress}
                 />

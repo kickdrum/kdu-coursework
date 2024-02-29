@@ -1,0 +1,35 @@
+.timer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #f4f4f4;
+    border-radius: 1rem;
+    width: fit-content;
+  
+    .timer-display {
+      font-size: 2rem;
+      color: #28A745;
+      margin-bottom: 1rem;
+    }
+  
+    .timer-controls {
+      display: flex;
+      justify-content: center;
+  
+      button {
+        padding: 1rem;
+        margin: 0 1rem;
+        font-size: 1rem;
+        background-color: #28A745;
+        color: #fff;
+        border: none;
+        border-radius: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+  
+        &:hover {
+          background-color: #0056b3;
+        }
+      }
+    }
+  }
+  
