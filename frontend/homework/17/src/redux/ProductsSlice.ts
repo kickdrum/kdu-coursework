@@ -32,11 +32,9 @@ export const productSlice= createSlice({
             state.products=action.payload;
             state.state="fulfilled";
         },
-
         setError: (state, action: PayloadAction<string>)=>{
             state.state = "error";
-            state.error = action.payload;
-        
+            state.error = action.payload;        
         }
     },
     extraReducers(builder){

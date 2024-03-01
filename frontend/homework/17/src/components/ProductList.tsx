@@ -1,7 +1,5 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-// import { RootState } from '../store/reducers';
-// import { fetchProducts } from '../store/actions';
 import ProductItem from './ProductItem';
 import { AppDispatch, RootState } from '../store/store';
 import { setData } from '../redux/ProductsSlice';
@@ -26,7 +24,6 @@ const ProductList = () => {
   }
   return (
     <>
-      <div>MarketPlace</div>
       <div>
         {products.map(product => (
           <ProductItem key={product.id} product={product} />
