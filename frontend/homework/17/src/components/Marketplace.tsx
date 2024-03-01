@@ -1,9 +1,9 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import store from '../store/store';
 import ProductList from './ProductList';
 import Navbar from './Navbar';
+import { store } from '../store/store';
 
 const Marketplace = () => {
   return (
@@ -12,6 +12,7 @@ const Marketplace = () => {
         <Navbar />
         <Routes>
           <Route path="/" element={<ProductList />} />
+
         </Routes>
       </BrowserRouter>
     </Provider>

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 
 interface Product {
@@ -18,6 +17,7 @@ interface Props {
 }
 
 const ProductItem = ({ product }: Props) => {
+  console.log("We HERE!");
   return (
     <Link to={`/detail/${product.id}`}>
       <div>
@@ -30,6 +30,7 @@ const ProductItem = ({ product }: Props) => {
         </div>
       </div>
     </Link>
+    // <></>
   );
 };
 
