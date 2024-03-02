@@ -1,0 +1,15 @@
+.items {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style-type: none;
+  border: #EEEEEE solid 3px;
+  padding: 0.7rem;
+}
+.items button {
+  background-color: #FFFFFF;
+}
+.items button img {
+  width: 1.5rem;
+  background-color: #FFFFFF;
+}/*# sourceMappingURL=ListItem.css.map */

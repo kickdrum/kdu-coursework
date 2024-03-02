@@ -1,0 +1,17 @@
+.items{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style-type: none;
+    border: #EEEEEE solid 3px;      
+    padding: 0.7rem;
+
+    button{
+        background-color: #FFFFFF;
+        img{
+            width: 1.5rem;
+            background-color: #FFFFFF;
+        }
+    }
+    
+}

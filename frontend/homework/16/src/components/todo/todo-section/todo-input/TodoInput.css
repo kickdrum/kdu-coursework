@@ -1,0 +1,19 @@
+.todo {
+  display: flex;
+  height: 2.5rem;
+  margin: 0.5rem 0;
+}
+.todo .todo-input {
+  width: 15rem;
+  border-radius: 0.25rem;
+  padding: 0.25rem;
+  border: #EEEEEE 3px solid;
+  margin-right: 0.5rem;
+  font-size: 1rem;
+}
+.todo .submit {
+  width: 5rem;
+  color: azure;
+  background-color: #333A40;
+  border-radius: 0.25rem;
+}/*# sourceMappingURL=TodoInput.css.map */

@@ -1,0 +1,12 @@
+.todo-section {
+  width: 60%;
+  border: 3px #EEEEEE solid;
+  padding: 1rem;
+  box-sizing: border-box;
+  margin: 1rem auto;
+  border-radius: 0.25rem;
+}
+
+h2 {
+  font-size: 2rem;
+}/*# sourceMappingURL=TodoSection.css.map */
