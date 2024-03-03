@@ -1,0 +1,57 @@
+.graph-container {
+    width: 500px;
+    height: 500px;
+    overflow: auto;
+    position: relative;
+  }
+  
+  .graph {
+    position: relative;
+  }
+  
+  .bar {
+    position: absolute;
+    width: 20px;
+    background-color: lightgray;
+    border: 1px solid black;
+    transition: height 0.5s;
+  }
+  
+  .positive {
+    background-color: green;
+  }
+  
+  .negative {
+    background-color: red;
+  }
+  
+  .x-axis {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    display: flex;
+  }
+  
+  .x-tick {
+    position: absolute;
+    bottom: 0;
+    transform: translateX(-50%);
+  }
+  
+  .y-axis {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 100%;
+    display: flex;
+  }
+  
+  .y-tick {
+    position: absolute;
+    left: 0;
+    transform: translateY(-50%);
+  }
+  
