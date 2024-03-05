@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.Item-Container {
+  margin: 10px 30vh;
+  padding: 20px;
+  border: 0.5px solid rgb(42, 40, 40);
+}
+
+.Item-container-heading {
+  margin-bottom: 2px;
+}
+.Item-container-heading h1 {
+  font-size: 40px;
+}
+
+.Item-add-box {
+  margin-bottom: 3vh;
+}
+.Item-add-box form {
+  height: 100%;
+  display: flex;
+}
+
+.input-box {
+  margin: 5px 10px 6px;
+  height: 300%;
+  align-self: center;
+}
+.input-box input {
+  height: 25px;
+}
+.input-box input:focus {
+  outline: none;
+}
+
+.submit-div {
+  margin: 5px 10px 5px;
+}
+.submit-div button {
+  font-size: 16px;
+  padding: 5px 10px 5px;
+  color: white;
+  border: none;
+  background-color: #343a3f;
+}
+
+.items {
+  border: 0.5px solid rgb(41, 40, 40);
+}/*# sourceMappingURL=ItemContainer.css.map */
